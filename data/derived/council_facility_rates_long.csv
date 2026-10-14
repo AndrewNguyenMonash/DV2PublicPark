@@ -1,0 +1,41 @@
+council,council_name,facility,count,per_10k_residents,per_100_parks,published
+BNE,Brisbane City Council,Playground,,,,no
+BNE,Brisbane City Council,BBQ,774,5.63,35.3,yes
+BNE,Brisbane City Council,Drinking fountain,2099,15.26,95.7,yes
+BNE,Brisbane City Council,Toilet in a park,268,1.95,12.2,yes
+BNE,Brisbane City Council,Dog off-leash area,172,1.25,7.8,yes
+SYD,City of Sydney,Playground,138,5.71,33.2,yes
+SYD,City of Sydney,BBQ,,,,no
+SYD,City of Sydney,Drinking fountain,212,8.77,51.0,yes
+SYD,City of Sydney,Toilet in a park,39,1.61,9.4,yes
+SYD,City of Sydney,Dog off-leash area,51,2.11,12.3,yes
+MEL,City of Melbourne,Playground,45,2.31,12.1,yes
+MEL,City of Melbourne,BBQ,65,3.34,17.5,yes
+MEL,City of Melbourne,Drinking fountain,209,10.75,56.2,yes
+MEL,City of Melbourne,Toilet in a park,42,2.16,11.3,yes
+MEL,City of Melbourne,Dog off-leash area,,,,no
+PER,City of Perth,Playground,12,3.36,27.3,yes
+PER,City of Perth,BBQ,24,6.73,54.5,yes
+PER,City of Perth,Drinking fountain,60,16.82,136.4,yes
+PER,City of Perth,Toilet in a park,13,3.64,29.5,yes
+PER,City of Perth,Dog off-leash area,,,,no
+ADL,City of Adelaide,Playground,13,4.31,27.1,yes
+ADL,City of Adelaide,BBQ,43,14.25,89.6,yes
+ADL,City of Adelaide,Drinking fountain,107,35.46,222.9,yes
+ADL,City of Adelaide,Toilet in a park,25,8.29,52.1,yes
+ADL,City of Adelaide,Dog off-leash area,,,,no
+HBA,City of Hobart,Playground,43,7.7,21.6,yes
+HBA,City of Hobart,BBQ,18,3.22,9.0,yes
+HBA,City of Hobart,Drinking fountain,32,5.73,16.1,yes
+HBA,City of Hobart,Toilet in a park,46,8.24,23.1,yes
+HBA,City of Hobart,Dog off-leash area,18,3.22,9.0,yes
+CBR,ACT Government (City Services),Playground,533,11.0,14.3,yes
+CBR,ACT Government (City Services),BBQ,124,2.56,3.3,yes
+CBR,ACT Government (City Services),Drinking fountain,216,4.46,5.8,yes
+CBR,ACT Government (City Services),Toilet in a park,82,1.69,2.2,yes
+CBR,ACT Government (City Services),Dog off-leash area,9,0.19,0.2,yes
+DRW,City of Darwin,Playground,151,16.77,,yes
+DRW,City of Darwin,BBQ,30,3.33,,yes
+DRW,City of Darwin,Drinking fountain,130,14.44,,yes
+DRW,City of Darwin,Toilet in a park,24,2.67,,yes
+DRW,City of Darwin,Dog off-leash area,,,,no

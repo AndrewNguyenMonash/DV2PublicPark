@@ -1,0 +1,1097 @@
+date,year,month,iso_week,weekday,commercial_activity_bookings,park_booking_applications,total_bookings,note
+2023-01-01,2023,1,52,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-01-02,2023,1,1,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-01-03,2023,1,1,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-01-04,2023,1,1,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-01-05,2023,1,1,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-01-06,2023,1,1,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-01-07,2023,1,1,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-01-08,2023,1,1,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-01-09,2023,1,2,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-01-10,2023,1,2,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-01-11,2023,1,2,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-01-12,2023,1,2,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-01-13,2023,1,2,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-01-14,2023,1,2,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-01-15,2023,1,2,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-01-16,2023,1,3,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-01-17,2023,1,3,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-01-18,2023,1,3,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-01-19,2023,1,3,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-01-20,2023,1,3,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-01-21,2023,1,3,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-01-22,2023,1,3,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-01-23,2023,1,4,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-01-24,2023,1,4,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-01-25,2023,1,4,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-01-26,2023,1,4,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-01-27,2023,1,4,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-01-28,2023,1,4,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-01-29,2023,1,4,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-01-30,2023,1,5,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-01-31,2023,1,5,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-02-01,2023,2,5,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-02-02,2023,2,5,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-02-03,2023,2,5,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-02-04,2023,2,5,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-02-05,2023,2,5,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-02-06,2023,2,6,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-02-07,2023,2,6,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-02-08,2023,2,6,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-02-09,2023,2,6,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-02-10,2023,2,6,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-02-11,2023,2,6,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-02-12,2023,2,6,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-02-13,2023,2,7,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-02-14,2023,2,7,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-02-15,2023,2,7,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-02-16,2023,2,7,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-02-17,2023,2,7,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-02-18,2023,2,7,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-02-19,2023,2,7,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-02-20,2023,2,8,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-02-21,2023,2,8,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-02-22,2023,2,8,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-02-23,2023,2,8,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-02-24,2023,2,8,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-02-25,2023,2,8,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-02-26,2023,2,8,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-02-27,2023,2,9,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-02-28,2023,2,9,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-03-01,2023,3,9,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-03-02,2023,3,9,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-03-03,2023,3,9,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-03-04,2023,3,9,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-03-05,2023,3,9,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-03-06,2023,3,10,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-03-07,2023,3,10,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-03-08,2023,3,10,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-03-09,2023,3,10,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-03-10,2023,3,10,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-03-11,2023,3,10,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-03-12,2023,3,10,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-03-13,2023,3,11,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-03-14,2023,3,11,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-03-15,2023,3,11,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-03-16,2023,3,11,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-03-17,2023,3,11,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-03-18,2023,3,11,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-03-19,2023,3,11,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-03-20,2023,3,12,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-03-21,2023,3,12,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-03-22,2023,3,12,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-03-23,2023,3,12,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-03-24,2023,3,12,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-03-25,2023,3,12,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-03-26,2023,3,12,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-03-27,2023,3,13,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-03-28,2023,3,13,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-03-29,2023,3,13,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-03-30,2023,3,13,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-03-31,2023,3,13,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-04-01,2023,4,13,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-04-02,2023,4,13,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-04-03,2023,4,14,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-04-04,2023,4,14,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-04-05,2023,4,14,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-04-06,2023,4,14,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-04-07,2023,4,14,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-04-08,2023,4,14,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-04-09,2023,4,14,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-04-10,2023,4,15,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-04-11,2023,4,15,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-04-12,2023,4,15,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-04-13,2023,4,15,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-04-14,2023,4,15,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-04-15,2023,4,15,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-04-16,2023,4,15,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-04-17,2023,4,16,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-04-18,2023,4,16,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-04-19,2023,4,16,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-04-20,2023,4,16,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-04-21,2023,4,16,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-04-22,2023,4,16,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-04-23,2023,4,16,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-04-24,2023,4,17,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-04-25,2023,4,17,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-04-26,2023,4,17,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-04-27,2023,4,17,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-04-28,2023,4,17,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-04-29,2023,4,17,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-04-30,2023,4,17,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-05-01,2023,5,18,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-05-02,2023,5,18,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-05-03,2023,5,18,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-05-04,2023,5,18,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-05-05,2023,5,18,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-05-06,2023,5,18,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-05-07,2023,5,18,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-05-08,2023,5,19,Mon,1,0,1,booking system roll-out (counts not comparable)
+2023-05-09,2023,5,19,Tue,1,0,1,booking system roll-out (counts not comparable)
+2023-05-10,2023,5,19,Wed,1,0,1,booking system roll-out (counts not comparable)
+2023-05-11,2023,5,19,Thu,1,0,1,booking system roll-out (counts not comparable)
+2023-05-12,2023,5,19,Fri,1,0,1,booking system roll-out (counts not comparable)
+2023-05-13,2023,5,19,Sat,1,0,1,booking system roll-out (counts not comparable)
+2023-05-14,2023,5,19,Sun,1,0,1,booking system roll-out (counts not comparable)
+2023-05-15,2023,5,20,Mon,2,0,2,booking system roll-out (counts not comparable)
+2023-05-16,2023,5,20,Tue,2,0,2,booking system roll-out (counts not comparable)
+2023-05-17,2023,5,20,Wed,3,0,3,booking system roll-out (counts not comparable)
+2023-05-18,2023,5,20,Thu,3,0,3,booking system roll-out (counts not comparable)
+2023-05-19,2023,5,20,Fri,3,0,3,booking system roll-out (counts not comparable)
+2023-05-20,2023,5,20,Sat,3,0,3,booking system roll-out (counts not comparable)
+2023-05-21,2023,5,20,Sun,3,0,3,booking system roll-out (counts not comparable)
+2023-05-22,2023,5,21,Mon,3,0,3,booking system roll-out (counts not comparable)
+2023-05-23,2023,5,21,Tue,3,0,3,booking system roll-out (counts not comparable)
+2023-05-24,2023,5,21,Wed,3,0,3,booking system roll-out (counts not comparable)
+2023-05-25,2023,5,21,Thu,3,0,3,booking system roll-out (counts not comparable)
+2023-05-26,2023,5,21,Fri,3,0,3,booking system roll-out (counts not comparable)
+2023-05-27,2023,5,21,Sat,3,0,3,booking system roll-out (counts not comparable)
+2023-05-28,2023,5,21,Sun,3,1,4,booking system roll-out (counts not comparable)
+2023-05-29,2023,5,22,Mon,3,0,3,booking system roll-out (counts not comparable)
+2023-05-30,2023,5,22,Tue,3,0,3,booking system roll-out (counts not comparable)
+2023-05-31,2023,5,22,Wed,3,0,3,booking system roll-out (counts not comparable)
+2023-06-01,2023,6,22,Thu,3,0,3,booking system roll-out (counts not comparable)
+2023-06-02,2023,6,22,Fri,3,0,3,booking system roll-out (counts not comparable)
+2023-06-03,2023,6,22,Sat,3,5,8,booking system roll-out (counts not comparable)
+2023-06-04,2023,6,22,Sun,3,0,3,booking system roll-out (counts not comparable)
+2023-06-05,2023,6,23,Mon,3,0,3,booking system roll-out (counts not comparable)
+2023-06-06,2023,6,23,Tue,3,0,3,booking system roll-out (counts not comparable)
+2023-06-07,2023,6,23,Wed,3,1,4,booking system roll-out (counts not comparable)
+2023-06-08,2023,6,23,Thu,3,0,3,booking system roll-out (counts not comparable)
+2023-06-09,2023,6,23,Fri,3,2,5,booking system roll-out (counts not comparable)
+2023-06-10,2023,6,23,Sat,4,2,6,booking system roll-out (counts not comparable)
+2023-06-11,2023,6,23,Sun,4,1,5,booking system roll-out (counts not comparable)
+2023-06-12,2023,6,24,Mon,3,0,3,booking system roll-out (counts not comparable)
+2023-06-13,2023,6,24,Tue,3,0,3,booking system roll-out (counts not comparable)
+2023-06-14,2023,6,24,Wed,3,2,5,booking system roll-out (counts not comparable)
+2023-06-15,2023,6,24,Thu,4,1,5,booking system roll-out (counts not comparable)
+2023-06-16,2023,6,24,Fri,4,4,8,booking system roll-out (counts not comparable)
+2023-06-17,2023,6,24,Sat,5,4,9,booking system roll-out (counts not comparable)
+2023-06-18,2023,6,24,Sun,5,4,9,booking system roll-out (counts not comparable)
+2023-06-19,2023,6,25,Mon,4,1,5,booking system roll-out (counts not comparable)
+2023-06-20,2023,6,25,Tue,4,2,6,booking system roll-out (counts not comparable)
+2023-06-21,2023,6,25,Wed,4,1,5,booking system roll-out (counts not comparable)
+2023-06-22,2023,6,25,Thu,5,0,5,booking system roll-out (counts not comparable)
+2023-06-23,2023,6,25,Fri,5,2,7,booking system roll-out (counts not comparable)
+2023-06-24,2023,6,25,Sat,7,8,15,booking system roll-out (counts not comparable)
+2023-06-25,2023,6,25,Sun,6,4,10,booking system roll-out (counts not comparable)
+2023-06-26,2023,6,26,Mon,5,1,6,booking system roll-out (counts not comparable)
+2023-06-27,2023,6,26,Tue,5,1,6,booking system roll-out (counts not comparable)
+2023-06-28,2023,6,26,Wed,5,5,10,booking system roll-out (counts not comparable)
+2023-06-29,2023,6,26,Thu,6,2,8,booking system roll-out (counts not comparable)
+2023-06-30,2023,6,26,Fri,7,0,7,booking system roll-out (counts not comparable)
+2023-07-01,2023,7,26,Sat,7,7,14,booking system roll-out (counts not comparable)
+2023-07-02,2023,7,26,Sun,7,4,11,booking system roll-out (counts not comparable)
+2023-07-03,2023,7,27,Mon,6,0,6,booking system roll-out (counts not comparable)
+2023-07-04,2023,7,27,Tue,6,1,7,booking system roll-out (counts not comparable)
+2023-07-05,2023,7,27,Wed,6,0,6,booking system roll-out (counts not comparable)
+2023-07-06,2023,7,27,Thu,7,0,7,booking system roll-out (counts not comparable)
+2023-07-07,2023,7,27,Fri,8,0,8,booking system roll-out (counts not comparable)
+2023-07-08,2023,7,27,Sat,9,8,17,booking system roll-out (counts not comparable)
+2023-07-09,2023,7,27,Sun,8,2,10,booking system roll-out (counts not comparable)
+2023-07-10,2023,7,28,Mon,10,2,12,booking system roll-out (counts not comparable)
+2023-07-11,2023,7,28,Tue,11,3,14,booking system roll-out (counts not comparable)
+2023-07-12,2023,7,28,Wed,10,3,13,booking system roll-out (counts not comparable)
+2023-07-13,2023,7,28,Thu,11,1,12,booking system roll-out (counts not comparable)
+2023-07-14,2023,7,28,Fri,9,3,12,booking system roll-out (counts not comparable)
+2023-07-15,2023,7,28,Sat,9,8,17,booking system roll-out (counts not comparable)
+2023-07-16,2023,7,28,Sun,8,4,12,booking system roll-out (counts not comparable)
+2023-07-17,2023,7,29,Mon,11,2,13,booking system roll-out (counts not comparable)
+2023-07-18,2023,7,29,Tue,14,3,17,booking system roll-out (counts not comparable)
+2023-07-19,2023,7,29,Wed,13,1,14,booking system roll-out (counts not comparable)
+2023-07-20,2023,7,29,Thu,14,2,16,booking system roll-out (counts not comparable)
+2023-07-21,2023,7,29,Fri,12,3,15,booking system roll-out (counts not comparable)
+2023-07-22,2023,7,29,Sat,11,12,23,booking system roll-out (counts not comparable)
+2023-07-23,2023,7,29,Sun,8,10,18,booking system roll-out (counts not comparable)
+2023-07-24,2023,7,30,Mon,12,3,15,booking system roll-out (counts not comparable)
+2023-07-25,2023,7,30,Tue,14,2,16,booking system roll-out (counts not comparable)
+2023-07-26,2023,7,30,Wed,13,3,16,booking system roll-out (counts not comparable)
+2023-07-27,2023,7,30,Thu,18,2,20,booking system roll-out (counts not comparable)
+2023-07-28,2023,7,30,Fri,17,2,19,booking system roll-out (counts not comparable)
+2023-07-29,2023,7,30,Sat,16,7,23,booking system roll-out (counts not comparable)
+2023-07-30,2023,7,30,Sun,10,16,26,booking system roll-out (counts not comparable)
+2023-07-31,2023,7,31,Mon,13,2,15,booking system roll-out (counts not comparable)
+2023-08-01,2023,8,31,Tue,15,2,17,booking system roll-out (counts not comparable)
+2023-08-02,2023,8,31,Wed,16,3,19,booking system roll-out (counts not comparable)
+2023-08-03,2023,8,31,Thu,20,3,23,booking system roll-out (counts not comparable)
+2023-08-04,2023,8,31,Fri,19,5,24,booking system roll-out (counts not comparable)
+2023-08-05,2023,8,31,Sat,17,11,28,booking system roll-out (counts not comparable)
+2023-08-06,2023,8,31,Sun,12,7,19,booking system roll-out (counts not comparable)
+2023-08-07,2023,8,32,Mon,17,2,19,booking system roll-out (counts not comparable)
+2023-08-08,2023,8,32,Tue,18,3,21,booking system roll-out (counts not comparable)
+2023-08-09,2023,8,32,Wed,18,4,22,booking system roll-out (counts not comparable)
+2023-08-10,2023,8,32,Thu,22,3,25,booking system roll-out (counts not comparable)
+2023-08-11,2023,8,32,Fri,22,4,26,booking system roll-out (counts not comparable)
+2023-08-12,2023,8,32,Sat,22,5,27,booking system roll-out (counts not comparable)
+2023-08-13,2023,8,32,Sun,14,6,20,booking system roll-out (counts not comparable)
+2023-08-14,2023,8,33,Mon,17,2,19,booking system roll-out (counts not comparable)
+2023-08-15,2023,8,33,Tue,19,4,23,booking system roll-out (counts not comparable)
+2023-08-16,2023,8,33,Wed,18,2,20,booking system roll-out (counts not comparable)
+2023-08-17,2023,8,33,Thu,22,4,26,booking system roll-out (counts not comparable)
+2023-08-18,2023,8,33,Fri,22,7,29,booking system roll-out (counts not comparable)
+2023-08-19,2023,8,33,Sat,21,17,38,booking system roll-out (counts not comparable)
+2023-08-20,2023,8,33,Sun,14,10,24,booking system roll-out (counts not comparable)
+2023-08-21,2023,8,34,Mon,19,7,26,booking system roll-out (counts not comparable)
+2023-08-22,2023,8,34,Tue,22,5,27,booking system roll-out (counts not comparable)
+2023-08-23,2023,8,34,Wed,20,5,25,booking system roll-out (counts not comparable)
+2023-08-24,2023,8,34,Thu,25,5,30,booking system roll-out (counts not comparable)
+2023-08-25,2023,8,34,Fri,25,4,29,booking system roll-out (counts not comparable)
+2023-08-26,2023,8,34,Sat,23,8,31,booking system roll-out (counts not comparable)
+2023-08-27,2023,8,34,Sun,15,7,22,booking system roll-out (counts not comparable)
+2023-08-28,2023,8,35,Mon,18,3,21,booking system roll-out (counts not comparable)
+2023-08-29,2023,8,35,Tue,20,1,21,booking system roll-out (counts not comparable)
+2023-08-30,2023,8,35,Wed,21,4,25,booking system roll-out (counts not comparable)
+2023-08-31,2023,8,35,Thu,26,4,30,booking system roll-out (counts not comparable)
+2023-09-01,2023,9,35,Fri,26,9,35,booking system roll-out (counts not comparable)
+2023-09-02,2023,9,35,Sat,26,25,51,booking system roll-out (counts not comparable)
+2023-09-03,2023,9,35,Sun,18,6,24,booking system roll-out (counts not comparable)
+2023-09-04,2023,9,36,Mon,19,2,21,booking system roll-out (counts not comparable)
+2023-09-05,2023,9,36,Tue,23,1,24,booking system roll-out (counts not comparable)
+2023-09-06,2023,9,36,Wed,21,3,24,booking system roll-out (counts not comparable)
+2023-09-07,2023,9,36,Thu,27,4,31,booking system roll-out (counts not comparable)
+2023-09-08,2023,9,36,Fri,26,9,35,booking system roll-out (counts not comparable)
+2023-09-09,2023,9,36,Sat,26,12,38,booking system roll-out (counts not comparable)
+2023-09-10,2023,9,36,Sun,18,12,30,booking system roll-out (counts not comparable)
+2023-09-11,2023,9,37,Mon,19,5,24,booking system roll-out (counts not comparable)
+2023-09-12,2023,9,37,Tue,22,3,25,booking system roll-out (counts not comparable)
+2023-09-13,2023,9,37,Wed,21,1,22,booking system roll-out (counts not comparable)
+2023-09-14,2023,9,37,Thu,27,5,32,booking system roll-out (counts not comparable)
+2023-09-15,2023,9,37,Fri,26,2,28,booking system roll-out (counts not comparable)
+2023-09-16,2023,9,37,Sat,26,14,40,booking system roll-out (counts not comparable)
+2023-09-17,2023,9,37,Sun,19,5,24,booking system roll-out (counts not comparable)
+2023-09-18,2023,9,38,Mon,21,1,22,booking system roll-out (counts not comparable)
+2023-09-19,2023,9,38,Tue,23,1,24,booking system roll-out (counts not comparable)
+2023-09-20,2023,9,38,Wed,22,6,28,booking system roll-out (counts not comparable)
+2023-09-21,2023,9,38,Thu,29,8,37,booking system roll-out (counts not comparable)
+2023-09-22,2023,9,38,Fri,26,11,37,booking system roll-out (counts not comparable)
+2023-09-23,2023,9,38,Sat,26,12,38,booking system roll-out (counts not comparable)
+2023-09-24,2023,9,38,Sun,18,13,31,booking system roll-out (counts not comparable)
+2023-09-25,2023,9,39,Mon,24,1,25,booking system roll-out (counts not comparable)
+2023-09-26,2023,9,39,Tue,28,2,30,booking system roll-out (counts not comparable)
+2023-09-27,2023,9,39,Wed,25,2,27,booking system roll-out (counts not comparable)
+2023-09-28,2023,9,39,Thu,35,3,38,booking system roll-out (counts not comparable)
+2023-09-29,2023,9,39,Fri,31,1,32,booking system roll-out (counts not comparable)
+2023-09-30,2023,9,39,Sat,30,16,46,booking system roll-out (counts not comparable)
+2023-10-01,2023,10,39,Sun,26,5,31,booking system roll-out (counts not comparable)
+2023-10-02,2023,10,40,Mon,32,5,37,booking system roll-out (counts not comparable)
+2023-10-03,2023,10,40,Tue,34,3,37,booking system roll-out (counts not comparable)
+2023-10-04,2023,10,40,Wed,31,5,36,booking system roll-out (counts not comparable)
+2023-10-05,2023,10,40,Thu,40,5,45,booking system roll-out (counts not comparable)
+2023-10-06,2023,10,40,Fri,37,7,44,booking system roll-out (counts not comparable)
+2023-10-07,2023,10,40,Sat,35,11,46,booking system roll-out (counts not comparable)
+2023-10-08,2023,10,40,Sun,27,9,36,booking system roll-out (counts not comparable)
+2023-10-09,2023,10,41,Mon,30,2,32,booking system roll-out (counts not comparable)
+2023-10-10,2023,10,41,Tue,35,1,36,booking system roll-out (counts not comparable)
+2023-10-11,2023,10,41,Wed,32,4,36,booking system roll-out (counts not comparable)
+2023-10-12,2023,10,41,Thu,40,4,44,booking system roll-out (counts not comparable)
+2023-10-13,2023,10,41,Fri,37,4,41,booking system roll-out (counts not comparable)
+2023-10-14,2023,10,41,Sat,36,15,51,booking system roll-out (counts not comparable)
+2023-10-15,2023,10,41,Sun,27,12,39,booking system roll-out (counts not comparable)
+2023-10-16,2023,10,42,Mon,31,2,33,booking system roll-out (counts not comparable)
+2023-10-17,2023,10,42,Tue,34,3,37,booking system roll-out (counts not comparable)
+2023-10-18,2023,10,42,Wed,31,4,35,booking system roll-out (counts not comparable)
+2023-10-19,2023,10,42,Thu,39,4,43,booking system roll-out (counts not comparable)
+2023-10-20,2023,10,42,Fri,36,3,39,booking system roll-out (counts not comparable)
+2023-10-21,2023,10,42,Sat,40,26,66,booking system roll-out (counts not comparable)
+2023-10-22,2023,10,42,Sun,28,18,46,booking system roll-out (counts not comparable)
+2023-10-23,2023,10,43,Mon,30,2,32,booking system roll-out (counts not comparable)
+2023-10-24,2023,10,43,Tue,35,1,36,booking system roll-out (counts not comparable)
+2023-10-25,2023,10,43,Wed,33,4,37,booking system roll-out (counts not comparable)
+2023-10-26,2023,10,43,Thu,41,4,45,booking system roll-out (counts not comparable)
+2023-10-27,2023,10,43,Fri,38,1,39,booking system roll-out (counts not comparable)
+2023-10-28,2023,10,43,Sat,39,17,56,booking system roll-out (counts not comparable)
+2023-10-29,2023,10,43,Sun,29,15,44,booking system roll-out (counts not comparable)
+2023-10-30,2023,10,44,Mon,31,0,31,booking system roll-out (counts not comparable)
+2023-10-31,2023,10,44,Tue,35,3,38,booking system roll-out (counts not comparable)
+2023-11-01,2023,11,44,Wed,33,4,37,booking system roll-out (counts not comparable)
+2023-11-02,2023,11,44,Thu,41,4,45,booking system roll-out (counts not comparable)
+2023-11-03,2023,11,44,Fri,38,4,42,booking system roll-out (counts not comparable)
+2023-11-04,2023,11,44,Sat,41,11,52,booking system roll-out (counts not comparable)
+2023-11-05,2023,11,44,Sun,29,23,52,booking system roll-out (counts not comparable)
+2023-11-06,2023,11,45,Mon,32,1,33,booking system roll-out (counts not comparable)
+2023-11-07,2023,11,45,Tue,36,1,37,booking system roll-out (counts not comparable)
+2023-11-08,2023,11,45,Wed,33,1,34,booking system roll-out (counts not comparable)
+2023-11-09,2023,11,45,Thu,43,5,48,booking system roll-out (counts not comparable)
+2023-11-10,2023,11,45,Fri,40,5,45,booking system roll-out (counts not comparable)
+2023-11-11,2023,11,45,Sat,41,19,60,booking system roll-out (counts not comparable)
+2023-11-12,2023,11,45,Sun,29,8,37,booking system roll-out (counts not comparable)
+2023-11-13,2023,11,46,Mon,33,1,34,booking system roll-out (counts not comparable)
+2023-11-14,2023,11,46,Tue,37,1,38,booking system roll-out (counts not comparable)
+2023-11-15,2023,11,46,Wed,34,5,39,booking system roll-out (counts not comparable)
+2023-11-16,2023,11,46,Thu,43,2,45,booking system roll-out (counts not comparable)
+2023-11-17,2023,11,46,Fri,40,6,46,booking system roll-out (counts not comparable)
+2023-11-18,2023,11,46,Sat,44,16,60,booking system roll-out (counts not comparable)
+2023-11-19,2023,11,46,Sun,31,13,44,booking system roll-out (counts not comparable)
+2023-11-20,2023,11,47,Mon,35,1,36,booking system roll-out (counts not comparable)
+2023-11-21,2023,11,47,Tue,38,3,41,booking system roll-out (counts not comparable)
+2023-11-22,2023,11,47,Wed,36,4,40,booking system roll-out (counts not comparable)
+2023-11-23,2023,11,47,Thu,44,4,48,booking system roll-out (counts not comparable)
+2023-11-24,2023,11,47,Fri,40,4,44,booking system roll-out (counts not comparable)
+2023-11-25,2023,11,47,Sat,45,20,65,booking system roll-out (counts not comparable)
+2023-11-26,2023,11,47,Sun,31,16,47,booking system roll-out (counts not comparable)
+2023-11-27,2023,11,48,Mon,35,1,36,booking system roll-out (counts not comparable)
+2023-11-28,2023,11,48,Tue,38,0,38,booking system roll-out (counts not comparable)
+2023-11-29,2023,11,48,Wed,36,4,40,booking system roll-out (counts not comparable)
+2023-11-30,2023,11,48,Thu,44,7,51,booking system roll-out (counts not comparable)
+2023-12-01,2023,12,48,Fri,42,8,50,booking system roll-out (counts not comparable)
+2023-12-02,2023,12,48,Sat,44,30,74,booking system roll-out (counts not comparable)
+2023-12-03,2023,12,48,Sun,31,15,46,booking system roll-out (counts not comparable)
+2023-12-04,2023,12,49,Mon,36,5,41,booking system roll-out (counts not comparable)
+2023-12-05,2023,12,49,Tue,39,1,40,booking system roll-out (counts not comparable)
+2023-12-06,2023,12,49,Wed,37,4,41,booking system roll-out (counts not comparable)
+2023-12-07,2023,12,49,Thu,46,5,51,booking system roll-out (counts not comparable)
+2023-12-08,2023,12,49,Fri,41,11,52,booking system roll-out (counts not comparable)
+2023-12-09,2023,12,49,Sat,43,30,73,booking system roll-out (counts not comparable)
+2023-12-10,2023,12,49,Sun,30,17,47,booking system roll-out (counts not comparable)
+2023-12-11,2023,12,50,Mon,40,2,42,booking system roll-out (counts not comparable)
+2023-12-12,2023,12,50,Tue,40,2,42,booking system roll-out (counts not comparable)
+2023-12-13,2023,12,50,Wed,37,0,37,booking system roll-out (counts not comparable)
+2023-12-14,2023,12,50,Thu,48,6,54,booking system roll-out (counts not comparable)
+2023-12-15,2023,12,50,Fri,41,12,53,booking system roll-out (counts not comparable)
+2023-12-16,2023,12,50,Sat,47,21,68,booking system roll-out (counts not comparable)
+2023-12-17,2023,12,50,Sun,32,12,44,booking system roll-out (counts not comparable)
+2023-12-18,2023,12,51,Mon,41,1,42,booking system roll-out (counts not comparable)
+2023-12-19,2023,12,51,Tue,45,1,46,booking system roll-out (counts not comparable)
+2023-12-20,2023,12,51,Wed,43,3,46,booking system roll-out (counts not comparable)
+2023-12-21,2023,12,51,Thu,53,6,59,booking system roll-out (counts not comparable)
+2023-12-22,2023,12,51,Fri,47,6,53,booking system roll-out (counts not comparable)
+2023-12-23,2023,12,51,Sat,47,7,54,booking system roll-out (counts not comparable)
+2023-12-24,2023,12,51,Sun,33,5,38,booking system roll-out (counts not comparable)
+2023-12-25,2023,12,52,Mon,44,6,50,booking system roll-out (counts not comparable)
+2023-12-26,2023,12,52,Tue,48,0,48,booking system roll-out (counts not comparable)
+2023-12-27,2023,12,52,Wed,46,2,48,booking system roll-out (counts not comparable)
+2023-12-28,2023,12,52,Thu,55,3,58,booking system roll-out (counts not comparable)
+2023-12-29,2023,12,52,Fri,48,3,51,booking system roll-out (counts not comparable)
+2023-12-30,2023,12,52,Sat,49,5,54,booking system roll-out (counts not comparable)
+2023-12-31,2023,12,52,Sun,35,5,40,booking system roll-out (counts not comparable)
+2024-01-01,2024,1,1,Mon,48,1,49,
+2024-01-02,2024,1,1,Tue,50,1,51,
+2024-01-03,2024,1,1,Wed,50,1,51,
+2024-01-04,2024,1,1,Thu,58,2,60,
+2024-01-05,2024,1,1,Fri,53,0,53,
+2024-01-06,2024,1,1,Sat,58,9,67,
+2024-01-07,2024,1,1,Sun,43,5,48,
+2024-01-08,2024,1,2,Mon,51,0,51,
+2024-01-09,2024,1,2,Tue,52,0,52,
+2024-01-10,2024,1,2,Wed,53,1,54,
+2024-01-11,2024,1,2,Thu,60,2,62,
+2024-01-12,2024,1,2,Fri,56,2,58,
+2024-01-13,2024,1,2,Sat,64,8,72,
+2024-01-14,2024,1,2,Sun,43,7,50,
+2024-01-15,2024,1,3,Mon,54,3,57,
+2024-01-16,2024,1,3,Tue,54,2,56,
+2024-01-17,2024,1,3,Wed,54,1,55,
+2024-01-18,2024,1,3,Thu,62,3,65,
+2024-01-19,2024,1,3,Fri,59,7,66,
+2024-01-20,2024,1,3,Sat,68,13,81,
+2024-01-21,2024,1,3,Sun,45,5,50,
+2024-01-22,2024,1,4,Mon,53,0,53,
+2024-01-23,2024,1,4,Tue,53,4,57,
+2024-01-24,2024,1,4,Wed,53,1,54,
+2024-01-25,2024,1,4,Thu,58,4,62,
+2024-01-26,2024,1,4,Fri,54,8,62,
+2024-01-27,2024,1,4,Sat,87,6,93,
+2024-01-28,2024,1,4,Sun,43,4,47,
+2024-01-29,2024,1,5,Mon,52,1,53,
+2024-01-30,2024,1,5,Tue,52,2,54,
+2024-01-31,2024,1,5,Wed,53,1,54,
+2024-02-01,2024,2,5,Thu,58,2,60,
+2024-02-02,2024,2,5,Fri,55,3,58,
+2024-02-03,2024,2,5,Sat,86,10,96,
+2024-02-04,2024,2,5,Sun,47,8,55,
+2024-02-05,2024,2,6,Mon,56,1,57,
+2024-02-06,2024,2,6,Tue,54,2,56,
+2024-02-07,2024,2,6,Wed,55,2,57,
+2024-02-08,2024,2,6,Thu,59,2,61,
+2024-02-09,2024,2,6,Fri,55,2,57,
+2024-02-10,2024,2,6,Sat,94,12,106,
+2024-02-11,2024,2,6,Sun,47,3,50,
+2024-02-12,2024,2,7,Mon,56,0,56,
+2024-02-13,2024,2,7,Tue,56,3,59,
+2024-02-14,2024,2,7,Wed,56,6,62,
+2024-02-15,2024,2,7,Thu,59,3,62,
+2024-02-16,2024,2,7,Fri,55,1,56,
+2024-02-17,2024,2,7,Sat,93,12,105,
+2024-02-18,2024,2,7,Sun,46,13,59,
+2024-02-19,2024,2,8,Mon,55,3,58,
+2024-02-20,2024,2,8,Tue,54,5,59,
+2024-02-21,2024,2,8,Wed,54,2,56,
+2024-02-22,2024,2,8,Thu,57,5,62,
+2024-02-23,2024,2,8,Fri,53,2,55,
+2024-02-24,2024,2,8,Sat,97,16,113,
+2024-02-25,2024,2,8,Sun,48,6,54,
+2024-02-26,2024,2,9,Mon,57,1,58,
+2024-02-27,2024,2,9,Tue,55,5,60,
+2024-02-28,2024,2,9,Wed,57,4,61,
+2024-02-29,2024,2,9,Thu,56,4,60,
+2024-03-01,2024,3,9,Fri,54,6,60,
+2024-03-02,2024,3,9,Sat,92,16,108,
+2024-03-03,2024,3,9,Sun,45,12,57,
+2024-03-04,2024,3,10,Mon,56,2,58,
+2024-03-05,2024,3,10,Tue,56,6,62,
+2024-03-06,2024,3,10,Wed,57,3,60,
+2024-03-07,2024,3,10,Thu,56,2,58,
+2024-03-08,2024,3,10,Fri,56,7,63,
+2024-03-09,2024,3,10,Sat,93,27,120,
+2024-03-10,2024,3,10,Sun,46,7,53,
+2024-03-11,2024,3,11,Mon,58,0,58,
+2024-03-12,2024,3,11,Tue,58,4,62,
+2024-03-13,2024,3,11,Wed,59,2,61,
+2024-03-14,2024,3,11,Thu,59,3,62,
+2024-03-15,2024,3,11,Fri,57,9,66,
+2024-03-16,2024,3,11,Sat,94,22,116,
+2024-03-17,2024,3,11,Sun,47,10,57,
+2024-03-18,2024,3,12,Mon,59,0,59,
+2024-03-19,2024,3,12,Tue,59,5,64,
+2024-03-20,2024,3,12,Wed,60,3,63,
+2024-03-21,2024,3,12,Thu,60,3,63,
+2024-03-22,2024,3,12,Fri,58,7,65,
+2024-03-23,2024,3,12,Sat,96,25,121,
+2024-03-24,2024,3,12,Sun,46,19,65,
+2024-03-25,2024,3,13,Mon,59,3,62,
+2024-03-26,2024,3,13,Tue,59,8,67,
+2024-03-27,2024,3,13,Wed,60,6,66,
+2024-03-28,2024,3,13,Thu,60,10,70,
+2024-03-29,2024,3,13,Fri,58,4,62,
+2024-03-30,2024,3,13,Sat,94,8,102,
+2024-03-31,2024,3,13,Sun,45,6,51,
+2024-04-01,2024,4,14,Mon,59,3,62,
+2024-04-02,2024,4,14,Tue,61,1,62,
+2024-04-03,2024,4,14,Wed,61,4,65,
+2024-04-04,2024,4,14,Thu,62,4,66,
+2024-04-05,2024,4,14,Fri,60,5,65,
+2024-04-06,2024,4,14,Sat,95,16,111,
+2024-04-07,2024,4,14,Sun,46,4,50,
+2024-04-08,2024,4,15,Mon,60,3,63,
+2024-04-09,2024,4,15,Tue,61,5,66,
+2024-04-10,2024,4,15,Wed,61,5,66,
+2024-04-11,2024,4,15,Thu,62,4,66,
+2024-04-12,2024,4,15,Fri,61,7,68,
+2024-04-13,2024,4,15,Sat,97,13,110,
+2024-04-14,2024,4,15,Sun,47,17,64,
+2024-04-15,2024,4,16,Mon,62,5,67,
+2024-04-16,2024,4,16,Tue,65,7,72,
+2024-04-17,2024,4,16,Wed,65,6,71,
+2024-04-18,2024,4,16,Thu,65,6,71,
+2024-04-19,2024,4,16,Fri,64,13,77,
+2024-04-20,2024,4,16,Sat,99,26,125,
+2024-04-21,2024,4,16,Sun,48,16,64,
+2024-04-22,2024,4,17,Mon,64,6,70,
+2024-04-23,2024,4,17,Tue,65,6,71,
+2024-04-24,2024,4,17,Wed,65,10,75,
+2024-04-25,2024,4,17,Thu,66,25,91,
+2024-04-26,2024,4,17,Fri,65,2,67,
+2024-04-27,2024,4,17,Sat,109,20,129,
+2024-04-28,2024,4,17,Sun,58,6,64,
+2024-04-29,2024,4,18,Mon,66,2,68,
+2024-04-30,2024,4,18,Tue,66,6,72,
+2024-05-01,2024,5,18,Wed,65,3,68,
+2024-05-02,2024,5,18,Thu,66,4,70,
+2024-05-03,2024,5,18,Fri,64,7,71,
+2024-05-04,2024,5,18,Sat,108,21,129,
+2024-05-05,2024,5,18,Sun,57,18,75,
+2024-05-06,2024,5,19,Mon,62,3,65,
+2024-05-07,2024,5,19,Tue,64,4,68,
+2024-05-08,2024,5,19,Wed,64,5,69,
+2024-05-09,2024,5,19,Thu,65,3,68,
+2024-05-10,2024,5,19,Fri,63,9,72,
+2024-05-11,2024,5,19,Sat,107,26,133,
+2024-05-12,2024,5,19,Sun,59,7,66,
+2024-05-13,2024,5,20,Mon,62,1,63,
+2024-05-14,2024,5,20,Tue,65,3,68,
+2024-05-15,2024,5,20,Wed,65,3,68,
+2024-05-16,2024,5,20,Thu,65,6,71,
+2024-05-17,2024,5,20,Fri,63,6,69,
+2024-05-18,2024,5,20,Sat,105,19,124,
+2024-05-19,2024,5,20,Sun,57,18,75,
+2024-05-20,2024,5,21,Mon,61,3,64,
+2024-05-21,2024,5,21,Tue,64,0,64,
+2024-05-22,2024,5,21,Wed,66,2,68,
+2024-05-23,2024,5,21,Thu,66,4,70,
+2024-05-24,2024,5,21,Fri,63,4,67,
+2024-05-25,2024,5,21,Sat,106,18,124,
+2024-05-26,2024,5,21,Sun,57,14,71,
+2024-05-27,2024,5,22,Mon,61,2,63,
+2024-05-28,2024,5,22,Tue,64,2,66,
+2024-05-29,2024,5,22,Wed,66,6,72,
+2024-05-30,2024,5,22,Thu,66,4,70,
+2024-05-31,2024,5,22,Fri,63,5,68,
+2024-06-01,2024,6,22,Sat,109,25,134,
+2024-06-02,2024,6,22,Sun,60,10,70,
+2024-06-03,2024,6,23,Mon,72,1,73,
+2024-06-04,2024,6,23,Tue,77,3,80,
+2024-06-05,2024,6,23,Wed,78,5,83,
+2024-06-06,2024,6,23,Thu,80,5,85,
+2024-06-07,2024,6,23,Fri,74,5,79,
+2024-06-08,2024,6,23,Sat,113,20,133,
+2024-06-09,2024,6,23,Sun,61,17,78,
+2024-06-10,2024,6,24,Mon,75,3,78,
+2024-06-11,2024,6,24,Tue,79,3,82,
+2024-06-12,2024,6,24,Wed,80,4,84,
+2024-06-13,2024,6,24,Thu,81,7,88,
+2024-06-14,2024,6,24,Fri,76,6,82,
+2024-06-15,2024,6,24,Sat,112,12,124,
+2024-06-16,2024,6,24,Sun,63,20,83,
+2024-06-17,2024,6,25,Mon,75,3,78,
+2024-06-18,2024,6,25,Tue,79,2,81,
+2024-06-19,2024,6,25,Wed,81,2,83,
+2024-06-20,2024,6,25,Thu,81,5,86,
+2024-06-21,2024,6,25,Fri,76,7,83,
+2024-06-22,2024,6,25,Sat,112,12,124,
+2024-06-23,2024,6,25,Sun,63,14,77,
+2024-06-24,2024,6,26,Mon,75,4,79,
+2024-06-25,2024,6,26,Tue,81,1,82,
+2024-06-26,2024,6,26,Wed,83,1,84,
+2024-06-27,2024,6,26,Thu,83,4,87,
+2024-06-28,2024,6,26,Fri,78,5,83,
+2024-06-29,2024,6,26,Sat,114,19,133,
+2024-06-30,2024,6,26,Sun,60,15,75,
+2024-07-01,2024,7,27,Mon,75,9,84,
+2024-07-02,2024,7,27,Tue,81,4,85,
+2024-07-03,2024,7,27,Wed,82,5,87,
+2024-07-04,2024,7,27,Thu,82,3,85,
+2024-07-05,2024,7,27,Fri,76,4,80,
+2024-07-06,2024,7,27,Sat,114,19,133,
+2024-07-07,2024,7,27,Sun,63,16,79,
+2024-07-08,2024,7,28,Mon,75,0,75,
+2024-07-09,2024,7,28,Tue,80,4,84,
+2024-07-10,2024,7,28,Wed,85,6,91,
+2024-07-11,2024,7,28,Thu,83,7,90,
+2024-07-12,2024,7,28,Fri,80,5,85,
+2024-07-13,2024,7,28,Sat,118,16,134,
+2024-07-14,2024,7,28,Sun,65,10,75,
+2024-07-15,2024,7,29,Mon,79,4,83,
+2024-07-16,2024,7,29,Tue,84,4,88,
+2024-07-17,2024,7,29,Wed,87,2,89,
+2024-07-18,2024,7,29,Thu,85,7,92,
+2024-07-19,2024,7,29,Fri,84,2,86,
+2024-07-20,2024,7,29,Sat,122,20,142,
+2024-07-21,2024,7,29,Sun,66,7,73,
+2024-07-22,2024,7,30,Mon,81,3,84,
+2024-07-23,2024,7,30,Tue,82,5,87,
+2024-07-24,2024,7,30,Wed,87,0,87,
+2024-07-25,2024,7,30,Thu,84,3,87,
+2024-07-26,2024,7,30,Fri,84,3,87,
+2024-07-27,2024,7,30,Sat,106,16,122,
+2024-07-28,2024,7,30,Sun,67,10,77,
+2024-07-29,2024,7,31,Mon,81,2,83,
+2024-07-30,2024,7,31,Tue,82,4,86,
+2024-07-31,2024,7,31,Wed,87,3,90,
+2024-08-01,2024,8,31,Thu,84,4,88,
+2024-08-02,2024,8,31,Fri,85,4,89,
+2024-08-03,2024,8,31,Sat,108,14,122,
+2024-08-04,2024,8,31,Sun,69,15,84,
+2024-08-05,2024,8,32,Mon,84,3,87,
+2024-08-06,2024,8,32,Tue,86,4,90,
+2024-08-07,2024,8,32,Wed,92,3,95,
+2024-08-08,2024,8,32,Thu,89,3,92,
+2024-08-09,2024,8,32,Fri,89,3,92,
+2024-08-10,2024,8,32,Sat,110,16,126,
+2024-08-11,2024,8,32,Sun,70,7,77,
+2024-08-12,2024,8,33,Mon,84,4,88,
+2024-08-13,2024,8,33,Tue,87,2,89,
+2024-08-14,2024,8,33,Wed,92,7,99,
+2024-08-15,2024,8,33,Thu,89,4,93,
+2024-08-16,2024,8,33,Fri,88,7,95,
+2024-08-17,2024,8,33,Sat,108,10,118,
+2024-08-18,2024,8,33,Sun,70,12,82,
+2024-08-19,2024,8,34,Mon,84,5,89,
+2024-08-20,2024,8,34,Tue,85,6,91,
+2024-08-21,2024,8,34,Wed,90,3,93,
+2024-08-22,2024,8,34,Thu,88,5,93,
+2024-08-23,2024,8,34,Fri,87,9,96,
+2024-08-24,2024,8,34,Sat,108,23,131,
+2024-08-25,2024,8,34,Sun,68,22,90,
+2024-08-26,2024,8,35,Mon,82,3,85,
+2024-08-27,2024,8,35,Tue,85,4,89,
+2024-08-28,2024,8,35,Wed,91,3,94,
+2024-08-29,2024,8,35,Thu,88,5,93,
+2024-08-30,2024,8,35,Fri,86,8,94,
+2024-08-31,2024,8,35,Sat,106,22,128,
+2024-09-01,2024,9,35,Sun,69,18,87,
+2024-09-02,2024,9,36,Mon,86,5,91,
+2024-09-03,2024,9,36,Tue,88,3,91,
+2024-09-04,2024,9,36,Wed,94,6,100,
+2024-09-05,2024,9,36,Thu,90,7,97,
+2024-09-06,2024,9,36,Fri,89,6,95,
+2024-09-07,2024,9,36,Sat,108,26,134,
+2024-09-08,2024,9,36,Sun,70,17,87,
+2024-09-09,2024,9,37,Mon,86,4,90,
+2024-09-10,2024,9,37,Tue,87,6,93,
+2024-09-11,2024,9,37,Wed,94,9,103,
+2024-09-12,2024,9,37,Thu,90,8,98,
+2024-09-13,2024,9,37,Fri,89,7,96,
+2024-09-14,2024,9,37,Sat,106,20,126,
+2024-09-15,2024,9,37,Sun,71,17,88,
+2024-09-16,2024,9,38,Mon,89,4,93,
+2024-09-17,2024,9,38,Tue,89,6,95,
+2024-09-18,2024,9,38,Wed,96,7,103,
+2024-09-19,2024,9,38,Thu,91,7,98,
+2024-09-20,2024,9,38,Fri,90,4,94,
+2024-09-21,2024,9,38,Sat,106,24,130,
+2024-09-22,2024,9,38,Sun,68,15,83,
+2024-09-23,2024,9,39,Mon,85,5,90,
+2024-09-24,2024,9,39,Tue,84,4,88,
+2024-09-25,2024,9,39,Wed,94,4,98,
+2024-09-26,2024,9,39,Thu,87,8,95,
+2024-09-27,2024,9,39,Fri,87,8,95,
+2024-09-28,2024,9,39,Sat,104,22,126,
+2024-09-29,2024,9,39,Sun,67,17,84,
+2024-09-30,2024,9,40,Mon,82,6,88,
+2024-10-01,2024,10,40,Tue,85,4,89,
+2024-10-02,2024,10,40,Wed,92,5,97,
+2024-10-03,2024,10,40,Thu,86,6,92,
+2024-10-04,2024,10,40,Fri,87,10,97,
+2024-10-05,2024,10,40,Sat,106,16,122,
+2024-10-06,2024,10,40,Sun,67,16,83,
+2024-10-07,2024,10,41,Mon,85,7,92,
+2024-10-08,2024,10,41,Tue,85,5,90,
+2024-10-09,2024,10,41,Wed,94,5,99,
+2024-10-10,2024,10,41,Thu,86,7,93,
+2024-10-11,2024,10,41,Fri,86,8,94,
+2024-10-12,2024,10,41,Sat,103,27,130,
+2024-10-13,2024,10,41,Sun,66,18,84,
+2024-10-14,2024,10,42,Mon,83,6,89,
+2024-10-15,2024,10,42,Tue,84,2,86,
+2024-10-16,2024,10,42,Wed,92,5,97,
+2024-10-17,2024,10,42,Thu,82,6,88,
+2024-10-18,2024,10,42,Fri,94,10,104,
+2024-10-19,2024,10,42,Sat,114,19,133,
+2024-10-20,2024,10,42,Sun,73,18,91,
+2024-10-21,2024,10,43,Mon,83,2,85,
+2024-10-22,2024,10,43,Tue,84,2,86,
+2024-10-23,2024,10,43,Wed,93,7,100,
+2024-10-24,2024,10,43,Thu,83,8,91,
+2024-10-25,2024,10,43,Fri,95,7,102,
+2024-10-26,2024,10,43,Sat,110,20,130,
+2024-10-27,2024,10,43,Sun,70,14,84,
+2024-10-28,2024,10,44,Mon,83,4,87,
+2024-10-29,2024,10,44,Tue,84,4,88,
+2024-10-30,2024,10,44,Wed,94,2,96,
+2024-10-31,2024,10,44,Thu,84,6,90,
+2024-11-01,2024,11,44,Fri,99,6,105,
+2024-11-02,2024,11,44,Sat,115,10,125,
+2024-11-03,2024,11,44,Sun,74,16,90,
+2024-11-04,2024,11,45,Mon,86,2,88,
+2024-11-05,2024,11,45,Tue,88,4,92,
+2024-11-06,2024,11,45,Wed,97,3,100,
+2024-11-07,2024,11,45,Thu,87,5,92,
+2024-11-08,2024,11,45,Fri,101,4,105,
+2024-11-09,2024,11,45,Sat,115,19,134,
+2024-11-10,2024,11,45,Sun,75,9,84,
+2024-11-11,2024,11,46,Mon,86,8,94,
+2024-11-12,2024,11,46,Tue,90,1,91,
+2024-11-13,2024,11,46,Wed,97,3,100,
+2024-11-14,2024,11,46,Thu,87,3,90,
+2024-11-15,2024,11,46,Fri,100,4,104,
+2024-11-16,2024,11,46,Sat,114,14,128,
+2024-11-17,2024,11,46,Sun,74,14,88,
+2024-11-18,2024,11,47,Mon,85,2,87,
+2024-11-19,2024,11,47,Tue,89,2,91,
+2024-11-20,2024,11,47,Wed,96,4,100,
+2024-11-21,2024,11,47,Thu,86,8,94,
+2024-11-22,2024,11,47,Fri,101,7,108,
+2024-11-23,2024,11,47,Sat,114,13,127,
+2024-11-24,2024,11,47,Sun,73,11,84,
+2024-11-25,2024,11,48,Mon,84,5,89,
+2024-11-26,2024,11,48,Tue,89,4,93,
+2024-11-27,2024,11,48,Wed,97,4,101,
+2024-11-28,2024,11,48,Thu,87,6,93,
+2024-11-29,2024,11,48,Fri,100,11,111,
+2024-11-30,2024,11,48,Sat,113,17,130,
+2024-12-01,2024,12,48,Sun,73,15,88,
+2024-12-02,2024,12,49,Mon,84,5,89,
+2024-12-03,2024,12,49,Tue,86,4,90,
+2024-12-04,2024,12,49,Wed,95,4,99,
+2024-12-05,2024,12,49,Thu,83,8,91,
+2024-12-06,2024,12,49,Fri,98,9,107,
+2024-12-07,2024,12,49,Sat,112,19,131,
+2024-12-08,2024,12,49,Sun,72,19,91,
+2024-12-09,2024,12,50,Mon,81,2,83,
+2024-12-10,2024,12,50,Tue,83,2,85,
+2024-12-11,2024,12,50,Wed,90,3,93,
+2024-12-12,2024,12,50,Thu,80,6,86,
+2024-12-13,2024,12,50,Fri,95,5,100,
+2024-12-14,2024,12,50,Sat,109,29,138,
+2024-12-15,2024,12,50,Sun,71,14,85,
+2024-12-16,2024,12,51,Mon,79,4,83,
+2024-12-17,2024,12,51,Tue,83,3,86,
+2024-12-18,2024,12,51,Wed,86,4,90,
+2024-12-19,2024,12,51,Thu,77,7,84,
+2024-12-20,2024,12,51,Fri,91,8,99,
+2024-12-21,2024,12,51,Sat,107,13,120,
+2024-12-22,2024,12,51,Sun,68,9,77,
+2024-12-23,2024,12,52,Mon,76,6,82,
+2024-12-24,2024,12,52,Tue,80,3,83,
+2024-12-25,2024,12,52,Wed,87,9,96,
+2024-12-26,2024,12,52,Thu,75,5,80,
+2024-12-27,2024,12,52,Fri,91,3,94,
+2024-12-28,2024,12,52,Sat,104,13,117,
+2024-12-29,2024,12,52,Sun,63,5,68,
+2024-12-30,2024,12,1,Mon,76,3,79,
+2024-12-31,2024,12,1,Tue,79,4,83,
+2025-01-01,2025,1,1,Wed,84,4,88,
+2025-01-02,2025,1,1,Thu,73,4,77,
+2025-01-03,2025,1,1,Fri,89,4,93,
+2025-01-04,2025,1,1,Sat,98,7,105,
+2025-01-05,2025,1,1,Sun,59,11,70,
+2025-01-06,2025,1,2,Mon,73,2,75,
+2025-01-07,2025,1,2,Tue,79,2,81,
+2025-01-08,2025,1,2,Wed,83,5,88,
+2025-01-09,2025,1,2,Thu,75,3,78,
+2025-01-10,2025,1,2,Fri,90,3,93,
+2025-01-11,2025,1,2,Sat,103,14,117,
+2025-01-12,2025,1,2,Sun,61,7,68,
+2025-01-13,2025,1,3,Mon,74,3,77,
+2025-01-14,2025,1,3,Tue,79,2,81,
+2025-01-15,2025,1,3,Wed,82,3,85,
+2025-01-16,2025,1,3,Thu,74,2,76,
+2025-01-17,2025,1,3,Fri,89,3,92,
+2025-01-18,2025,1,3,Sat,99,16,115,
+2025-01-19,2025,1,3,Sun,58,5,63,
+2025-01-20,2025,1,4,Mon,74,7,81,
+2025-01-21,2025,1,4,Tue,80,5,85,
+2025-01-22,2025,1,4,Wed,84,4,88,
+2025-01-23,2025,1,4,Thu,76,2,78,
+2025-01-24,2025,1,4,Fri,90,6,96,
+2025-01-25,2025,1,4,Sat,101,8,109,
+2025-01-26,2025,1,4,Sun,61,9,70,
+2025-01-27,2025,1,5,Mon,73,3,76,
+2025-01-28,2025,1,5,Tue,78,2,80,
+2025-01-29,2025,1,5,Wed,81,5,86,
+2025-01-30,2025,1,5,Thu,73,4,77,
+2025-01-31,2025,1,5,Fri,88,3,91,
+2025-02-01,2025,2,5,Sat,98,12,110,
+2025-02-02,2025,2,5,Sun,59,8,67,
+2025-02-03,2025,2,6,Mon,70,3,73,
+2025-02-04,2025,2,6,Tue,75,9,84,
+2025-02-05,2025,2,6,Wed,79,5,84,
+2025-02-06,2025,2,6,Thu,70,5,75,
+2025-02-07,2025,2,6,Fri,89,8,97,
+2025-02-08,2025,2,6,Sat,101,10,111,
+2025-02-09,2025,2,6,Sun,60,9,69,
+2025-02-10,2025,2,7,Mon,71,4,75,
+2025-02-11,2025,2,7,Tue,79,5,84,
+2025-02-12,2025,2,7,Wed,80,5,85,
+2025-02-13,2025,2,7,Thu,72,3,75,
+2025-02-14,2025,2,7,Fri,89,5,94,
+2025-02-15,2025,2,7,Sat,100,9,109,
+2025-02-16,2025,2,7,Sun,62,9,71,
+2025-02-17,2025,2,8,Mon,72,3,75,
+2025-02-18,2025,2,8,Tue,79,5,84,
+2025-02-19,2025,2,8,Wed,81,7,88,
+2025-02-20,2025,2,8,Thu,72,5,77,
+2025-02-21,2025,2,8,Fri,88,4,92,
+2025-02-22,2025,2,8,Sat,100,8,108,
+2025-02-23,2025,2,8,Sun,63,7,70,
+2025-02-24,2025,2,9,Mon,72,4,76,
+2025-02-25,2025,2,9,Tue,80,6,86,
+2025-02-26,2025,2,9,Wed,79,5,84,
+2025-02-27,2025,2,9,Thu,72,6,78,
+2025-02-28,2025,2,9,Fri,89,8,97,
+2025-03-01,2025,3,9,Sat,99,18,117,
+2025-03-02,2025,3,9,Sun,62,16,78,
+2025-03-03,2025,3,10,Mon,74,6,80,
+2025-03-04,2025,3,10,Tue,79,5,84,
+2025-03-05,2025,3,10,Wed,80,4,84,
+2025-03-06,2025,3,10,Thu,73,2,75,
+2025-03-07,2025,3,10,Fri,87,4,91,
+2025-03-08,2025,3,10,Sat,101,13,114,
+2025-03-09,2025,3,10,Sun,62,5,67,
+2025-03-10,2025,3,11,Mon,74,3,77,
+2025-03-11,2025,3,11,Tue,78,4,82,
+2025-03-12,2025,3,11,Wed,82,5,87,
+2025-03-13,2025,3,11,Thu,73,3,76,
+2025-03-14,2025,3,11,Fri,89,3,92,
+2025-03-15,2025,3,11,Sat,103,14,117,
+2025-03-16,2025,3,11,Sun,62,12,74,
+2025-03-17,2025,3,12,Mon,74,3,77,
+2025-03-18,2025,3,12,Tue,77,4,81,
+2025-03-19,2025,3,12,Wed,82,5,87,
+2025-03-20,2025,3,12,Thu,73,5,78,
+2025-03-21,2025,3,12,Fri,89,6,95,
+2025-03-22,2025,3,12,Sat,104,17,121,
+2025-03-23,2025,3,12,Sun,63,12,75,
+2025-03-24,2025,3,13,Mon,73,2,75,
+2025-03-25,2025,3,13,Tue,77,3,80,
+2025-03-26,2025,3,13,Wed,81,7,88,
+2025-03-27,2025,3,13,Thu,72,8,80,
+2025-03-28,2025,3,13,Fri,89,9,98,
+2025-03-29,2025,3,13,Sat,104,20,124,
+2025-03-30,2025,3,13,Sun,63,24,87,
+2025-03-31,2025,3,14,Mon,73,9,82,
+2025-04-01,2025,4,14,Tue,77,10,87,
+2025-04-02,2025,4,14,Wed,81,8,89,
+2025-04-03,2025,4,14,Thu,72,8,80,
+2025-04-04,2025,4,14,Fri,88,13,101,
+2025-04-05,2025,4,14,Sat,102,27,129,
+2025-04-06,2025,4,14,Sun,61,18,79,
+2025-04-07,2025,4,15,Mon,77,4,81,
+2025-04-08,2025,4,15,Tue,79,3,82,
+2025-04-09,2025,4,15,Wed,83,4,87,
+2025-04-10,2025,4,15,Thu,75,2,77,
+2025-04-11,2025,4,15,Fri,90,6,96,
+2025-04-12,2025,4,15,Sat,103,17,120,
+2025-04-13,2025,4,15,Sun,62,17,79,
+2025-04-14,2025,4,16,Mon,77,3,80,
+2025-04-15,2025,4,16,Tue,78,2,80,
+2025-04-16,2025,4,16,Wed,81,7,88,
+2025-04-17,2025,4,16,Thu,73,7,80,
+2025-04-18,2025,4,16,Fri,90,8,98,
+2025-04-19,2025,4,16,Sat,100,11,111,
+2025-04-20,2025,4,16,Sun,59,13,72,
+2025-04-21,2025,4,17,Mon,74,7,81,
+2025-04-22,2025,4,17,Tue,77,8,85,
+2025-04-23,2025,4,17,Wed,80,13,93,
+2025-04-24,2025,4,17,Thu,71,18,89,
+2025-04-25,2025,4,17,Fri,87,33,120,
+2025-04-26,2025,4,17,Sat,99,18,117,
+2025-04-27,2025,4,17,Sun,60,15,75,
+2025-04-28,2025,4,18,Mon,75,12,87,
+2025-04-29,2025,4,18,Tue,76,11,87,
+2025-04-30,2025,4,18,Wed,80,11,91,
+2025-05-01,2025,5,18,Thu,71,10,81,
+2025-05-02,2025,5,18,Fri,88,21,109,
+2025-05-03,2025,5,18,Sat,101,18,119,
+2025-05-04,2025,5,18,Sun,60,18,78,
+2025-05-05,2025,5,19,Mon,74,10,84,
+2025-05-06,2025,5,19,Tue,77,10,87,
+2025-05-07,2025,5,19,Wed,81,9,90,
+2025-05-08,2025,5,19,Thu,71,9,80,
+2025-05-09,2025,5,19,Fri,87,14,101,
+2025-05-10,2025,5,19,Sat,101,27,128,
+2025-05-11,2025,5,19,Sun,61,10,71,
+2025-05-12,2025,5,20,Mon,72,9,81,
+2025-05-13,2025,5,20,Tue,74,7,81,
+2025-05-14,2025,5,20,Wed,78,9,87,
+2025-05-15,2025,5,20,Thu,71,8,79,
+2025-05-16,2025,5,20,Fri,88,9,97,
+2025-05-17,2025,5,20,Sat,100,23,123,
+2025-05-18,2025,5,20,Sun,61,25,86,
+2025-05-19,2025,5,21,Mon,73,6,79,
+2025-05-20,2025,5,21,Tue,76,6,82,
+2025-05-21,2025,5,21,Wed,80,7,87,
+2025-05-22,2025,5,21,Thu,70,6,76,
+2025-05-23,2025,5,21,Fri,88,12,100,
+2025-05-24,2025,5,21,Sat,103,21,124,
+2025-05-25,2025,5,21,Sun,63,19,82,
+2025-05-26,2025,5,22,Mon,75,8,83,
+2025-05-27,2025,5,22,Tue,76,8,84,
+2025-05-28,2025,5,22,Wed,80,13,93,
+2025-05-29,2025,5,22,Thu,70,8,78,
+2025-05-30,2025,5,22,Fri,88,13,101,
+2025-05-31,2025,5,22,Sat,103,9,112,
+2025-06-01,2025,6,22,Sun,63,14,77,
+2025-06-02,2025,6,23,Mon,73,6,79,
+2025-06-03,2025,6,23,Tue,72,6,78,
+2025-06-04,2025,6,23,Wed,78,7,85,
+2025-06-05,2025,6,23,Thu,67,10,77,
+2025-06-06,2025,6,23,Fri,86,15,101,
+2025-06-07,2025,6,23,Sat,113,27,140,
+2025-06-08,2025,6,23,Sun,69,17,86,
+2025-06-09,2025,6,24,Mon,73,11,84,
+2025-06-10,2025,6,24,Tue,72,12,84,
+2025-06-11,2025,6,24,Wed,78,13,91,
+2025-06-12,2025,6,24,Thu,67,9,76,
+2025-06-13,2025,6,24,Fri,86,15,101,
+2025-06-14,2025,6,24,Sat,103,21,124,
+2025-06-15,2025,6,24,Sun,65,25,90,
+2025-06-16,2025,6,25,Mon,72,9,81,
+2025-06-17,2025,6,25,Tue,71,6,77,
+2025-06-18,2025,6,25,Wed,77,6,83,
+2025-06-19,2025,6,25,Thu,67,3,70,
+2025-06-20,2025,6,25,Fri,87,9,96,
+2025-06-21,2025,6,25,Sat,100,24,124,
+2025-06-22,2025,6,25,Sun,61,17,78,
+2025-06-23,2025,6,26,Mon,71,4,75,
+2025-06-24,2025,6,26,Tue,70,6,76,
+2025-06-25,2025,6,26,Wed,74,6,80,
+2025-06-26,2025,6,26,Thu,66,8,74,
+2025-06-27,2025,6,26,Fri,86,13,99,
+2025-06-28,2025,6,26,Sat,97,18,115,
+2025-06-29,2025,6,26,Sun,59,11,70,
+2025-06-30,2025,6,27,Mon,71,5,76,
+2025-07-01,2025,7,27,Tue,73,6,79,
+2025-07-02,2025,7,27,Wed,75,6,81,
+2025-07-03,2025,7,27,Thu,66,6,72,
+2025-07-04,2025,7,27,Fri,85,7,92,
+2025-07-05,2025,7,27,Sat,95,13,108,
+2025-07-06,2025,7,27,Sun,60,13,73,
+2025-07-07,2025,7,28,Mon,85,5,90,
+2025-07-08,2025,7,28,Tue,79,4,83,
+2025-07-09,2025,7,28,Wed,79,7,86,
+2025-07-10,2025,7,28,Thu,71,3,74,
+2025-07-11,2025,7,28,Fri,91,4,95,
+2025-07-12,2025,7,28,Sat,104,17,121,
+2025-07-13,2025,7,28,Sun,68,12,80,
+2025-07-14,2025,7,29,Mon,84,3,87,
+2025-07-15,2025,7,29,Tue,76,3,79,
+2025-07-16,2025,7,29,Wed,77,6,83,
+2025-07-17,2025,7,29,Thu,72,5,77,
+2025-07-18,2025,7,29,Fri,91,6,97,
+2025-07-19,2025,7,29,Sat,87,19,106,
+2025-07-20,2025,7,29,Sun,66,18,84,
+2025-07-21,2025,7,30,Mon,82,5,87,
+2025-07-22,2025,7,30,Tue,78,3,81,
+2025-07-23,2025,7,30,Wed,83,7,90,
+2025-07-24,2025,7,30,Thu,73,6,79,
+2025-07-25,2025,7,30,Fri,91,7,98,
+2025-07-26,2025,7,30,Sat,107,24,131,
+2025-07-27,2025,7,30,Sun,68,15,83,
+2025-07-28,2025,7,31,Mon,82,4,86,
+2025-07-29,2025,7,31,Tue,80,4,84,
+2025-07-30,2025,7,31,Wed,83,7,90,
+2025-07-31,2025,7,31,Thu,70,5,75,
+2025-08-01,2025,8,31,Fri,90,6,96,
+2025-08-02,2025,8,31,Sat,104,24,128,
+2025-08-03,2025,8,31,Sun,66,16,82,
+2025-08-04,2025,8,32,Mon,80,2,82,
+2025-08-05,2025,8,32,Tue,83,3,86,
+2025-08-06,2025,8,32,Wed,87,9,96,
+2025-08-07,2025,8,32,Thu,79,5,84,
+2025-08-08,2025,8,32,Fri,98,9,107,
+2025-08-09,2025,8,32,Sat,112,11,123,
+2025-08-10,2025,8,32,Sun,71,13,84,
+2025-08-11,2025,8,33,Mon,89,9,98,
+2025-08-12,2025,8,33,Tue,84,8,92,
+2025-08-13,2025,8,33,Wed,89,5,94,
+2025-08-14,2025,8,33,Thu,80,5,85,
+2025-08-15,2025,8,33,Fri,96,8,104,
+2025-08-16,2025,8,33,Sat,110,25,135,
+2025-08-17,2025,8,33,Sun,73,12,85,
+2025-08-18,2025,8,34,Mon,90,7,97,
+2025-08-19,2025,8,34,Tue,85,4,89,
+2025-08-20,2025,8,34,Wed,90,9,99,
+2025-08-21,2025,8,34,Thu,79,7,86,
+2025-08-22,2025,8,34,Fri,99,8,107,
+2025-08-23,2025,8,34,Sat,111,18,129,
+2025-08-24,2025,8,34,Sun,74,17,91,
+2025-08-25,2025,8,35,Mon,89,5,94,
+2025-08-26,2025,8,35,Tue,85,6,91,
+2025-08-27,2025,8,35,Wed,91,10,101,
+2025-08-28,2025,8,35,Thu,80,7,87,
+2025-08-29,2025,8,35,Fri,99,7,106,
+2025-08-30,2025,8,35,Sat,114,19,133,
+2025-08-31,2025,8,35,Sun,78,22,100,
+2025-09-01,2025,9,36,Mon,82,7,89,
+2025-09-02,2025,9,36,Tue,78,7,85,
+2025-09-03,2025,9,36,Wed,82,10,92,
+2025-09-04,2025,9,36,Thu,73,6,79,
+2025-09-05,2025,9,36,Fri,92,13,105,
+2025-09-06,2025,9,36,Sat,113,22,135,
+2025-09-07,2025,9,36,Sun,74,12,86,
+2025-09-08,2025,9,37,Mon,82,3,85,
+2025-09-09,2025,9,37,Tue,78,9,87,
+2025-09-10,2025,9,37,Wed,83,16,99,
+2025-09-11,2025,9,37,Thu,73,6,79,
+2025-09-12,2025,9,37,Fri,93,13,106,
+2025-09-13,2025,9,37,Sat,115,27,142,
+2025-09-14,2025,9,37,Sun,74,18,92,
+2025-09-15,2025,9,38,Mon,82,4,86,
+2025-09-16,2025,9,38,Tue,76,9,85,
+2025-09-17,2025,9,38,Wed,81,11,92,
+2025-09-18,2025,9,38,Thu,72,7,79,
+2025-09-19,2025,9,38,Fri,92,13,105,
+2025-09-20,2025,9,38,Sat,114,21,135,
+2025-09-21,2025,9,38,Sun,72,17,89,
+2025-09-22,2025,9,39,Mon,83,3,86,
+2025-09-23,2025,9,39,Tue,77,6,83,
+2025-09-24,2025,9,39,Wed,81,4,85,
+2025-09-25,2025,9,39,Thu,74,6,80,
+2025-09-26,2025,9,39,Fri,94,10,104,
+2025-09-27,2025,9,39,Sat,118,18,136,
+2025-09-28,2025,9,39,Sun,72,11,83,
+2025-09-29,2025,9,40,Mon,84,5,89,
+2025-09-30,2025,9,40,Tue,78,5,83,
+2025-10-01,2025,10,40,Wed,83,5,88,
+2025-10-02,2025,10,40,Thu,73,4,77,
+2025-10-03,2025,10,40,Fri,91,9,100,
+2025-10-04,2025,10,40,Sat,119,15,134,
+2025-10-05,2025,10,40,Sun,72,14,86,
+2025-10-06,2025,10,41,Mon,84,7,91,
+2025-10-07,2025,10,41,Tue,81,7,88,
+2025-10-08,2025,10,41,Wed,82,7,89,
+2025-10-09,2025,10,41,Thu,76,6,82,
+2025-10-10,2025,10,41,Fri,93,11,104,
+2025-10-11,2025,10,41,Sat,120,20,140,
+2025-10-12,2025,10,41,Sun,72,15,87,
+2025-10-13,2025,10,42,Mon,85,10,95,
+2025-10-14,2025,10,42,Tue,84,5,89,
+2025-10-15,2025,10,42,Wed,82,9,91,
+2025-10-16,2025,10,42,Thu,77,8,85,
+2025-10-17,2025,10,42,Fri,84,9,93,
+2025-10-18,2025,10,42,Sat,108,22,130,
+2025-10-19,2025,10,42,Sun,65,20,85,
+2025-10-20,2025,10,43,Mon,88,5,93,
+2025-10-21,2025,10,43,Tue,84,8,92,
+2025-10-22,2025,10,43,Wed,81,10,91,
+2025-10-23,2025,10,43,Thu,78,8,86,
+2025-10-24,2025,10,43,Fri,83,9,92,
+2025-10-25,2025,10,43,Sat,110,24,134,
+2025-10-26,2025,10,43,Sun,66,16,82,
+2025-10-27,2025,10,44,Mon,87,6,93,
+2025-10-28,2025,10,44,Tue,84,4,88,
+2025-10-29,2025,10,44,Wed,81,9,90,
+2025-10-30,2025,10,44,Thu,78,5,83,
+2025-10-31,2025,10,44,Fri,78,6,84,
+2025-11-01,2025,11,44,Sat,110,17,127,
+2025-11-02,2025,11,44,Sun,63,6,69,
+2025-11-03,2025,11,45,Mon,79,5,84,
+2025-11-04,2025,11,45,Tue,82,7,89,
+2025-11-05,2025,11,45,Wed,79,9,88,
+2025-11-06,2025,11,45,Thu,76,9,85,
+2025-11-07,2025,11,45,Fri,80,6,86,
+2025-11-08,2025,11,45,Sat,108,16,124,
+2025-11-09,2025,11,45,Sun,62,8,70,
+2025-11-10,2025,11,46,Mon,79,6,85,
+2025-11-11,2025,11,46,Tue,83,14,97,
+2025-11-12,2025,11,46,Wed,79,10,89,
+2025-11-13,2025,11,46,Thu,76,3,79,
+2025-11-14,2025,11,46,Fri,81,2,83,
+2025-11-15,2025,11,46,Sat,112,13,125,
+2025-11-16,2025,11,46,Sun,65,16,81,
+2025-11-17,2025,11,47,Mon,81,3,84,
+2025-11-18,2025,11,47,Tue,84,4,88,
+2025-11-19,2025,11,47,Wed,81,8,89,
+2025-11-20,2025,11,47,Thu,78,4,82,
+2025-11-21,2025,11,47,Fri,82,8,90,
+2025-11-22,2025,11,47,Sat,111,12,123,
+2025-11-23,2025,11,47,Sun,65,10,75,
+2025-11-24,2025,11,48,Mon,81,3,84,
+2025-11-25,2025,11,48,Tue,84,3,87,
+2025-11-26,2025,11,48,Wed,82,13,95,
+2025-11-27,2025,11,48,Thu,80,5,85,
+2025-11-28,2025,11,48,Fri,82,6,88,
+2025-11-29,2025,11,48,Sat,109,24,133,
+2025-11-30,2025,11,48,Sun,65,11,76,
+2025-12-01,2025,12,49,Mon,81,3,84,
+2025-12-02,2025,12,49,Tue,84,5,89,
+2025-12-03,2025,12,49,Wed,82,8,90,
+2025-12-04,2025,12,49,Thu,79,5,84,
+2025-12-05,2025,12,49,Fri,84,5,89,
+2025-12-06,2025,12,49,Sat,109,21,130,
+2025-12-07,2025,12,49,Sun,65,14,79,
+2025-12-08,2025,12,50,Mon,81,3,84,
+2025-12-09,2025,12,50,Tue,83,2,85,
+2025-12-10,2025,12,50,Wed,82,6,88,
+2025-12-11,2025,12,50,Thu,79,5,84,
+2025-12-12,2025,12,50,Fri,83,5,88,
+2025-12-13,2025,12,50,Sat,109,17,126,
+2025-12-14,2025,12,50,Sun,65,16,81,
+2025-12-15,2025,12,51,Mon,77,4,81,
+2025-12-16,2025,12,51,Tue,83,3,86,
+2025-12-17,2025,12,51,Wed,84,6,90,
+2025-12-18,2025,12,51,Thu,80,2,82,
+2025-12-19,2025,12,51,Fri,85,7,92,
+2025-12-20,2025,12,51,Sat,110,12,122,
+2025-12-21,2025,12,51,Sun,66,5,71,
+2025-12-22,2025,12,52,Mon,80,0,80,
+2025-12-23,2025,12,52,Tue,80,2,82,
+2025-12-24,2025,12,52,Wed,81,1,82,
+2025-12-25,2025,12,52,Thu,77,3,80,
+2025-12-26,2025,12,52,Fri,81,1,82,
+2025-12-27,2025,12,52,Sat,108,8,116,
+2025-12-28,2025,12,52,Sun,62,3,65,
+2025-12-29,2025,12,1,Mon,79,2,81,
+2025-12-30,2025,12,1,Tue,81,1,82,
+2025-12-31,2025,12,1,Wed,80,4,84,

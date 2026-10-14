@@ -1,0 +1,9 @@
+council,council_name,state,lga_code_2025,lga_name_2025,erp_2025,lga_area_km2,lon,lat,n_parks,park_area_ha,park_m2_per_resident,park_share_of_council_area_pct,playgrounds,playgrounds_per_10k,bbqs,bbqs_per_10k,drinking_fountains,drinking_fountains_per_10k,park_toilets,park_toilets_per_10k,dog_offleash_areas,dog_offleash_areas_per_10k
+BNE,Brisbane City Council,QLD,31000,Brisbane,1375301,1342.7,152.8976,-27.4407,2193,17027.4,123.8,12.7,,,774,5.63,2099,15.26,268,1.95,172,1.25
+SYD,City of Sydney,NSW,17200,Sydney,241797,26.7,151.204,-33.8875,416,203.9,8.4,7.6,138,5.71,,,212,8.77,39,1.61,51,2.11
+MEL,City of Melbourne,VIC,24600,Melbourne,194481,37.5,144.9481,-37.8172,372,422.6,21.7,11.3,45,2.31,65,3.34,209,10.75,42,2.16,,
+PER,City of Perth,WA,57080,Perth,35673,13.7,115.8272,-31.9655,44,125.5,35.2,9.1,12,3.36,24,6.73,60,16.82,13,3.64,,
+ADL,City of Adelaide,SA,40070,Adelaide,30173,15.6,138.5961,-34.9157,48,837.2,277.5,53.8,13,4.31,43,14.25,107,35.46,25,8.29,,
+HBA,City of Hobart,TAS,62810,Hobart,55859,77.9,147.2716,-42.894,199,1532.9,274.4,19.7,43,7.7,18,3.22,32,5.73,46,8.24,18,3.22
+CBR,ACT Government (City Services),ACT,89399,Unincorporated ACT,484630,2358.1,148.9562,-35.5233,3726,3930.4,81.1,1.7,533,11.0,124,2.56,216,4.46,82,1.69,9,0.19
+DRW,City of Darwin,NT,71000,Darwin,90035,111.3,130.8928,-12.3966,,,,,151,16.77,30,3.33,130,14.44,24,2.67,,

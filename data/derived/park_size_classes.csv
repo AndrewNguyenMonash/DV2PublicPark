@@ -1,0 +1,29 @@
+council,size_class,n_parks,area_ha
+ADL,District (2-10 ha),9,52.3
+ADL,Local (0.5-2 ha),8,10.5
+ADL,Pocket (under 0.5 ha),11,2.7
+ADL,Regional (10 ha+),20,771.7
+BNE,District (2-10 ha),529,2474.2
+BNE,Local (0.5-2 ha),654,695.5
+BNE,Pocket (under 0.5 ha),760,174.5
+BNE,Regional (10 ha+),250,13683.3
+CBR,District (2-10 ha),395,1545.9
+CBR,Local (0.5-2 ha),1063,1107.9
+CBR,Pocket (under 0.5 ha),2222,372.5
+CBR,Regional (10 ha+),46,904.7
+HBA,District (2-10 ha),40,162.7
+HBA,Local (0.5-2 ha),39,44.2
+HBA,Pocket (under 0.5 ha),109,20.9
+HBA,Regional (10 ha+),11,1306.3
+MEL,District (2-10 ha),27,134.3
+MEL,Local (0.5-2 ha),65,63.5
+MEL,Pocket (under 0.5 ha),272,32.5
+MEL,Regional (10 ha+),8,192.3
+PER,District (2-10 ha),15,60.1
+PER,Local (0.5-2 ha),4,4.8
+PER,Pocket (under 0.5 ha),22,3.6
+PER,Regional (10 ha+),3,57.0
+SYD,District (2-10 ha),17,72.9
+SYD,Local (0.5-2 ha),62,55.2
+SYD,Pocket (under 0.5 ha),336,35.3
+SYD,Regional (10 ha+),1,40.5
