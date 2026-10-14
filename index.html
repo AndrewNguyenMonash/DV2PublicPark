@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Park Next Door | Australia's Council Parks</title>
+    
+    <!-- Import Vega, Vega-Lite and Vega-Embed  -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+    <!-- Import pure.css for the grid layout -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
+    <!-- Google fonts (Week 9 studio): Fraunces for the title and section headings, Source Sans 3 for everything else -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- CSS files: layout.css = page width, grid and spacing; style.css = fonts and colours -->
+    <!-- Placed after Pure.css so these styles override Pure's -->
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- start page -->
+    <!-- h1: page -->
+    <!-- h2: section -->
+    <!-- h3: chart -->
+    <!-- h4: small labels -->
+    <div class="page">
+
+        <!-- HEADER -->
+        <!-- pure grid group: title across the full width -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <h1>The Park Next Door</h1>
+                    <p class="subtitle">How Australia's eight capital-city councils share out parks, play spaces and places to gather</p>
+                    <p class="byline">By Andrew Nguyen &middot; FIT3179 Data Visualisation 2</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- pure grid group: introduction | contents page [LINKS] | legend -->
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <p class="todo">[Intro, 4–5 sentences: hook about the park at the end of your street · what a council park is (not a national park) · what this page compares · what you will find]</p>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <h4 class="label">In this story</h4>
+                    <ol class="contents">
+                        <li><a href="#why">Why the park next door matters</a></li>
+                        <li><a href="#capitals">Eight capitals, eight park networks</a></li>
+                        <li><a href="#facilities">What's in the park?</a></li>
+                        <li><a href="#brisbane">Up close: Brisbane, Australia's biggest council</a></li>
+                        <li><a href="#bookings">When Brisbane books its parks</a></li>
+                        <li><a href="#conclusions">What it all adds up to</a></li>
+                    </ol>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <div class="how-to-read">
+                        <h4 class="label">How to read this page</h4>
+                        <p><span class="park-text">Green</span> = council parks and their facilities</p>
+                        <p><span class="finding-annotations-text">Magenta</span> = key finding or annotation</p>
+                        <p><span class="interact-text">Blue</span> = something you can hover, click or choose</p>
+                        <p class="todo">[Facility symbol key: playground · BBQ · drinking fountain · toilet · dog off-leash area]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  SECTION 1 -->
+        <!-- Separates sections -->
+        <hr class="section-divider">
+        <!-- pure grid group: Section Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <!-- Contents subsection links to corresponding section heading -->
+                    <h2 class="section-title" id="why"><span class="section-no">1</span>Why the park next door matters</h2>
+                    <p class="section-subtitle">Where and why active Australians move</p>
+                </div>
+            </div>
+        </div>
+        <!-- pure grid group: Narration | Waffle Chart | Slope Chart -->
+        <div class="pure-g">
+            <!-- Narration -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <p class="todo">[Lead, 5–6 sentences: most adult exercise happens in public space (parks, paths, beaches) · the reasons people give · link to wellbeing · why councils matter]</p>
+                    <div class="key-finding">
+                        <h4>Key finding</h4>
+                        <p class="todo">[One sentence with the headline number]</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Waffle chart (small multiples of public space vs gym/leisure centre vs home) -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Where active Australians exercise</h3>
+                    <div id="vis1" class="vis-container"></div>
+                    <p class="caption">[Caption: one square = 1 in 100 active adults, aged 15+ · source]</p>
+                </div>
+            </div>
+            <!-- Slope chart (Columns: Age 15-17, Age 65+, Quantity: % of active adults giving each reasion) -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Why they move: youngest vs oldest adults</h3>
+                    <div id="vis2" class="vis-container"></div>
+                    <p class="caption">[Caption: % of active adults giving each reason · source]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <!-- Separates sections -->
+        <hr class="section-divider">
+        <!-- pure grid group: Section Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <!-- Contents subsection links to corresponding section heading -->
+                    <h2 class="section-title" id="capitals"><span class="section-no">2</span>Eight capitals, eight park networks</h2>
+                    <p class="section-subtitle">How much park land each capital-city council looks after, and for how many people</p>
+                </div>
+            </div>
+        </div>
+        <!-- pure grid group: Narration | Proportional Symbol Map | Marimekko Chart -->
+        <div class="pure-g">
+            <!-- Narration -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <p class="todo">[Lead, 5–6 sentences: what counts as a council park here · the eight councils differ hugely in size · why we compare per resident · data years differ]</p>
+                    <div class="key-finding">
+                        <h4>Key finding</h4>
+                        <p class="todo">[One sentence naming the stand-out council]</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Proportional Symbol Map of Australia showing council park land for each capital-city -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Council park land in the eight capitals</h3>
+                    <div id="vis3" class="vis-container"></div>
+                    <p class="caption">[Caption: Albers equal-area conic projection · councils only, not whole cities · sources]</p>
+                </div>
+            </div>
+            <!-- Marimekko chart/ variable width bar chart (x-axis: no. of residents, y-axis: m^2 of councik park/resident) -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Park land per resident, for how many residents</h3>
+                    <div id="vis4" class="vis-container"></div>
+                    <p class="caption">[Caption: column area = total park land · Darwin not shown · sources]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <!-- Separates sections -->
+        <hr class="section-divider">
+        <!-- pure grid group: Section Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <!-- Contents subsection links to corresponding section heading -->
+                    <h2 class="section-title" id="facilities"><span class="section-no">3</span>What's in the park?</h2>
+                    <p class="section-subtitle">Five everyday facilities, compared fairly per 10,000 residents</p>
+                </div>
+            </div>
+        </div>
+        <!-- pure grid group: Narration | Heatmap | Dot Map -->
+        <div class="pure-g">
+            <!-- Narration -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <p class="todo">[Lead, 4–5 sentences: the five facilities · why per 10,000 residents · "not published" is not the same as none · data years]</p>
+                    <div class="key-finding">
+                        <h4>Key finding</h4>
+                        <p class="todo">[One sentence: the most and least equipped]</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Heatmap (matrix: capital-city x facility) -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Park facilities per 10,000 residents</h3>
+                    <div id="vis5" class="vis-container"></div>
+                    <p class="caption">[Caption: only facilities in council parks · ABS 2025 population · data year in tooltip]</p>
+                </div>
+            </div>
+            <!-- Dot map (small multiplies of each capital-city)-->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Every mapped park facility</h3>
+                    <div id="vis6" class="vis-container"></div>
+                    <p class="caption">[Caption: one symbol = one facility · each panel has its own scale · ABS 2025 council boundaries]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <!-- Separates sections -->
+        <hr class="section-divider">
+        <!-- pure grid group: Section Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <!-- Contents subsection links to corresponding section heading -->
+                    <h2 class="section-title" id="brisbane"><span class="section-no">4</span>Up close: Brisbane, Australia's biggest council</h2>
+                    <p class="section-subtitle">Where the council's parks sit, and where facilities cluster</p>
+                </div>
+            </div>
+        </div>
+        <!-- pure grid group: Narration | Chloropleth Map | Bin Map (Hexagons) -->
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <!-- Narration -->
+                <div class="description">
+                    <p class="todo">[Lead, 5–6 sentences: why Brisbane (largest council, richest open data) · how much of each suburb is park · bushland in the west vs dense inner suburbs]</p>
+                    <div class="key-finding">
+                        <h4>Key finding</h4>
+                        <p class="todo">[One sentence: suburbs with the most and least park]</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Chloropleth Map of Brisbane's Suburbs -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Share of each suburb that is council park</h3>
+                    <div id="vis7" class="vis-container"></div>
+                    <p class="caption">[Caption: ~190 suburbs (ABS 2021) · parks assigned by address · source]</p>
+                </div>
+            </div>
+            <!-- Bin Map (Hexagons) of Brisbane -->
+            <div class="pure-u-1-3">
+                <div class="chart">
+                    <h3 class="chart-title">Park facilities within reach</h3>
+                    <div id="vis8" class="vis-container"></div>
+                    <p class="caption">[Caption: one hexagon ≈ 1 km across · BBQs, fountains, dog areas, toilets]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5 -->
+        <!-- Separates sections -->
+        <hr class="section-divider">
+        <!-- pure grid group: Section Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <!-- Contents subsection links to corresponding section heading -->
+                    <h2 class="section-title" id="bookings"><span class="section-no">5</span>When Brisbane books its parks</h2>
+                    <p class="section-subtitle">Two years of permits for fitness classes, parties and events, 2024–2025</p>
+                </div>
+            </div>
+        </div>
+        <!-- pure grid group: Narration        |          Calender Heatmap         | -->
+        <!--                  Radial Bar Chart |          Bump Chart               | -->
+        <div class="pure-g">
+            <!-- left third -->
+            <div class="pure-u-1-3">
+                <!-- Narration -->
+                <div class="description">
+                    <p class="todo">[Lead, 5–6 sentences: what a park booking is (commercial fitness permits + private bookings) · weekly rhythm · seasons · the busiest parks]</p>
+                    <div class="key-finding">
+                        <h4>Key finding</h4>
+                        <p class="todo">[One sentence: the busiest day of the week]</p>
+                    </div>
+                </div>
+                <!-- Radial Bar chart (small multiples: Weekdays vs Weekends)-->
+                <div class="chart">
+                    <h3 class="chart-title">Booked activity by hour of day</h3>
+                    <div id="vis10" class="vis-container"></div>
+                    <p class="caption">[Caption: average bookings per day starting in each hour]</p>
+                </div>
+            </div>
+            <!-- right two-thirds -->
+            <div class="pure-u-2-3">
+                <!-- Calender Heatmap (Every day 2024-2025) -->
+                <div class="chart">
+                    <h3 class="chart-title">Every day of booked park activity</h3>
+                    <div id="vis9" class="vis-container"></div>
+                    <p class="caption">[Caption: commercial-activity permits + park bookings · 2023 left out (booking system roll-out)]</p>
+                </div>
+                <!-- Bump Chart (x-axis: Quarters, y-axis: Rank of each park) -->
+                <div class="chart">
+                    <h3 class="chart-title">Brisbane's most-booked parks, quarter by quarter</h3>
+                    <div id="vis11" class="vis-container"></div>
+                    <p class="caption">[Caption: rank among all council parks by number of bookings · top 6 shown]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6 -->
+        <!-- Separates sections -->
+        <hr class="section-divider">
+        <!-- pure grid group: Section Heading -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <!-- Contents subsection links to corresponding section heading -->
+                    <h2 class="section-title" id="conclusions"><span class="section-no">6</span>What it all adds up to</h2>
+                    <p class="section-subtitle">Three takeaways about the park next door</p>
+                </div>
+            </div>
+        </div>
+        <!-- pure grid group: Takeaway | Takeaway | Takeaway -->
+        <div class="pure-g">
+            <!-- Takeaway -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <div class="key-finding">
+                        <h4 class="todo">[Takeaway 1]</h4>
+                        <p class="todo">[Two sentences]</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Takeaway -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <div class="key-finding">
+                        <h4 class="todo">[Takeaway 2]</h4>
+                        <p class="todo">[Two sentences]</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Takeaway -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <div class="key-finding">
+                        <h4 class="todo">[Takeaway 3]</h4>
+                        <p class="todo">[Two sentences]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- METADATA -->
+        <!-- Separates footer from last section-->
+        <hr class="footer-divider">
+        <!-- pure grid group: Data sources | Author & Meta Context | Caveats -->
+        <div class="pure-g metadata">
+            <!-- Original Data sources-->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <h4 class="label">Data sources</h4>
+                    <!-- target="_blank" opens link in new tab/window-->
+                    <ul>
+                        <li><a href="https://data.brisbane.qld.gov.au/" target="_blank">Brisbane City Council open data</a>: parks, BBQs, drinking fountains, dog off-leash areas, public toilets, park bookings (2023–2025)</li>
+                        <li><a href="https://data.cityofsydney.nsw.gov.au/" target="_blank">City of Sydney Data Hub</a>: parks, playgrounds, drinking fountains, dog off-leash parks</li>
+                        <li><a href="https://data.melbourne.vic.gov.au/" target="_blank">City of Melbourne open data</a>: BBQs, drinking fountains, public toilets, playgrounds</li>
+                        <li><a href="https://discover.data.vic.gov.au/dataset/open-space" target="_blank">Victorian Planning Authority, Open Space</a> (City of Melbourne park outlines)</li>
+                        <li><a href="https://geohub-perth.opendata.arcgis.com/" target="_blank">City of Perth GeoHub</a>: parks, street furniture, toilets</li>
+                        <li><a href="https://data.sa.gov.au/data/organization/adelaide-city-council" target="_blank">City of Adelaide open data</a>: Park Lands parks, playgrounds, BBQs, drinking fountains, toilets</li>
+                        <li><a href="https://data-1-hobartcc.opendata.arcgis.com/" target="_blank">City of Hobart open data</a>: parks, playgrounds, drinking fountains, toilets</li>
+                        <li><a href="https://www.data.act.gov.au/" target="_blank">ACT Government open data</a>: urban open space and park assets</li>
+                        <li><a href="https://services6.arcgis.com/tVfesLETUHNU9Vna/arcgis/rest/services" target="_blank">City of Darwin map layers</a>: parks, playgrounds, park assets, toilets</li>
+                        <li><a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS, Regional Population 2024–25</a> and <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-4-july-2026-june-2031" target="_blank">ASGS boundaries</a></li>
+                        <li><a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/results/data-tables" target="_blank">AusPlay National Data Tables, Jan–Dec 2025</a> (Australian Sports Commission)</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Author & Meta Context -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <h4 class="label">About this page</h4>
+                    <p>By Andrew Nguyen (student ID 32477562) for FIT3179 DV2 [Studio 1]</p>
+                    <p>Built with <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a> and <a href="https://purecss.io/" target="_blank">Pure.css</a>. The chart specifications and processed data are in the <a href="https://github.com/AndrewNguyenMonash/DV2PublicPark" target="_blank">GitHub repository</a>.</p>
+                </div>
+            </div>
+            <!-- Caveats -->
+            <div class="pure-u-1-3">
+                <div class="description">
+                    <h4 class="label">Notes on the data</h4>
+                    <p>Only council-managed parks are included; national parks, state parks and state-run gardens are left out.</p>
+                    <p>Councils publish their data in different years, from 2014 (Adelaide) to 2026. A facility that is not published is not the same as one that does not exist.</p>
+                    <p class="todo">[Other caveats: CBD councils serve many daily visitors · Darwin licence]</p>
+                </div>
+            </div>
+        </div>
+    <!-- end page -->
+    </div> 
+
+    <!-- Embeds every chart into its <div> (runs last, after all the divs above exist) -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

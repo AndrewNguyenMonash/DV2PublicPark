@@ -1,0 +1,247 @@
+/* =====================================================================
+   style.css: fonts, text sizes and colours.
+
+   Colours. Each colour has one job, on the page and in every chart's config:
+     #1f2a24  ink       main text
+     #5b6660  muted     captions, labels, secondary text
+     #006837  park      green: council parks and their facilities
+     #992e79  findings  magenta: key findings and annotations
+     #0072b2  interact  blue: anything you can hover, click or choose (and links)
+     #d9d6cb  rule      divider lines and borders
+
+   Typefaces:
+     Fraunces (serif)       page title and section headings
+     Source Sans 3 (sans)   everything else, including every chart
+   ===================================================================== */
+
+/* Public-park colour theme. Checked with a colour-blindness simulation
+   (the colour course notes recommend testing with a simulator such as Color Oracle).
+     green    #006837  trees and grass      ColorBrewer YlGn, darkest class
+     magenta  #992e79  flowering shrubs     findings stand out from the green parks; red is not used
+                                            because readers with red-green colour blindness cannot
+                                            tell it from green (colour course notes: use purple instead)
+     blue     #0072b2  water and sky        also the usual colour of web links
+
+   Charts that colour a number (maps, heatmaps) use the ColorBrewer YlGn sequential scale,
+   light = low, dark = high:
+     #ffffcc  #c2e699  #78c679  #31a354  #006837
+     Vega-Lite: "scale": {"scheme": "yellowgreen"} for a smooth scale, or a threshold scale
+     with "range": [these five colours] for classed maps (Week 8 and Week 10 studios).
+   Missing data: #d9d6cb (light grey).  Key-finding panel tint: #f6e8f1 */
+
+/* ---------- Base text ---------- */
+
+/* Font family*/
+body * {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Font colour + Size */
+body {
+    color: #1f2a24;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+/* Paragraphs */
+p {
+    margin: 0 0 12px 0;
+}
+
+/* Links */
+a {
+    color: #0072b2;
+}
+
+/* ---------- Header ---------- */
+
+/* Title */
+h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 22px;
+    line-height: 1.35;
+    margin: 12px 0 6px 0;
+}
+
+/* Author */
+.byline {
+    font-size: 14px;
+    color: #5b6660;
+    margin: 0 0 24px 0;
+}
+
+/* Small uppercase labels for header and footer */
+.label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 6px 0;
+}
+
+/* Contents List */
+.contents {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15.5px;
+}
+
+.contents a {
+    text-decoration: none;
+}
+
+/* Hovering over contents item underlines it*/
+.contents a:hover {
+    text-decoration: underline;
+}
+
+/* "How to read this page" box: white panel with a thin border */
+.how-to-read {
+    background-color: #ffffff;
+    border: 1px solid #d9d6cb;
+    padding: 12px 14px;
+    font-size: 14.5px;
+}
+
+/* "How to read this page" paragraphs */
+.how-to-read p {
+    margin: 0 0 4px 0;
+}
+
+/* Coloured words that match the chart colours.
+   Use them in the narrative too.  */
+.park-text {
+    color: #006837;
+    font-weight: 700;
+}
+
+.finding-annotations-text {
+    color: #992e79;
+    font-weight: 700;
+}
+
+.interact-text {
+    color: #0072b2;
+    font-weight: 700;
+}
+
+/* ---------- Section headings ---------- */
+
+/* Title */
+.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Numbered circle in front of each section title */
+.section-no {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border: 2px solid #006837;
+    border-radius: 50%;
+    color: #006837;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: 3px;
+    margin-right: 12px;
+}
+
+/* Subtitle */
+.section-subtitle {
+    font-style: italic;
+    color: #5b6660;
+    margin: 4px 0 20px 0;
+}
+
+/* ---------- Charts ---------- */
+
+/* Title */
+.chart-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+}
+
+/* Caption */
+.caption {
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: #5b6660;
+    margin: 6px 0 0 0;
+}
+
+/* ---------- Key finding boxes ----------
+   Figure-ground: a tinted panel with a magenta bar on the left makes the main point stand out from the body text */
+
+/* Container */
+.key-finding {
+    background-color: #f6e8f1;
+    border-left: 4px solid #992e79;
+    padding: 10px 14px;
+    margin: 8px 0 24px 0;
+}
+
+/* Header */
+.key-finding h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #992e79;
+    margin: 0 0 4px 0;
+}
+
+/* Text */
+.key-finding p {
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ---------- Metadata footer ---------- */
+
+/* Text */
+.metadata {
+    font-size: 13.5px;
+    line-height: 1.45;
+    color: #5b6660;
+}
+
+/* Headings */
+.metadata .label {
+    color: #1f2a24;
+}
+
+/* Unordered list */
+.metadata ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+/* List item */
+.metadata li {
+    margin-bottom: 4px;
+}
+
+/* ---------- Placeholder text ----------
+   Anything still in magenta italics with a dashed outline is unfinished.
+   When you write the real text, delete "todo" from that element's class. */
+.todo {
+    color: #992e79;
+    font-style: italic;
+    outline: 1px dashed #992e79;
+    outline-offset: 3px;
+}

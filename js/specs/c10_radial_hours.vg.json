@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "C10 Booked activity by hour of day. Idiom: radial bar chart (small multiples: weekdays, weekends). Angle = hour of day, bar length = average bookings per day.",
+  "width": "container",
+  "height": 220,
+  "data": {
+    "url": "data/derived/bne_bookings_by_hour.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "rows"
+        }
+      ]
+    },
+    {
+      "calculate": "'C10 placeholder: ' + datum.rows + ' rows loaded'",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "fontSize": 14,
+    "fontStyle": "italic",
+    "color": "#992e79"
+  },
+  "encoding": {
+    "text": {
+      "field": "label",
+      "type": "nominal"
+    }
+  },
+  "config": {
+    "background": "#fbfaf5",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "fontSize": 15,
+      "color": "#1f2a24",
+      "anchor": "start"
+    },
+    "axis": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12,
+      "gridColor": "#e6e3da"
+    },
+    "legend": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12
+    },
+    "mark": {
+      "color": "#006837"
+    },
+    "text": {
+      "color": "#1f2a24"
+    }
+  }
+}

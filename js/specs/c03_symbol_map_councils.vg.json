@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "C3 Council park land in the eight capitals. Idiom: proportional symbol map. Circle area = council park land (ha), shading = % of council area that is park; Albers equal-area projection. Basemap: data/derived/australia_states.topojson (object: states).",
+  "width": "container",
+  "height": 270,
+  "data": {
+    "url": "data/derived/council_summary.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "rows"
+        }
+      ]
+    },
+    {
+      "calculate": "'C03 placeholder: ' + datum.rows + ' rows loaded'",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "fontSize": 14,
+    "fontStyle": "italic",
+    "color": "#992e79"
+  },
+  "encoding": {
+    "text": {
+      "field": "label",
+      "type": "nominal"
+    }
+  },
+  "config": {
+    "background": "#fbfaf5",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "fontSize": 15,
+      "color": "#1f2a24",
+      "anchor": "start"
+    },
+    "axis": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12,
+      "gridColor": "#e6e3da"
+    },
+    "legend": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12
+    },
+    "mark": {
+      "color": "#006837"
+    },
+    "text": {
+      "color": "#1f2a24"
+    }
+  }
+}

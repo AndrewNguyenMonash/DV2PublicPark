@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "C8 Park facilities within reach. Idiom: bin map (H3 hexagons about 1 km across). Shading = facilities per hexagon; dropdown chooses the facility type.",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/derived/bne_facility_hexbins.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "hexbins"
+    }
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "rows"
+        }
+      ]
+    },
+    {
+      "calculate": "'C08 placeholder: ' + datum.rows + ' rows loaded'",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "fontSize": 14,
+    "fontStyle": "italic",
+    "color": "#992e79"
+  },
+  "encoding": {
+    "text": {
+      "field": "label",
+      "type": "nominal"
+    }
+  },
+  "config": {
+    "background": "#fbfaf5",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "fontSize": 15,
+      "color": "#1f2a24",
+      "anchor": "start"
+    },
+    "axis": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12,
+      "gridColor": "#e6e3da"
+    },
+    "legend": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12
+    },
+    "mark": {
+      "color": "#006837"
+    },
+    "text": {
+      "color": "#1f2a24"
+    }
+  }
+}

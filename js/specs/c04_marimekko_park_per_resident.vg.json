@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "C4 Park land per resident, for how many residents. Idiom: Marimekko (variable-width columns). Column width = residents (2025), height = m2 of council park per resident.",
+  "width": "container",
+  "height": 250,
+  "data": {
+    "url": "data/derived/council_summary.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "rows"
+        }
+      ]
+    },
+    {
+      "calculate": "'C04 placeholder: ' + datum.rows + ' rows loaded'",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "fontSize": 14,
+    "fontStyle": "italic",
+    "color": "#992e79"
+  },
+  "encoding": {
+    "text": {
+      "field": "label",
+      "type": "nominal"
+    }
+  },
+  "config": {
+    "background": "#fbfaf5",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "fontSize": 15,
+      "color": "#1f2a24",
+      "anchor": "start"
+    },
+    "axis": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12,
+      "gridColor": "#e6e3da"
+    },
+    "legend": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12
+    },
+    "mark": {
+      "color": "#006837"
+    },
+    "text": {
+      "color": "#1f2a24"
+    }
+  }
+}

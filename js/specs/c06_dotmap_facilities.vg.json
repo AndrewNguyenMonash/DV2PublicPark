@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "C6 Every mapped park facility. Idiom: dot map (small multiples, one panel per council, each with its own projection fit). Symbol shape = facility type. Outlines: data/derived/council_boundaries.topojson (object: councils).",
+  "width": "container",
+  "height": 330,
+  "data": {
+    "url": "data/derived/facilities_all_councils.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "rows"
+        }
+      ]
+    },
+    {
+      "calculate": "'C06 placeholder: ' + datum.rows + ' rows loaded'",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "fontSize": 14,
+    "fontStyle": "italic",
+    "color": "#992e79"
+  },
+  "encoding": {
+    "text": {
+      "field": "label",
+      "type": "nominal"
+    }
+  },
+  "config": {
+    "background": "#fbfaf5",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "fontSize": 15,
+      "color": "#1f2a24",
+      "anchor": "start"
+    },
+    "axis": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12,
+      "gridColor": "#e6e3da"
+    },
+    "legend": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12
+    },
+    "mark": {
+      "color": "#006837"
+    },
+    "text": {
+      "color": "#1f2a24"
+    }
+  }
+}
