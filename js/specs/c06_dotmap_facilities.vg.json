@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C6 Every mapped park facility. Idiom: dot map (small multiples, one panel per council, each with its own projection fit). Symbol shape = facility type. Outlines: data/derived/council_boundaries.topojson (object: councils).",
+  "description": "C6 Every mapped park facility. Idiom: dot map (small multiples, one panel per council, each with its own projection fit). Facility type = colour and symbol, using the same shape, fill and stroke scales as the facility key (js/specs/key_facilities.vg.json): Playground = filled circle #bf7b00, BBQ = filled triangle #a3401a, Drinking fountain = hollow circle #168f8b, Toilet in a park = filled square #7a7a7a, Dog off-leash area = hollow diamond #006837. Shape domain = the type_label values. Outlines: data/derived/council_boundaries.topojson (object: councils).",
   "width": "container",
   "height": 330,
   "data": {

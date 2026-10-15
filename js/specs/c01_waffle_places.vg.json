@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C1 Where active Australians exercise. Idiom: waffle chart (small multiples). One square = 1 in 100 active adults; one panel each for public space, gym or leisure centre, and home.",
+  "description": "C1 Where active Australians exercise. Idiom: waffle chart (small multiples). One square = 1 in 100 Australians aged 15+ (AusPlay Table 7 base = whole adult population); one panel each for public space, gym or leisure centre, and home.",
   "width": "container",
   "height": 230,
   "data": {

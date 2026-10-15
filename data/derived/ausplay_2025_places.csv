@@ -2,7 +2,7 @@ age_group,place,participation_rate_pct
 Total,Public space,62.4
 Total,Home environment,29.8
 Total,Gym/fitness club/sports/ leisure centre,30.5
-Total,Free community facilities,21.0
+Total,Free community facilities,21
 Total,Sports club or association facilities,18.4
 Total,Private or commercial premises,16.2
 Total,Recreation club or association facilities,9.3
@@ -18,7 +18,7 @@ Total,Workplace,6.5
 15-17,Educational institution facilities,36.4
 15-17,Workplace,6.4
 18-24,Public space,58.7
-18-24,Home environment,36.0
+18-24,Home environment,36
 18-24,Gym/fitness club/sports/ leisure centre,44.5
 18-24,Free community facilities,31.5
 18-24,Sports club or association facilities,28.5
@@ -32,12 +32,12 @@ Total,Workplace,6.5
 25-34,Free community facilities,29.6
 25-34,Sports club or association facilities,23.4
 25-34,Private or commercial premises,21.6
-25-34,Recreation club or association facilities,13.0
+25-34,Recreation club or association facilities,13
 25-34,Educational institution facilities,7.7
 25-34,Workplace,10.3
 35-44,Public space,62.6
 35-44,Home environment,31.6
-35-44,Gym/fitness club/sports/ leisure centre,34.0
+35-44,Gym/fitness club/sports/ leisure centre,34
 35-44,Free community facilities,23.3
 35-44,Sports club or association facilities,18.9
 35-44,Private or commercial premises,18.5
@@ -55,7 +55,7 @@ Total,Workplace,6.5
 45-54,Workplace,7.2
 55-64,Public space,71.5
 55-64,Home environment,27.9
-55-64,Gym/fitness club/sports/ leisure centre,23.0
+55-64,Gym/fitness club/sports/ leisure centre,23
 55-64,Free community facilities,14.2
 55-64,Sports club or association facilities,13.6
 55-64,Private or commercial premises,13.5

@@ -4,7 +4,7 @@
    Colours. Each colour has one job, on the page and in every chart's config:
      #1f2a24  ink       main text
      #5b6660  muted     captions, labels, secondary text
-     #006837  park      green: council parks and their facilities
+     #006837  park      green: council parks
      #992e79  findings  magenta: key findings and annotations
      #0072b2  interact  blue: anything you can hover, click or choose (and links)
      #d9d6cb  rule      divider lines and borders
@@ -14,16 +14,21 @@
      Source Sans 3 (sans)   everything else, including every chart
    ===================================================================== */
 
-/* Public-park colour theme. Checked with a colour-blindness simulation
-   (the colour course notes recommend testing with a simulator such as Color Oracle).
-     green    #006837  trees and grass      ColorBrewer YlGn, darkest class
-     magenta  #992e79  flowering shrubs     findings stand out from the green parks; red is not used
-                                            because readers with red-green colour blindness cannot
-                                            tell it from green (colour course notes: use purple instead)
-     blue     #0072b2  water and sky        also the usual colour of web links
+/* Public-park colour theme
+     green    #006837  trees and grass     
+     magenta  #992e79  flowering shrubs     
+     blue     #0072b2  water and sky      
 
-   Charts that colour a number (maps, heatmaps) use the ColorBrewer YlGn sequential scale,
-   light = low, dark = high:
+   Park facilities: each type has its own colour AND its own symbol. 
+   These colours are only used for facility symbols. 
+
+     #bf7b00  amber         playground          filled circle
+     #a3401a  burnt orange  BBQ (fire)          filled triangle
+     #168f8b  teal          drinking fountain   hollow circle (the most common facility, so hollow)
+     #7a7a7a  grey          toilet              filled square
+     #006837  green         dog off-leash area  hollow diamond (grass)
+
+   Charts that colour a number (maps, heatmaps) use light = low, dark = high:
      #ffffcc  #c2e699  #78c679  #31a354  #006837
      Vega-Lite: "scale": {"scheme": "yellowgreen"} for a smooth scale, or a threshold scale
      with "range": [these five colours] for classed maps (Week 8 and Week 10 studios).

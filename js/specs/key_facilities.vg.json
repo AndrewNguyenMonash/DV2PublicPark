@@ -1,0 +1,170 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Facility symbol key for 'How to read this page'. The white background matches the How-to-read box. Each park facility type has its own colour and its own symbol (redundant encoding, so the types can still be told apart by shape when colours are hard to see): Playground = amber filled circle, BBQ = burnt-orange filled triangle, Drinking fountain = teal hollow circle, Toilet in a park = grey filled square, Dog off-leash area = green hollow diamond. C6 must use the same shape, fill and stroke scales (same domain and range) so the key matches the map. Fountains are hollow because they are the most common facility, so they do not hide the other symbols.",
+  "width": "container",
+  "height": 62,
+  "background": "#ffffff",
+  "data": {
+    "values": [
+      {
+        "facility": "Playground",
+        "label": "Playground",
+        "column": 0,
+        "row": 0
+      },
+      {
+        "facility": "BBQ",
+        "label": "BBQ",
+        "column": 0,
+        "row": 1
+      },
+      {
+        "facility": "Drinking fountain",
+        "label": "Drinking fountain",
+        "column": 0,
+        "row": 2
+      },
+      {
+        "facility": "Toilet in a park",
+        "label": "Toilet",
+        "column": 1,
+        "row": 0
+      },
+      {
+        "facility": "Dog off-leash area",
+        "label": "Dog off-leash area",
+        "column": 1,
+        "row": 1
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "quantitative",
+      "scale": {
+        "domain": [0, 1],
+        "range": [8, 150]
+      },
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "quantitative",
+      "scale": {
+        "domain": [0, 2],
+        "range": [10, 52]
+      },
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "size": 90,
+        "strokeWidth": 1.5,
+        "opacity": 1
+      },
+      "encoding": {
+        "shape": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Playground",
+              "BBQ",
+              "Drinking fountain",
+              "Toilet in a park",
+              "Dog off-leash area"
+            ],
+            "range": ["circle", "triangle-up", "circle", "square", "diamond"]
+          },
+          "legend": null
+        },
+        "fill": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Playground",
+              "BBQ",
+              "Drinking fountain",
+              "Toilet in a park",
+              "Dog off-leash area"
+            ],
+            "range": [
+              "#bf7b00",
+              "#a3401a",
+              "transparent",
+              "#7a7a7a",
+              "transparent"
+            ]
+          },
+          "legend": null
+        },
+        "stroke": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Playground",
+              "BBQ",
+              "Drinking fountain",
+              "Toilet in a park",
+              "Dog off-leash area"
+            ],
+            "range": ["#bf7b00", "#a3401a", "#168f8b", "#7a7a7a", "#006837"]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 12,
+        "fontSize": 14
+      },
+      "encoding": {
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "#fbfaf5",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "fontSize": 15,
+      "color": "#1f2a24",
+      "anchor": "start"
+    },
+    "axis": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12,
+      "gridColor": "#e6e3da"
+    },
+    "legend": {
+      "labelColor": "#5b6660",
+      "labelFontSize": 12,
+      "titleColor": "#1f2a24",
+      "titleFontSize": 12
+    },
+    "mark": {
+      "color": "#006837"
+    },
+    "text": {
+      "color": "#1f2a24"
+    }
+  }
+}

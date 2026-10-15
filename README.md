@@ -28,7 +28,8 @@ DV2PublicPark/
 │       ├── c08_hexbin_facilities.vg.json
 │       ├── c09_calendar_bookings.vg.json
 │       ├── c10_radial_hours.vg.json
-│       └── c11_bump_top_parks.vg.json
+│       ├── c11_bump_top_parks.vg.json
+│       └── key_facilities.vg.json   facility symbol key in "How to read this page" (same symbols as C6)
 ├── data/
 │   ├── README.md         every source, licence and how each derived file was made
 │   ├── build_data.py     rebuilds data/derived from data/raw
@@ -60,9 +61,10 @@ A public-park theme. Each colour has one job, on the page and in every chart:
 
 | Colour | Hex | Inspired by | Used for |
 |---|---|---|---|
-| Green | `#006837` | trees and grass | council parks and their facilities (default mark colour) |
+| Green | `#006837` | trees and grass | council parks (default mark colour) |
 | Magenta | `#992e79` | flowering shrubs | key findings and annotations |
 | Blue | `#0072b2` | water and sky | links, and anything you can hover, click or choose |
+| Amber, burnt orange, teal, grey, green | `#bf7b00` `#a3401a` `#168f8b` `#7a7a7a` `#006837` | play equipment, fire, water, a neutral service, grass | park facilities: playground, BBQ, drinking fountain, toilet, dog off-leash area. Each also has its own symbol (see the key on the page). |
 | Light to dark yellow-green | `#ffffcc` `#c2e699` `#78c679` `#31a354` `#006837` | dry grass to dense canopy | sequential scales on maps and heatmaps: light = low, dark = high (ColorBrewer YlGn) |
 
 Text is a near-black green (`#1f2a24`) with grey-green (`#5b6660`) for captions, on an off-white page (`#fbfaf5`). Red is not used: beside green it is hard to tell apart for readers with red-green colour blindness, so findings are magenta.

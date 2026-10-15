@@ -12,6 +12,11 @@
 //                     redraws in Source Sans 3 once the Google font has finished loading
 var embedOptions = { "actions": false, "renderer": "svg" };
 
+// ---------- Header: facility symbol key in "How to read this page" ----------
+var specKey = "js/specs/key_facilities.vg.json";
+vegaEmbed('#facility-key', specKey, embedOptions).then(function (result) {
+}).catch(console.error);
+
 // ---------- Section 1: Why the park next door matters ----------
 var specVis1 = "js/specs/c01_waffle_places.vg.json";
 vegaEmbed('#vis1', specVis1, embedOptions).then(function (result) {
