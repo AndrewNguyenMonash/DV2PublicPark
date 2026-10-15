@@ -252,14 +252,23 @@ topo = tp.Topology({"type": "FeatureCollection", "features": bnd_features}, obje
 open(OUT + "council_boundaries.topojson", "w").write(topo.to_json())
 print("  wrote council_boundaries.topojson")
 
-# Australian states basemap: drop islands under 300 km2, simplify
+# Australian states basemap: drop islands under 300 km2, simplify.
+# The ABS file mixes up outlines and holes for NSW: the NSW mainland is stored as a hole and the
+# ACT (a hole in NSW) as the outline, so reading the file as it is turned NSW into a copy of the ACT.
+# Each state is therefore rebuilt from its rings by where they sit: rings under 300 km2 are dropped,
+# a ring inside another ring of the same state is a hole (the ACT inside NSW), every other ring is land.
 ste = json.load(open(RAW + "abs_ste2026_simplified.geojson"))
 sf = []
 for f in ste["features"]:
-    g = shape(f["geometry"]).buffer(0)
-    parts = list(g.geoms) if isinstance(g, MultiPolygon) else [g]
-    parts = [p for p in parts if transform(TO_ALBERS, p).area > 3e8]
-    g2 = MultiPolygon(parts).simplify(0.04, preserve_topology=True) if len(parts) > 1 else parts[0].simplify(0.04, preserve_topology=True)
+    geom = f["geometry"]
+    polys = geom["coordinates"] if geom["type"] == "MultiPolygon" else [geom["coordinates"]]
+    rings = [Polygon(r).buffer(0) for poly in polys for r in poly if len(r) >= 4]
+    rings = [r for r in rings if transform(TO_ALBERS, r).area > 3e8]
+    land, holes = [], []
+    for r in rings:
+        inside = any(o.contains(r.representative_point()) for o in rings if o is not r)
+        (holes if inside else land).append(r)
+    g2 = unary_union(land).difference(unary_union(holes)).simplify(0.04, preserve_topology=True)
     sf.append({"type": "Feature", "properties": {"state": f["properties"]["STATE_NAME_2026"]}, "geometry": mapping(g2)})
 topo = tp.Topology({"type": "FeatureCollection", "features": sf}, object_name="states", prequantize=1e4, toposimplify=0.02)
 open(OUT + "australia_states.topojson", "w").write(topo.to_json())

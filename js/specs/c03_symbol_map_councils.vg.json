@@ -1,48 +1,200 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C3 Council park land in the eight capitals. Idiom: proportional symbol map. Circle area = council park land (ha), shading = % of council area that is park; Albers equal-area projection. Basemap: data/derived/australia_states.topojson (object: states).",
+  "description": "C3 Council park land in the eight capitals. Idiom: proportional symbol map. Circle area = council park land in hectares; circle colour = share of the council's area that is park (classed, ColorBrewer YlGn, light = low). Albers equal-area conic projection centred on Australia. Darwin publishes no park outlines, so it has a hollow marker instead of a circle.",
   "width": "container",
   "height": 270,
-  "data": {
-    "url": "data/derived/council_summary.csv"
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-18, -36],
+    "rotate": [-132, 0, 0]
   },
-  "transform": [
+  "layer": [
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
+      "data": {
+        "url": "data/derived/australia_states.topojson",
+        "format": { "type": "topojson", "feature": "states" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6e3da",
+        "stroke": "#fbfaf5",
+        "strokeWidth": 1
+      }
     },
     {
-      "calculate": "'C03 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "data": { "url": "data/derived/council_summary.csv" },
+      "transform": [
+        { "filter": "datum.park_area_ha > 0" },
+        {
+          "calculate": "datum.park_share_of_council_area_pct + '% of the council area'",
+          "as": "share_label"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.9,
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "size": {
+          "field": "park_area_ha",
+          "type": "quantitative",
+          "title": "Park land (ha)",
+          "scale": { "domain": [0, 18000], "range": [0, 2200] },
+          "legend": {
+            "values": [1000, 10000],
+            "format": ",.0f",
+            "orient": "bottom",
+            "direction": "vertical",
+            "symbolFillColor": "#9a9d94",
+            "symbolStrokeWidth": 0
+          }
+        },
+        "color": {
+          "field": "park_share_of_council_area_pct",
+          "type": "quantitative",
+          "title": "% of area that is park",
+          "scale": {
+            "type": "threshold",
+            "domain": [5, 10, 20],
+            "range": ["#c2e699", "#78c679", "#31a354", "#006837"]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 130
+          }
+        },
+        "tooltip": [
+          { "field": "council_name", "type": "nominal", "title": "Council" },
+          {
+            "field": "park_area_ha",
+            "type": "quantitative",
+            "title": "Park land (ha)",
+            "format": ",.0f"
+          },
+          { "field": "share_label", "type": "nominal", "title": "Park share" },
+          {
+            "field": "n_parks",
+            "type": "quantitative",
+            "title": "Parks",
+            "format": ","
+          },
+          {
+            "field": "erp_2025",
+            "type": "quantitative",
+            "title": "Residents (2025)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": { "url": "data/derived/council_summary.csv" },
+      "transform": [
+        { "filter": "datum.park_area_ha <= 0" },
+        { "calculate": "'No park outlines published'", "as": "note" }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 40,
+        "color": "#5b6660",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "tooltip": [
+          { "field": "council_name", "type": "nominal", "title": "Council" },
+          { "field": "note", "type": "nominal", "title": "Park land" }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "name": "Perth", "lon": 117.0, "lat": -31.97 },
+          { "name": "Darwin (no park data)", "lon": 131.9, "lat": -12.4 },
+          { "name": "Hobart", "lon": 148.5, "lat": -42.9 },
+          { "name": "Sydney", "lon": 151.9, "lat": -33.3 }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 11.5,
+        "color": "#1f2a24"
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "name", "type": "nominal" }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "name": "Brisbane", "lon": 149.6, "lat": -27.44 },
+          { "name": "Canberra", "lon": 147.4, "lat": -35.6 },
+          { "name": "Melbourne", "lon": 144.2, "lat": -37.82 },
+          { "name": "Adelaide", "lon": 137.8, "lat": -34.92 }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 11.5,
+        "color": "#1f2a24"
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "name", "type": "nominal" }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "note": "Brisbane: the most park\nland, about 17,000 ha",
+            "lon": 136.0,
+            "lat": -20.5
+          },
+          {
+            "note": "Adelaide: over half\nthe council area is\npark (the Park Lands)",
+            "lon": 113.6,
+            "lat": -37.4
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "note", "type": "nominal" }
+      }
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
-    }
-  },
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
-    },
+    "view": { "stroke": null },
+    "title": { "fontSize": 15, "color": "#1f2a24", "anchor": "start" },
     "axis": {
       "labelColor": "#5b6660",
       "labelFontSize": 12,
@@ -56,11 +208,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }
