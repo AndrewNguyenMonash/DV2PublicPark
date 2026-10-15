@@ -1,48 +1,155 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C4 Park land per resident, for how many residents. Idiom: Marimekko (variable-width columns). Column width = residents (2025), height = m2 of council park per resident.",
+  "description": "C4 Park land per resident, for how many residents. Idiom: Marimekko (variable-width columns). One column per council: width = residents in 2025 (ABS), height = square metres of council park per resident, so column area = the council's total park land. Columns run from most to least park per resident. Darwin is left out because it publishes no park outlines.",
   "width": "container",
-  "height": 250,
-  "data": {
-    "url": "data/derived/council_summary.csv"
-  },
+  "height": 316,
+  "data": { "url": "data/derived/council_summary.csv" },
   "transform": [
+    { "filter": "datum.park_area_ha > 0" },
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
+      "calculate": "datum.park_area_ha * 10000 / datum.erp_2025",
+      "as": "m2_per_resident"
     },
     {
-      "calculate": "'C04 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "window": [{ "op": "sum", "field": "erp_2025", "as": "residents_end" }],
+      "sort": [{ "field": "m2_per_resident", "order": "descending" }]
+    },
+    {
+      "calculate": "datum.residents_end - datum.erp_2025",
+      "as": "residents_start"
+    },
+    {
+      "calculate": "(datum.lga_name_2025 == 'Unincorporated ACT' ? 'Canberra' : datum.lga_name_2025) + ' ' + round(datum.m2_per_resident)",
+      "as": "column_label"
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
   "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+    "y": {
+      "field": "m2_per_resident",
+      "type": "quantitative",
+      "scale": { "domain": [0, 300] },
+      "axis": { "title": "Park per resident (m²)", "tickCount": 3 }
     }
   },
+  "layer": [
+    {
+      "mark": { "type": "bar", "stroke": "#fbfaf5", "strokeWidth": 1 },
+      "encoding": {
+        "x": {
+          "field": "residents_start",
+          "type": "quantitative",
+          "axis": {
+            "title": "Residents in 2025, millions (column width)",
+            "labelExpr": "datum.value / 1000000",
+            "grid": false
+          }
+        },
+        "x2": { "field": "residents_end" },
+        "tooltip": [
+          { "field": "council_name", "type": "nominal", "title": "Council" },
+          {
+            "field": "erp_2025",
+            "type": "quantitative",
+            "title": "Residents (2025)",
+            "format": ","
+          },
+          {
+            "field": "m2_per_resident",
+            "type": "quantitative",
+            "title": "Park per resident (m²)",
+            "format": ".1f"
+          },
+          {
+            "field": "park_area_ha",
+            "type": "quantitative",
+            "title": "Park land (ha)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.council != 'HBA'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 1,
+        "dy": -3,
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "x": { "field": "residents_start", "type": "quantitative" },
+        "text": { "field": "column_label", "type": "nominal" }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.council == 'HBA'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 3,
+        "dy": 3,
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "x": { "field": "residents_end", "type": "quantitative" },
+        "text": { "field": "column_label", "type": "nominal" }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.council == 'HBA'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 3,
+        "dy": 17,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "x": { "field": "residents_end", "type": "quantitative" },
+        "text": {
+          "value": "Adelaide and Hobart: the most park\nper person, but for only 86,000\nresidents between them"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "note": "Column area = the council's\ntotal park land",
+            "residents": 2500000,
+            "m2": 300
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 11.5,
+        "color": "#5b6660"
+      },
+      "encoding": {
+        "x": { "field": "residents", "type": "quantitative" },
+        "y": { "field": "m2", "type": "quantitative" },
+        "text": { "field": "note", "type": "nominal" }
+      }
+    }
+  ],
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
-    },
+    "view": { "stroke": null },
+    "title": { "fontSize": 15, "color": "#1f2a24", "anchor": "start" },
     "axis": {
       "labelColor": "#5b6660",
       "labelFontSize": 12,
@@ -56,11 +163,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }
