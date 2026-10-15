@@ -1,48 +1,228 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C2 Why they move: youngest vs oldest adults. Idiom: slope chart. Lines join the % of 15-17 year olds and the % of adults aged 65+ who give each reason.",
-  "width": "container",
-  "height": 250,
+  "description": "C2 Why they move: youngest vs oldest adults. Idiom: slope chart. Each line joins the share of active 15-17 year olds and the share of active adults aged 65+ who gave one reason for being active (AusPlay Table 12, base = adult players, January to December 2025). Six of the 16 reasons are shown. Being outdoors is green (the reason most tied to parks); the other reasons are grey. Click a dot to highlight one reason; double-click to reset.",
+  "width": 200,
+  "height": 260,
   "data": {
     "url": "data/derived/ausplay_2025_motivations.csv"
   },
   "transform": [
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
+      "filter": "(datum.age_group == '15-17' || datum.age_group == '65+') && (datum.motivation == 'Physical health or fitness' || datum.motivation == 'Fun/enjoyment' || datum.motivation == 'Social reasons' || datum.motivation == 'To be outdoors/to enjoy nature' || datum.motivation == 'To lose weight/ keep weight off/tone' || datum.motivation == 'Psychological/ mental health/ therapy')"
     },
     {
-      "calculate": "'C02 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "calculate": "datum.age_group == '15-17' ? 'Aged 15–17' : 'Aged 65+'",
+      "as": "age_label"
+    },
+    {
+      "calculate": "datum.motivation == 'Physical health or fitness' ? 'Health or fitness' : datum.motivation == 'Fun/enjoyment' ? 'Fun' : datum.motivation == 'Social reasons' ? 'Social reasons' : datum.motivation == 'To be outdoors/to enjoy nature' ? 'Being outdoors' : datum.motivation == 'To lose weight/ keep weight off/tone' ? 'Weight or tone' : 'Mental health'",
+      "as": "reason"
+    },
+    {
+      "calculate": "round(datum.share_of_active_adults_pct) + '%'",
+      "as": "value_label"
+    },
+    {
+      "calculate": "datum.value_label + ' ' + datum.reason",
+      "as": "end_label"
+    },
+    {
+      "calculate": "datum.share_of_active_adults_pct + '% of active people this age'",
+      "as": "share_label"
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
   "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+    "x": {
+      "field": "age_label",
+      "type": "ordinal",
+      "axis": { "title": null, "labelAngle": 0, "grid": true }
+    },
+    "y": {
+      "field": "share_of_active_adults_pct",
+      "type": "quantitative",
+      "scale": { "domain": [25, 85] },
+      "axis": null
+    },
+    "opacity": {
+      "condition": { "param": "reason_pick", "value": 1 },
+      "value": 0.2
     }
   },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "reason_pick",
+            "empty": false,
+            "value": "#0072b2"
+          },
+          "field": "reason",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Being outdoors",
+              "Health or fitness",
+              "Fun",
+              "Social reasons",
+              "Weight or tone",
+              "Mental health"
+            ],
+            "range": [
+              "#006837",
+              "#9a9d94",
+              "#9a9d94",
+              "#9a9d94",
+              "#9a9d94",
+              "#9a9d94"
+            ]
+          },
+          "legend": null
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.reason == 'Being outdoors'",
+            "value": 3
+          },
+          "value": 1.75
+        }
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "reason_pick",
+          "select": { "type": "point", "fields": ["reason"] }
+        }
+      ],
+      "mark": { "type": "point", "filled": true, "size": 60 },
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "reason_pick",
+            "empty": false,
+            "value": "#0072b2"
+          },
+          "field": "reason",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Being outdoors",
+              "Health or fitness",
+              "Fun",
+              "Social reasons",
+              "Weight or tone",
+              "Mental health"
+            ],
+            "range": [
+              "#006837",
+              "#9a9d94",
+              "#9a9d94",
+              "#9a9d94",
+              "#9a9d94",
+              "#9a9d94"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "reason", "type": "nominal", "title": "Reason" },
+          { "field": "age_label", "type": "nominal", "title": "Age" },
+          {
+            "field": "share_label",
+            "type": "nominal",
+            "title": "Gave this reason"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.age_group == '15-17'" }],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -8,
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "text": { "field": "value_label", "type": "nominal" },
+        "color": {
+          "condition": {
+            "test": "datum.reason == 'Being outdoors'",
+            "value": "#006837"
+          },
+          "value": "#5b6660"
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.age_group == '65+'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 13,
+        "fontSize": 11.5
+      },
+      "encoding": {
+        "text": { "field": "end_label", "type": "nominal" },
+        "color": {
+          "condition": {
+            "test": "datum.reason == 'Being outdoors'",
+            "value": "#006837"
+          },
+          "value": "#5b6660"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age_group == '65+' && datum.reason == 'Being outdoors'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 260,
+        "strokeWidth": 1.5,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "opacity": { "value": 1 }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age_group == '65+' && datum.reason == 'Being outdoors'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "x": { "value": 0 },
+        "y": { "value": 4 },
+        "text": { "value": "At 65+, being outdoors\novertakes fun (circled)" },
+        "opacity": { "value": 1 }
+      }
+    }
+  ],
   "config": {
     "background": "#fbfaf5",
-    "font": "Source Sans 3",
-    "view": {
-      "stroke": null
-    },
-    "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
-    },
+    "font": "'Source Sans 3', sans-serif",
+    "view": { "stroke": null },
+    "title": { "fontSize": 15, "color": "#1f2a24", "anchor": "start" },
     "axis": {
       "labelColor": "#5b6660",
       "labelFontSize": 12,
@@ -56,11 +236,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }

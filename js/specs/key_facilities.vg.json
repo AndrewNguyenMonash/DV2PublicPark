@@ -138,7 +138,7 @@
   ],
   "config": {
     "background": "#fbfaf5",
-    "font": "Source Sans 3",
+    "font": "'Source Sans 3', sans-serif",
     "view": {
       "stroke": null
     },
