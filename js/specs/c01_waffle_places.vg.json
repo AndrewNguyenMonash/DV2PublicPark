@@ -1,36 +1,181 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C1 Where active Australians exercise. Idiom: waffle chart (small multiples). One square = 1 in 100 Australians aged 15+ (AusPlay Table 7 base = whole adult population); one panel each for public space, gym or leisure centre, and home.",
-  "width": "container",
-  "height": 230,
+  "description": "C1 Where active Australians exercise. Idiom: waffle chart (small multiples, one 10 x 10 waffle per place). One square = 1 in 100 Australians aged 15+ (AusPlay Table 7, base = whole adult population, January to December 2025). Filled squares = people who were active in that place at least once. People can use more than one place, so the three panels add up to more than 100. Public space is green (where council parks are); the other places are grey so the eye goes to public space first.",
   "data": {
     "url": "data/derived/ausplay_2025_places.csv"
   },
   "transform": [
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
+      "filter": "datum.age_group == 'Total' && (datum.place == 'Public space' || datum.place == 'Gym/fitness club/sports/ leisure centre' || datum.place == 'Home environment')"
     },
     {
-      "calculate": "'C01 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "calculate": "datum.place == 'Public space' ? 'Public space' : datum.place == 'Home environment' ? 'Home' : 'Gym or leisure centre'",
+      "as": "place_label"
+    },
+    {
+      "calculate": "round(datum.participation_rate_pct)",
+      "as": "squares_filled"
+    },
+    {
+      "calculate": "sequence(0, 100)",
+      "as": "square"
+    },
+    {
+      "flatten": ["square"]
+    },
+    {
+      "calculate": "datum.square % 10 + 0.5",
+      "as": "column"
+    },
+    {
+      "calculate": "floor(datum.square / 10) + 0.5",
+      "as": "row"
+    },
+    {
+      "calculate": "datum.square < datum.squares_filled ? (datum.place_label == 'Public space' ? 'Public space' : 'Other place') : 'Not active there'",
+      "as": "square_type"
+    },
+    {
+      "calculate": "datum.participation_rate_pct + '% of Australians aged 15+'",
+      "as": "share_label"
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+  "facet": {
+    "column": {
+      "field": "place_label",
+      "type": "nominal",
+      "sort": ["Public space", "Gym or leisure centre", "Home"],
+      "header": {
+        "title": null,
+        "labelOrient": "bottom",
+        "labelAnchor": "start",
+        "labelPadding": 6,
+        "labelFontSize": 13,
+        "labelFontWeight": 600,
+        "labelColor": "#1f2a24",
+        "labelExpr": "datum.value == 'Gym or leisure centre' ? ['Gym or', 'leisure centre'] : datum.value"
+      }
     }
+  },
+  "spacing": {
+    "column": 14
+  },
+  "spec": {
+    "width": 100,
+    "height": 160,
+    "layer": [
+      {
+        "mark": {
+          "type": "square",
+          "size": 64,
+          "opacity": 1
+        },
+        "encoding": {
+          "x": {
+            "field": "column",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 10]
+            },
+            "axis": null
+          },
+          "y": {
+            "field": "row",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 16]
+            },
+            "axis": null
+          },
+          "color": {
+            "field": "square_type",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Public space", "Other place", "Not active there"],
+              "range": ["#006837", "#9a9d94", "#e6e3da"]
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {
+              "field": "place_label",
+              "type": "nominal",
+              "title": "Place"
+            },
+            {
+              "field": "share_label",
+              "type": "nominal",
+              "title": "Active here"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.square == 0"
+          },
+          {
+            "calculate": "datum.squares_filled + ' in 100'",
+            "as": "count_label"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "fontSize": 15,
+          "fontWeight": 700
+        },
+        "encoding": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 46
+          },
+          "text": {
+            "field": "count_label",
+            "type": "nominal"
+          },
+          "color": {
+            "condition": {
+              "test": "datum.place_label == 'Public space'",
+              "value": "#006837"
+            },
+            "value": "#5b6660"
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.square == 0 && datum.place_label == 'Public space'"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "lineBreak": "\n",
+          "lineHeight": 14,
+          "fontSize": 12.5,
+          "fontWeight": 600,
+          "color": "#992e79"
+        },
+        "encoding": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 4
+          },
+          "text": {
+            "value": "About twice any\nother place"
+          }
+        }
+      }
+    ]
   },
   "config": {
     "background": "#fbfaf5",
