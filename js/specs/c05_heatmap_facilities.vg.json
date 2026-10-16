@@ -1,48 +1,289 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C5 Park facilities per 10,000 residents. Idiom: heatmap (matrix). Rows = councils, columns = facility types, shading = facilities per 10,000 residents; crossed cells = not published.",
+  "description": "C5 Park facilities per 10,000 residents or per 100 parks. Idiom: heatmap (matrix). Rows = the eight capital-city councils, columns = five park facilities, cell colour = how many facilities there are for the measure chosen in the drop-down (classed). Grey n/p cells = the council does not publish that facility, which is not the same as having none. Darwin has no park outlines, so it has no rate per park (n/a). The highest cell in each column is outlined in magenta.",
   "width": "container",
-  "height": 260,
-  "data": {
-    "url": "data/derived/council_facility_rates_long.csv"
-  },
-  "transform": [
+  "height": 270,
+  "params": [
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
-    },
-    {
-      "calculate": "'C05 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "name": "measure",
+      "value": "per 10,000 residents",
+      "bind": {
+        "input": "select",
+        "options": ["per 10,000 residents", "per 100 parks"],
+        "name": "Measure: "
+      }
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+  "data": { "url": "data/derived/council_facility_rates_long.csv" },
+  "transform": [
+    {
+      "calculate": "datum.council == 'BNE' ? 'Brisbane' : datum.council == 'SYD' ? 'Sydney' : datum.council == 'MEL' ? 'Melbourne' : datum.council == 'PER' ? 'Perth' : datum.council == 'ADL' ? 'Adelaide' : datum.council == 'HBA' ? 'Hobart' : datum.council == 'CBR' ? 'Canberra' : 'Darwin'",
+      "as": "city"
+    },
+    {
+      "calculate": "datum.facility == 'Drinking fountain' ? 'Fountain' : datum.facility == 'Toilet in a park' ? 'Toilet' : datum.facility == 'Dog off-leash area' ? 'Dog area' : datum.facility",
+      "as": "facility_label"
+    },
+    {
+      "calculate": "(measure == 'per 100 parks' ? datum.per_100_parks : datum.per_10k_residents) * 1",
+      "as": "value"
+    },
+    {
+      "calculate": "datum.value > 0 ? round(datum.value * 10) / 10 + ' ' + measure : datum.published == 'no' ? 'Not published by this council' : 'No park outlines, so no rate per park'",
+      "as": "rate_label"
+    },
+    {
+      "calculate": "datum.published == 'no' ? '–' : datum.count",
+      "as": "count_label"
+    },
+    {
+      "calculate": "datum.published == 'no' ? '–' : datum.data_year",
+      "as": "year_label"
     }
+  ],
+  "encoding": {
+    "x": {
+      "field": "facility_label",
+      "type": "nominal",
+      "sort": ["Playground", "BBQ", "Fountain", "Toilet", "Dog area"],
+      "axis": {
+        "orient": "top",
+        "title": null,
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "sort": [
+        " ",
+        "Brisbane",
+        "Sydney",
+        "Melbourne",
+        "Perth",
+        "Adelaide",
+        "Hobart",
+        "Canberra",
+        "Darwin"
+      ],
+      "axis": { "title": null, "domain": false, "ticks": false }
+    },
+    "tooltip": [
+      { "field": "council_name", "type": "nominal", "title": "Council" },
+      { "field": "facility", "type": "nominal", "title": "Facility" },
+      { "field": "rate_label", "type": "nominal", "title": "Rate" },
+      { "field": "count_label", "type": "nominal", "title": "Number mapped" },
+      { "field": "year_label", "type": "nominal", "title": "Data year" }
+    ]
   },
+  "layer": [
+    {
+      "transform": [{ "filter": "datum.value > 0" }],
+      "mark": { "type": "rect", "stroke": "#fbfaf5", "strokeWidth": 2 },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": {
+              "expr": "measure == 'per 100 parks' ? [10, 20, 40, 80] : [2, 4, 8, 16]"
+            },
+            "range": ["#d9f0a3", "#addd8e", "#78c679", "#31a354", "#006837"]
+          },
+          "legend": {
+            "title": null,
+            "orient": "none",
+            "legendX": 0,
+            "legendY": 330,
+            "direction": "horizontal",
+            "gradientLength": 200
+          }
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.value == 0" }],
+      "mark": {
+        "type": "rect",
+        "color": "#d9d6cb",
+        "stroke": "#fbfaf5",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.value > 0" }],
+      "mark": { "type": "text", "fontSize": 11.5 },
+      "encoding": {
+        "text": { "field": "value", "type": "quantitative", "format": ".1f" },
+        "color": {
+          "condition": {
+            "test": "datum.value >= (measure == 'per 100 parks' ? 80 : 16)",
+            "value": "#ffffff"
+          },
+          "value": "#1f2a24"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "datum.value == 0" },
+        {
+          "calculate": "datum.published == 'no' ? 'n/p' : 'n/a'",
+          "as": "missing_label"
+        }
+      ],
+      "mark": { "type": "text", "fontSize": 11.5 },
+      "encoding": { "text": { "field": "missing_label", "type": "nominal" } }
+    },
+    {
+      "transform": [
+        { "filter": "datum.value > 0" },
+        {
+          "window": [{ "op": "rank", "as": "ranking" }],
+          "groupby": ["facility"],
+          "sort": [{ "field": "value", "order": "descending" }]
+        },
+        { "filter": "datum.ranking == 1" }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": null,
+        "stroke": "#992e79",
+        "strokeWidth": 2.5
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "facility": "Playground",
+            "facility_label": "Playground",
+            "city": " "
+          },
+          { "facility": "BBQ", "facility_label": "BBQ", "city": " " },
+          {
+            "facility": "Drinking fountain",
+            "facility_label": "Fountain",
+            "city": " "
+          },
+          {
+            "facility": "Toilet in a park",
+            "facility_label": "Toilet",
+            "city": " "
+          },
+          {
+            "facility": "Dog off-leash area",
+            "facility_label": "Dog area",
+            "city": " "
+          }
+        ]
+      },
+      "mark": { "type": "point", "size": 70, "strokeWidth": 1.5, "opacity": 1 },
+      "encoding": {
+        "shape": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Playground",
+              "BBQ",
+              "Drinking fountain",
+              "Toilet in a park",
+              "Dog off-leash area"
+            ],
+            "range": ["circle", "triangle-up", "circle", "square", "diamond"]
+          },
+          "legend": null
+        },
+        "fill": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Playground",
+              "BBQ",
+              "Drinking fountain",
+              "Toilet in a park",
+              "Dog off-leash area"
+            ],
+            "range": [
+              "#bf7b00",
+              "#a3401a",
+              "transparent",
+              "#7a7a7a",
+              "transparent"
+            ]
+          },
+          "legend": null
+        },
+        "stroke": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Playground",
+              "BBQ",
+              "Drinking fountain",
+              "Toilet in a park",
+              "Dog off-leash area"
+            ],
+            "range": ["#bf7b00", "#a3401a", "#168f8b", "#7a7a7a", "#006837"]
+          },
+          "legend": null
+        },
+        "tooltip": null
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "note": "Outlined: the most of each facility. Adelaide has the\nmost BBQs, fountains and toilets on either measure."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "x": { "value": 0 },
+        "y": { "value": 278 },
+        "text": { "field": "note", "type": "nominal" },
+        "tooltip": null
+      }
+    },
+    {
+      "data": { "values": [{}] },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "x": { "value": 0 },
+        "y": { "value": 324 },
+        "text": { "value": { "expr": "'Facilities ' + measure" } },
+        "tooltip": null
+      }
+    }
+  ],
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
-    },
+    "view": { "stroke": null },
+    "title": { "fontSize": 15, "color": "#1f2a24", "anchor": "start" },
     "axis": {
       "labelColor": "#5b6660",
       "labelFontSize": 12,
@@ -56,11 +297,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }

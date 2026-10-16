@@ -204,6 +204,16 @@ published = {  # facility types each council publishes (False = no open dataset 
     "CBR": dict(P=True, B=True, F=True, T=True, D=True),
     "DRW": dict(P=True, B=True, F=True, T=True, D=False),
 }
+facility_years = {  # year(s) of each council's facility data, from the dataset dates in README.md (S2-S12)
+    "BNE": dict(B="2026", F="2026", T="2026", D="2026"),
+    "SYD": dict(P="2024-25", F="2024-25", T="2024-25", D="2024-25"),
+    "MEL": dict(P="2021", B="2026", F="2021", T="2021"),
+    "PER": dict(P="2022", B="2026", F="2026", T="2022"),
+    "ADL": dict(P="2013-16", B="2013-16", F="2013-16", T="2013-16"),
+    "HBA": dict(P="2025", B="2025", F="2025", T="2025", D="2025"),
+    "CBR": dict(P="2026", B="2026", F="2026", T="2026", D="2026"),
+    "DRW": dict(P="2024-26", B="2024-26", F="2024-26", T="2024-26"),
+}
 summary, bnd_features = [], []
 for code, (cname, lga_name, st) in COUNCILS.items():
     f = by_name[lga_name]
@@ -235,8 +245,9 @@ for s in summary:
         long_rows.append(dict(council=s["council"], council_name=s["council_name"], facility=TYPES[t],
                               count=s[label], per_10k_residents=s[label + "_per_10k"],
                               per_100_parks=(round(s[label] / s["n_parks"] * 100, 1) if s[label] != "" and s["n_parks"] else ""),
-                              published="yes" if s[label] != "" else "no"))
-write_csv("council_facility_rates_long.csv", long_rows, ["council", "council_name", "facility", "count", "per_10k_residents", "per_100_parks", "published"])
+                              published="yes" if s[label] != "" else "no",
+                              data_year=facility_years[s["council"]].get(t, "")))
+write_csv("council_facility_rates_long.csv", long_rows, ["council", "council_name", "facility", "count", "per_10k_residents", "per_100_parks", "published", "data_year"])
 
 # Park size classes (treemap: council > size class)
 sz = defaultdict(lambda: [0, 0.0])

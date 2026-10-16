@@ -190,6 +190,22 @@ h1 {
     margin: 6px 0 0 0;
 }
 
+/* Menus that Vega-Lite adds under a chart for a param with "bind" (C5's measure menu).
+   Blue = something you can choose, as in "How to read this page". */
+.vega-bind {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.vega-bind select {
+    font-size: 14px;
+    color: #0072b2;
+    background-color: #ffffff;
+    border: 1px solid #0072b2;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
 /* ---------- Key finding boxes ----------
    Figure-ground: a tinted panel with a magenta bar on the left makes the main point stand out from the body text */
 
