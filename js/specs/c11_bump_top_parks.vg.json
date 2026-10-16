@@ -1,47 +1,134 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C11 Brisbane's most-booked parks, quarter by quarter. Idiom: bump chart (x = quarter, y = rank among all council parks, one line per park).",
-  "width": "container",
-  "height": 220,
-  "data": {
-    "url": "data/derived/bne_bookings_top_parks_quarterly.csv"
+  "description": "C11 Brisbane's most-booked parks, quarter by quarter. Idiom: bump chart. x = quarter (2024-2025), y = the park's rank among all Brisbane council parks by number of bookings that quarter (1 = most), one line per park for the 10 most-booked parks of 2024-2025. Ranks of 15th or lower are drawn on the bottom line (15+). Mt Coot-tha Reserve is magenta and the two parks named in the annotation are green. Click a point to highlight that park.",
+  "title": {
+    "text": [
+      "Magenta: Mt Coot-tha Reserve, the most-booked park every quarter since Q2 2024 (bookings up from 284 to 686 a quarter).",
+      "Green: below it the order churns. Bill Brown Sports Reserve climbed from 19th to 5th, while 7th Brigade Park fell from 2nd to 23rd."
+    ]
   },
+  "width": "container",
+  "height": 300,
+  "padding": { "left": 5, "top": 5, "bottom": 5, "right": 30 },
+  "data": { "url": "data/derived/bne_bookings_top_parks_quarterly.csv" },
   "transform": [
+    { "calculate": "datum.rank_among_all_parks * 1", "as": "rank" },
+    { "calculate": "datum.rank < 15 ? datum.rank : 15", "as": "rank_shown" },
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
+      "calculate": "split(datum.quarter, '-')[1] + ' ' + split(datum.quarter, '-')[0]",
+      "as": "quarter_label"
     },
     {
-      "calculate": "'C11 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "calculate": "datum.park_name == 'Mt Coot-tha Reserve' ? 'top' : datum.park_name == 'Bill Brown Sports Reserve' || datum.park_name == '7th Brigade Park' ? 'named' : 'other'",
+      "as": "role"
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
   "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
-    }
+    "x": {
+      "field": "quarter",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelExpr": "split(datum.label, '-')[1] + ' ' + split(datum.label, '-')[0]",
+        "labelAngle": 0,
+        "grid": true
+      }
+    },
+    "y": {
+      "field": "rank_shown",
+      "type": "quantitative",
+      "scale": { "domain": [0.5, 15.5], "reverse": true, "nice": false },
+      "axis": {
+        "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        "labelExpr": "datum.value == 15 ? '15+' : datum.value",
+        "title": "Rank among all council parks (1 = most bookings)"
+      }
+    },
+    "color": {
+      "condition": { "param": "pick", "empty": false, "value": "#0072b2" },
+      "field": "role",
+      "type": "nominal",
+      "scale": {
+        "domain": ["top", "named", "other"],
+        "range": ["#992e79", "#006837", "#b3b8b1"]
+      },
+      "legend": null
+    },
+    "detail": { "field": "park_name" },
+    "opacity": { "condition": { "param": "pick", "value": 1 }, "value": 0.15 }
   },
+  "layer": [
+    {
+      "mark": { "type": "line", "interpolate": "monotone" },
+      "encoding": {
+        "strokeWidth": {
+          "condition": [
+            { "param": "pick", "empty": false, "value": 3 },
+            { "test": "datum.role != 'other'", "value": 3 }
+          ],
+          "value": 1.5
+        }
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "pick",
+          "select": { "type": "point", "fields": ["park_name"] }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 40,
+        "stroke": "#fbfaf5",
+        "strokeWidth": 1,
+        "cursor": "pointer"
+      },
+      "encoding": {
+        "tooltip": [
+          { "field": "park_name", "type": "nominal", "title": "Park" },
+          { "field": "quarter_label", "type": "nominal", "title": "Quarter" },
+          {
+            "field": "bookings",
+            "type": "quantitative",
+            "title": "Bookings",
+            "format": ","
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank among all parks"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.quarter == '2025-Q4'" }],
+      "mark": { "type": "text", "align": "left", "dx": 8, "fontSize": 11 },
+      "encoding": {
+        "text": { "field": "park_name", "type": "nominal" },
+        "color": {
+          "condition": [
+            { "param": "pick", "empty": false, "value": "#0072b2" },
+            { "test": "datum.role == 'other'", "value": "#5b6660" }
+          ],
+          "field": "role",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
+      "fontSize": 12,
+      "fontWeight": 600,
+      "color": "#992e79",
+      "anchor": "start",
+      "lineHeight": 14,
+      "offset": 10
     },
     "axis": {
       "labelColor": "#5b6660",
@@ -56,11 +143,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }

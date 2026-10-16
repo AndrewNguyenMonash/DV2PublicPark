@@ -415,6 +415,8 @@ hr.sort(key=lambda r: (r["day_type"], r["hour"]))
 write_csv("bne_bookings_by_hour.csv", hr, ["day_type", "hour", "bookings_2024_2025", "avg_bookings_per_day"])
 
 rk = read_csv(RAW + "bne_bookings_park_quarter_rank.csv")
+for r in rk:                                # "MT COOT-THA RESERVE" -> "Mt Coot-tha Reserve", for the chart's line labels
+    r["park_name"] = " ".join(w.capitalize() for w in r["park_name"].split())
 write_csv("bne_bookings_top_parks_quarterly.csv", rk, ["quarter", "park_name", "bookings", "rank_among_all_parks"])
 
 # ---------------------------------------------------------------- 7. AusPlay (calendar year 2025 tables)
