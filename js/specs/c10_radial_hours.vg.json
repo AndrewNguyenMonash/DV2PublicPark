@@ -1,47 +1,158 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C10 Booked activity by hour of day. Idiom: radial bar chart (small multiples: weekdays, weekends). Angle = hour of day, bar length = average bookings per day.",
-  "width": "container",
-  "height": 220,
-  "data": {
-    "url": "data/derived/bne_bookings_by_hour.csv"
+  "description": "C10 Booked activity by hour of day. Idiom: radial bar chart (polar chart), small multiples for weekdays and weekends. Each wedge is one hour, clockwise from midnight at the top like a clock. Wedge area (not length) is the average number of bookings starting in that hour per day, 2024-2025. Rings mark 10, 20 and 30 bookings a day. The 6am and 7am wedges are outlined in magenta.",
+  "title": {
+    "text": [
+      "Outlined: 6-8am, when over half of bookings start",
+      "(58% on weekdays, 52% on weekends).",
+      "Weekends stay busy later: 30% start 8-10am (weekdays 24%)."
+    ],
+    "subtitle": "Rings mark 10, 20 and 30 bookings a day."
   },
+  "data": { "url": "data/derived/bne_bookings_by_hour.csv" },
   "transform": [
+    { "calculate": "datum.hour * 1", "as": "start" },
+    { "calculate": "datum.hour * 1 + 1", "as": "end" },
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
+      "calculate": "datum.start % 12 == 0 ? 12 : datum.start % 12",
+      "as": "h12"
+    },
+    { "calculate": "datum.start < 12 ? 'am' : 'pm'", "as": "ampm" },
+    {
+      "calculate": "datum.start == 0 ? 'midnight' : datum.start == 12 ? 'noon' : datum.h12 + datum.ampm",
+      "as": "label"
     },
     {
-      "calculate": "'C10 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "calculate": "datum.h12 + ':00-' + datum.h12 + ':59' + datum.ampm",
+      "as": "time"
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+  "facet": {
+    "column": {
+      "field": "day_type",
+      "type": "nominal",
+      "title": null,
+      "header": {
+        "labelExpr": "datum.value == 'weekday' ? 'Weekdays (Mon-Fri)' : 'Weekends (Sat-Sun)'",
+        "labelFontSize": 13
+      }
     }
+  },
+  "spacing": 13,
+  "spec": {
+    "width": 160,
+    "height": 160,
+    "layer": [
+      {
+        "mark": { "type": "arc", "stroke": "#fbfaf5", "strokeWidth": 1 },
+        "encoding": {
+          "theta": {
+            "field": "start",
+            "type": "quantitative",
+            "scale": { "domain": [0, 24] }
+          },
+          "theta2": { "field": "end" },
+          "radius": {
+            "field": "avg_bookings_per_day",
+            "type": "quantitative",
+            "scale": { "type": "sqrt", "domain": [0, 30], "range": [0, 56] }
+          },
+          "tooltip": [
+            { "field": "time", "type": "nominal", "title": "Start time" },
+            {
+              "field": "avg_bookings_per_day",
+              "type": "quantitative",
+              "title": "Average a day",
+              "format": ".1f"
+            },
+            {
+              "field": "bookings_2024_2025",
+              "type": "quantitative",
+              "title": "Total 2024-2025",
+              "format": ","
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          { "filter": "datum.start < 3" },
+          {
+            "calculate": "datum.start == 0 ? 10 : datum.start == 1 ? 20 : 30",
+            "as": "ring"
+          }
+        ],
+        "mark": {
+          "type": "arc",
+          "fill": null,
+          "stroke": "#d9d6cb",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "radius": { "field": "ring", "type": "quantitative", "stack": null }
+        }
+      },
+      {
+        "transform": [{ "filter": "datum.start == 6 || datum.start == 7" }],
+        "mark": {
+          "type": "arc",
+          "fill": null,
+          "stroke": "#992e79",
+          "strokeWidth": 2
+        },
+        "encoding": {
+          "theta": { "field": "start", "type": "quantitative" },
+          "theta2": { "field": "end" },
+          "radius": { "field": "avg_bookings_per_day", "type": "quantitative" }
+        }
+      },
+      {
+        "transform": [
+          { "filter": "datum.start < 3" },
+          {
+            "calculate": "datum.start == 0 ? 10 : datum.start == 1 ? 20 : 30",
+            "as": "ring"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "dx": 2,
+          "dy": 1,
+          "fontSize": 11,
+          "color": "#5b6660"
+        },
+        "encoding": {
+          "theta": { "value": 0 },
+          "radius": { "field": "ring", "type": "quantitative", "stack": null },
+          "text": { "field": "ring", "type": "quantitative" }
+        }
+      },
+      {
+        "transform": [{ "filter": "datum.start % 3 == 0" }],
+        "mark": { "type": "text", "fontSize": 11, "color": "#5b6660" },
+        "encoding": {
+          "theta": { "field": "start", "type": "quantitative" },
+          "radius": { "value": 68 },
+          "text": { "field": "label", "type": "nominal" }
+        }
+      }
+    ]
   },
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
+      "fontSize": 12,
+      "fontWeight": 600,
+      "color": "#992e79",
+      "anchor": "start",
+      "lineHeight": 14,
+      "offset": 10,
+      "subtitleColor": "#5b6660",
+      "subtitleFontSize": 12
     },
     "axis": {
       "labelColor": "#5b6660",
@@ -56,11 +167,8 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "header": { "labelColor": "#1f2a24", "labelFontWeight": 600 },
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }
