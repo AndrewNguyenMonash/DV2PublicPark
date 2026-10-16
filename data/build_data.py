@@ -17,6 +17,7 @@ from shapely.ops import unary_union, transform
 
 RAW, OUT = "raw/", "derived/"
 TO_ALBERS = Transformer.from_crs("EPSG:4326", "EPSG:3577", always_xy=True).transform   # GDA94 Australian Albers (equal area)
+ALBERS_TO_LL = Transformer.from_crs("EPSG:3577", "EPSG:4326", always_xy=True).transform   # back to lon/lat
 MGA54_TO_LL = Transformer.from_crs("EPSG:28354", "EPSG:4326", always_xy=True).transform
 WEBM_TO_LL = Transformer.from_crs("EPSG:3857", "EPSG:4326", always_xy=True).transform
 
@@ -187,12 +188,41 @@ for f in fac:
     kept.append(f)
 fac = kept
 print("  dropped (not in a council park):", dict(dropped))
+
+# Council outlines (ABS LGA 2025) in metres (Albers): used to drop facilities outside their council (below)
+# and, back in lon/lat, as the C6 base maps (section 3).
+# ABS draws council areas on land only, so the tidal Brisbane River (about 200 m wide) is left out and splits
+# Brisbane into a north half and a south half. Growing the outline by 200 m and shrinking it back by 200 m
+# closes every gap narrower than 400 m; the wider stretches of river, now enclosed by the city, are holes that
+# are then filled. Moreton Island, the smaller bay islands and the river mouth stay as they are.
+# The other seven outlines are already single shapes.
+lga = json.load(open(RAW + "abs_lga2025_8councils.geojson"))
+by_name = {f["properties"]["lga_name_2025"]: f for f in lga["features"]}
+outlines = {}
+for code, (cname, lga_name, st) in COUNCILS.items():
+    g = transform(TO_ALBERS, shape(by_name[lga_name]["geometry"]))
+    if code == "BNE":
+        g = g.buffer(200).buffer(-200)
+        g = MultiPolygon([Polygon(p.exterior) for p in g.geoms])   # keep each piece's outer edge only (fills the holes)
+    outlines[code] = g
+
+# Drop facilities more than 400 m outside their council's outline. 400 m allows for the simplified ABS coastline
+# (the fountains on Brisbane's Shorncliffe Pier are 330 m out). It drops one City of Sydney dog off-leash area
+# in Centennial Park, a state-run parkland 510 m outside the city.
+near = {code: g.buffer(400) for code, g in outlines.items()}
+kept, outside = [], Counter()
+for f in fac:
+    x, y = TO_ALBERS(f["lon"], f["lat"])
+    if near[f["council"]].contains(Point(x, y)):
+        kept.append(f)
+    else:
+        outside[(f["council"], f["type"])] += 1
+fac = kept
+print("  dropped (outside the council):", dict(outside))
 write_csv("facilities_all_councils.csv", fac, ["council", "type", "type_label", "lon", "lat", "unit", "note"])
 
 # ---------------------------------------------------------------- 3. council summary + boundaries
 print("3. council summary")
-lga = json.load(open(RAW + "abs_lga2025_8councils.geojson"))
-by_name = {f["properties"]["lga_name_2025"]: f for f in lga["features"]}
 counts = Counter((f["council"], f["type"]) for f in fac)
 published = {  # facility types each council publishes (False = no open dataset found)
     "BNE": dict(P=False, B=True, F=True, T=True, D=True),
@@ -233,8 +263,10 @@ for code, (cname, lga_name, st) in COUNCILS.items():
         row[label] = n if published[code][t] else ""
         row[label + "_per_10k"] = round(n / erp * 1e4, 2) if published[code][t] else ""
     summary.append(row)
+    # Simplify by 20 m (in metres, before going back to lon/lat): it removes the extra corner points the Brisbane
+    # buffers add and is under half a pixel even on the smallest C6 map (Adelaide, about 45 m per pixel).
     bnd_features.append({"type": "Feature", "properties": {"council": code, "council_name": cname, "state": st},
-                         "geometry": mapping(g.simplify(0.0008, preserve_topology=True))})
+                         "geometry": mapping(transform(ALBERS_TO_LL, outlines[code].simplify(20)))})
 fields = list(summary[0].keys())
 write_csv("council_summary.csv", summary, fields)
 
@@ -259,7 +291,8 @@ write_csv("park_size_classes.csv",
           ["council", "size_class", "n_parks", "area_ha"])
 
 # Boundaries as TopoJSON (object 'councils')
-topo = tp.Topology({"type": "FeatureCollection", "features": bnd_features}, object_name="councils", prequantize=1e5)
+# prequantize=1e6 rounds points to about 4 m. 1e5 (about 37 m) made the Sydney outline cross itself at the Circular Quay wharves.
+topo = tp.Topology({"type": "FeatureCollection", "features": bnd_features}, object_name="councils", prequantize=1e6)
 open(OUT + "council_boundaries.topojson", "w").write(topo.to_json())
 print("  wrote council_boundaries.topojson")
 

@@ -1,47 +1,678 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C6 Every mapped park facility. Idiom: dot map (small multiples, one panel per council, each with its own projection fit). Facility type = colour and symbol, using the same shape, fill and stroke scales as the facility key (js/specs/key_facilities.vg.json): Playground = filled circle #bf7b00, BBQ = filled triangle #a3401a, Drinking fountain = hollow circle #168f8b, Toilet in a park = filled square #7a7a7a, Dog off-leash area = hollow diamond #006837. Shape domain = the type_label values. Outlines: data/derived/council_boundaries.topojson (object: councils).",
-  "width": "container",
-  "height": 330,
-  "data": {
-    "url": "data/derived/facilities_all_councils.csv"
-  },
-  "transform": [
+  "description": "C6 Every mapped park facility. Idiom: dot map, as small multiples (one panel per council). One symbol = one facility, using the same symbols as the page key. Each panel has its own Equal Earth projection centred on that council, so each has its own scale (see the bar under each map). The Show menu filters every panel to one facility type. Fountains are drawn first because they are the most common, so the rarer symbols sit on top.",
+  "params": [
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
-    },
-    {
-      "calculate": "'C06 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "name": "show",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "P", "B", "F", "T", "D"],
+        "labels": [
+          "All facilities",
+          "Playgrounds",
+          "BBQs",
+          "Drinking fountains",
+          "Toilets",
+          "Dog off-leash areas"
+        ],
+        "name": "Show: "
+      }
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+  "data": { "url": "data/derived/facilities_all_councils.csv" },
+  "transform": [
+    { "filter": "show == 'All' || datum.type == show" },
+    {
+      "calculate": "datum.type == 'F' ? 1 : datum.type == 'T' ? 2 : datum.type == 'P' ? 3 : datum.type == 'B' ? 4 : 5",
+      "as": "draw_order"
     }
-  },
+  ],
+  "vconcat": [
+    {
+      "width": 324,
+      "height": 42,
+      "data": {
+        "values": [
+          {
+            "note": "Brisbane has 3,313 mapped facilities, more than the other\nseven councils combined. Canberra's all sit in the north of\nthe ACT (the city); its south is mostly national park."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "x": { "value": 0 },
+        "y": { "value": 0 },
+        "text": { "field": "note", "type": "nominal" }
+      }
+    },
+    {
+      "columns": 3,
+      "spacing": { "row": 6, "column": 10 },
+      "concat": [
+        {
+          "title": "Brisbane",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-153.074, 27.341, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'BNE'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'BNE'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": {
+                  "field": "type_label",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": [
+                      "Playground",
+                      "BBQ",
+                      "Drinking fountain",
+                      "Toilet in a park",
+                      "Dog off-leash area"
+                    ],
+                    "range": [
+                      "circle",
+                      "triangle-up",
+                      "circle",
+                      "square",
+                      "diamond"
+                    ]
+                  },
+                  "title": null
+                },
+                "fill": {
+                  "field": "type_label",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": [
+                      "Playground",
+                      "BBQ",
+                      "Drinking fountain",
+                      "Toilet in a park",
+                      "Dog off-leash area"
+                    ],
+                    "range": [
+                      "#bf7b00",
+                      "#a3401a",
+                      "transparent",
+                      "#7a7a7a",
+                      "transparent"
+                    ]
+                  },
+                  "title": null
+                },
+                "stroke": {
+                  "field": "type_label",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": [
+                      "Playground",
+                      "BBQ",
+                      "Drinking fountain",
+                      "Toilet in a park",
+                      "Dog off-leash area"
+                    ],
+                    "range": [
+                      "#bf7b00",
+                      "#a3401a",
+                      "#168f8b",
+                      "#7a7a7a",
+                      "#006837"
+                    ]
+                  },
+                  "title": null
+                },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 152.6797,
+                    "lat": -27.7114,
+                    "lon2": 152.7812,
+                    "label": "10 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Sydney",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-151.204, 33.889, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'SYD'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'SYD'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 151.1749,
+                    "lat": -33.9301,
+                    "lon2": 151.1857,
+                    "label": "1 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Melbourne",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-144.944, 37.813, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'MEL'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'MEL'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 144.8974,
+                    "lat": -37.8566,
+                    "lon2": 144.9088,
+                    "label": "1 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Perth",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-115.849, 31.966, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'PER'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'PER'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 115.811,
+                    "lat": -31.9942,
+                    "lon2": 115.8216,
+                    "label": "1 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Adelaide",
+          "width": 100,
+          "height": 100,
+          "projection": { "type": "equalEarth", "rotate": [-138.6, 34.92, 0] },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'ADL'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'ADL'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 138.5765,
+                    "lat": -34.9458,
+                    "lon2": 138.5875,
+                    "label": "1 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Hobart",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-147.279, 42.894, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'HBA'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'HBA'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 147.1956,
+                    "lat": -42.951,
+                    "lon2": 147.2201,
+                    "label": "2 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Canberra",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-149.081, 35.522, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'CBR'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'CBR'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 148.7629,
+                    "lat": -35.9841,
+                    "lon2": 148.8739,
+                    "label": "10 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Darwin",
+          "width": 100,
+          "height": 100,
+          "projection": {
+            "type": "equalEarth",
+            "rotate": [-130.877, 12.399, 0]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/derived/council_boundaries.topojson",
+                "format": { "type": "topojson", "feature": "councils" }
+              },
+              "transform": [{ "filter": "datum.properties.council == 'DRW'" }],
+              "mark": "geoshape"
+            },
+            {
+              "transform": [{ "filter": "datum.council == 'DRW'" }],
+              "mark": "point",
+              "encoding": {
+                "longitude": { "field": "lon", "type": "quantitative" },
+                "latitude": { "field": "lat", "type": "quantitative" },
+                "shape": { "field": "type_label", "type": "nominal" },
+                "fill": { "field": "type_label", "type": "nominal" },
+                "stroke": { "field": "type_label", "type": "nominal" },
+                "order": { "field": "draw_order", "type": "quantitative" },
+                "tooltip": { "field": "type_label", "type": "nominal" }
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "lon": 130.8153,
+                    "lat": -12.4798,
+                    "lon2": 130.8337,
+                    "label": "2 km"
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": "rule",
+                  "encoding": {
+                    "longitude": { "field": "lon", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "longitude2": { "field": "lon2" },
+                    "latitude2": { "field": "lat" }
+                  }
+                },
+                {
+                  "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "dx": 4
+                  },
+                  "encoding": {
+                    "longitude": { "field": "lon2", "type": "quantitative" },
+                    "latitude": { "field": "lat", "type": "quantitative" },
+                    "text": { "field": "label", "type": "nominal" }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "title": {
-      "fontSize": 15,
+      "fontSize": 13,
+      "fontWeight": 600,
       "color": "#1f2a24",
-      "anchor": "start"
+      "anchor": "start",
+      "offset": 4
     },
     "axis": {
       "labelColor": "#5b6660",
@@ -54,13 +685,17 @@
       "labelColor": "#5b6660",
       "labelFontSize": 12,
       "titleColor": "#1f2a24",
-      "titleFontSize": 12
+      "titleFontSize": 12,
+      "orient": "none",
+      "legendX": 224,
+      "legendY": 360,
+      "symbolSize": 70,
+      "symbolStrokeWidth": 1.5
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#5b6660", "fontSize": 10.5 },
+    "point": { "size": 12, "strokeWidth": 1, "opacity": 0.85 },
+    "geoshape": { "fill": "#e6e3da", "stroke": "#d9d6cb" },
+    "rule": { "strokeWidth": 2, "color": "#5b6660" }
   }
 }
