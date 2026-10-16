@@ -359,18 +359,31 @@ print("  wrote bne_suburbs.topojson")
 
 # ---------------------------------------------------------------- 5. Brisbane hexbins (H3 resolution 8)
 print("5. Brisbane hexbins")
+# Mainland Brisbane only (the council outline from section 3, with the river filled in), so C8 covers the same
+# area as C7. Moreton Island and the bay islands would add 221 empty hexagons for one facility (a toilet).
+mainland_m = max(outlines["BNE"].geoms, key=lambda p: p.area)        # in metres
 hx = defaultdict(Counter)
 for f in fac:
-    if f["council"] == "BNE":
+    if f["council"] == "BNE" and mainland_m.buffer(500).contains(Point(*TO_ALBERS(f["lon"], f["lat"]))):
         hx[h3.latlng_to_cell(f["lat"], f["lon"], 8)][f["type"]] += 1
-# cover the whole council area so empty hexagons are drawn too
-cover = h3.geo_to_cells(mapping(bne_geom), 8)
+# cover the whole mainland so empty hexagons are drawn too
+cover = h3.geo_to_cells(mapping(transform(ALBERS_TO_LL, mainland_m)), 8)
+# Each hexagon is named after the suburb its centre falls in (the nearest suburb if the centre is on the river).
+sub_shapes = [(ft["properties"]["suburb"].split(" (")[0], shape(ft["geometry"])) for ft in feats]
+cells = set(cover) | set(hx)
+# Add any hexagon enclosed on all six sides (one, near Mount Crosby, where a bend of the river pokes into the outline).
+cells |= {n for c in cells for n in h3.grid_disk(c, 1)
+          if n not in cells and all(m in cells for m in h3.grid_disk(n, 1) if m != n)}
 hex_feats = []
-for cell in set(cover) | set(hx):
+for cell in sorted(cells):   # sorted, so the file comes out the same on every run
     ring = [(lng, lat) for lat, lng in h3.cell_to_boundary(cell)]
     ring.append(ring[0])
     c = hx.get(cell, Counter())
-    hex_feats.append({"type": "Feature", "properties": {"h3": cell, "bbq": c["B"], "drinking_fountain": c["F"],
+    lat, lng = h3.cell_to_latlng(cell)
+    centre = Point(lng, lat)
+    inside = [name for name, s in sub_shapes if s.contains(centre)]
+    suburb = inside[0] if inside else min(sub_shapes, key=lambda t: t[1].distance(centre))[0]
+    hex_feats.append({"type": "Feature", "properties": {"h3": cell, "suburb": suburb, "bbq": c["B"], "drinking_fountain": c["F"],
                                                         "dog_offleash": c["D"], "park_toilet": c["T"],
                                                         "total": sum(c.values())},
                       "geometry": {"type": "Polygon", "coordinates": [[[round(x, 5), round(y, 5)] for x, y in ring]]}})

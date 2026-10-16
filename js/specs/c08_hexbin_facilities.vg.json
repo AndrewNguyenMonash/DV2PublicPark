@@ -1,52 +1,150 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C8 Park facilities within reach. Idiom: bin map (H3 hexagons about 1 km across). Shading = facilities per hexagon; dropdown chooses the facility type.",
+  "description": "C8 Park facilities within reach. Idiom: bin map (H3 hexagons about 1 km across). Each hexagon is coloured by how many of the chosen facility sit in it; stone = none. Each colour class is double the one before. The Show menu picks the facility; the hexagon with the most is outlined in magenta. Same projection and area as C7 so the two maps can be compared side by side.",
   "width": "container",
-  "height": 300,
+  "height": 285,
+  "params": [
+    {
+      "name": "show",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "B", "F", "T", "D"],
+        "labels": [
+          "All four facilities",
+          "BBQs",
+          "Drinking fountains",
+          "Toilets",
+          "Dog off-leash areas"
+        ],
+        "name": "Show: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-27.28, -27.66],
+    "rotate": [-152.941, 0, 0]
+  },
   "data": {
     "url": "data/derived/bne_facility_hexbins.topojson",
-    "format": {
-      "type": "topojson",
-      "feature": "hexbins"
-    }
+    "format": { "type": "topojson", "feature": "hexbins" }
   },
   "transform": [
     {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
-        }
-      ]
-    },
-    {
-      "calculate": "'C08 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "calculate": "show == 'B' ? datum.properties.bbq : show == 'F' ? datum.properties.drinking_fountain : show == 'T' ? datum.properties.park_toilet : show == 'D' ? datum.properties.dog_offleash : datum.properties.total",
+      "as": "count"
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
+  "layer": [
+    {
+      "mark": { "type": "geoshape", "stroke": "#fbfaf5", "strokeWidth": 0.4 },
+      "encoding": {
+        "color": {
+          "field": "count",
+          "type": "quantitative",
+          "title": "Facilities in the hexagon",
+          "scale": {
+            "type": "threshold",
+            "domain": [1, 2, 4, 8, 16],
+            "range": [
+              "#e6e3da",
+              "#addd8e",
+              "#78c679",
+              "#41ab5d",
+              "#238443",
+              "#005a32"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "legendX": 0,
+            "legendY": 316,
+            "direction": "horizontal",
+            "gradientLength": 200
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.suburb",
+            "type": "nominal",
+            "title": "Suburb at centre"
+          },
+          {
+            "field": "properties.total",
+            "type": "quantitative",
+            "title": "All four facilities"
+          },
+          {
+            "field": "properties.bbq",
+            "type": "quantitative",
+            "title": "BBQs"
+          },
+          {
+            "field": "properties.drinking_fountain",
+            "type": "quantitative",
+            "title": "Drinking fountains"
+          },
+          {
+            "field": "properties.park_toilet",
+            "type": "quantitative",
+            "title": "Toilets"
+          },
+          {
+            "field": "properties.dog_offleash",
+            "type": "quantitative",
+            "title": "Dog off-leash areas"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [{ "op": "rank", "as": "ranking" }],
+          "sort": [{ "field": "count", "order": "descending" }]
+        },
+        { "filter": "datum.ranking == 1" }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#992e79",
+        "strokeWidth": 2.5
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [{ "op": "rank", "as": "ranking" }],
+          "sort": [{ "field": "count", "order": "descending" }]
+        },
+        { "filter": "datum.ranking == 1" },
+        {
+          "calculate": "'Outlined: the most in one hexagon (' + datum.count + ', in ' + datum.properties.suburb + ')'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "x": { "value": 0 },
+        "y": { "value": 292 },
+        "text": { "field": "note", "type": "nominal" }
+      }
     }
-  },
+  ],
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
-    },
+    "view": { "stroke": null },
+    "title": { "fontSize": 15, "color": "#1f2a24", "anchor": "start" },
     "axis": {
       "labelColor": "#5b6660",
       "labelFontSize": 12,
@@ -60,11 +158,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }

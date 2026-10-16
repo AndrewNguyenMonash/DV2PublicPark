@@ -41,7 +41,7 @@ All data was downloaded on **13 October 2026**. It covers **council-managed park
 | `australia_states.topojson` (object `states`) | S14 | States, small islands dropped, simplified | **C3** |
 | `council_parks.csv` / `park_size_classes.csv` | S1, S5, S7–S11 | Every park with area (ha) and size class (pocket < 0.5 ha, local 0.5–2, district 2–10, regional 10+) | Tooltips and annotations for C3/C4 (optional) |
 | `bne_suburb_park_share.csv` + `bne_suburbs.topojson` (object `suburbs`) | S1 + S14 (**combined**) | Council park area per suburb (each park assigned to its address suburb) ÷ suburb area, for the 190 suburbs with at least 10% of their land in Brisbane; the four split by the council boundary (Chuwar, Lake Manchester, England Creek, Banks Creek) are cut at it. Join on `sal_code_2021` | **C7** |
-| `bne_facility_hexbins.topojson` (object `hexbins`) | S2, S3 | H3 resolution-8 hexagons (≈1 km across, 1,572 cells covering Brisbane), counts per facility type and total | **C8** |
+| `bne_facility_hexbins.topojson` (object `hexbins`) | S2, S3 | H3 resolution-8 hexagons (about 1 km across, 0.74 km²), 1,358 cells covering mainland Brisbane (Moreton Island and the bay islands left out), with the suburb at each hexagon's centre and counts per facility type and total | **C8** |
 | `bne_bookings_calendar.csv` | S4 | Bookings per day, 2023–2025. **Use 2024–2025 only**, because 2023 is the booking-system roll-out (flagged in `note`). | **C9** |
 | `bne_bookings_by_hour.csv` | S4 | Bookings by start hour, weekday vs weekend, 2024–2025, total and average per day | **C10** |
 | `bne_bookings_top_parks_quarterly.csv` | S4 | Each quarter 2024–2025: bookings and rank among *all* parks for the 10 most-booked parks | **C11** |
