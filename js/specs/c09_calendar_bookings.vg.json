@@ -1,47 +1,141 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C9 Every day of booked park activity. Idiom: calendar heatmap (2024 and 2025; x = week, y = weekday, shading = bookings that day). Filter out 2023 (booking system roll-out).",
-  "width": "container",
-  "height": 200,
-  "data": {
-    "url": "data/derived/bne_bookings_calendar.csv"
+  "description": "C9 Every day of booked park activity. Idiom: calendar heatmap. One square per day, 2024 and 2025: columns are weeks, rows are days of the week (Sunday to Saturday), colour is the number of park bookings that day (classed in equal steps of 20). 2023 is left out because it was the booking system's roll-out year. Each year's busiest day is outlined in magenta.",
+  "title": {
+    "text": [
+      "Saturdays (bottom row) are darkest: 70 of the 71 days with 120+ bookings were Saturdays.",
+      "Outlined: each year's busiest day, both Saturdays with 142 bookings."
+    ]
   },
-  "transform": [
-    {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "rows"
+  "data": { "url": "data/derived/bne_bookings_calendar.csv" },
+  "transform": [{ "filter": "datum.year >= 2024" }],
+  "facet": {
+    "row": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "header": { "labelAngle": 0, "labelAlign": "left", "labelFontSize": 13 }
+    }
+  },
+  "spacing": 18,
+  "spec": {
+    "width": 636,
+    "height": 84,
+    "layer": [
+      {
+        "mark": { "type": "rect", "stroke": "#fbfaf5", "strokeWidth": 1 },
+        "encoding": {
+          "x": {
+            "field": "date",
+            "timeUnit": "utcweek",
+            "type": "ordinal",
+            "axis": null
+          },
+          "y": {
+            "field": "date",
+            "timeUnit": "utcday",
+            "type": "ordinal",
+            "title": null,
+            "axis": { "domain": false, "ticks": false, "labelFontSize": 11 }
+          },
+          "color": {
+            "field": "total_bookings",
+            "type": "quantitative",
+            "title": "Bookings that day",
+            "scale": {
+              "type": "threshold",
+              "domain": [60, 80, 100, 120],
+              "range": ["#d9f0a3", "#addd8e", "#78c679", "#31a354", "#006837"]
+            },
+            "legend": {
+              "orient": "none",
+              "legendX": 0,
+              "legendY": 219,
+              "direction": "horizontal",
+              "gradientLength": 200
+            }
+          },
+          "tooltip": [
+            {
+              "field": "date",
+              "timeUnit": "utcyearmonthdate",
+              "type": "temporal",
+              "title": "Date",
+              "format": "%a %d %b %Y"
+            },
+            {
+              "field": "total_bookings",
+              "type": "quantitative",
+              "title": "All bookings"
+            },
+            {
+              "field": "commercial_activity_bookings",
+              "type": "quantitative",
+              "title": "Commercial-activity permits"
+            },
+            {
+              "field": "park_booking_applications",
+              "type": "quantitative",
+              "title": "Park booking applications"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "calculate": "'C09 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
-    }
-  ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
-    }
+      },
+      {
+        "transform": [{ "filter": "utcdate(datum.date) == 1" }],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "bottom",
+          "dy": -3,
+          "fontSize": 11,
+          "color": "#5b6660"
+        },
+        "encoding": {
+          "x": { "field": "date", "timeUnit": "utcweek", "type": "ordinal" },
+          "y": { "value": 0 },
+          "text": {
+            "field": "date",
+            "timeUnit": "utcmonth",
+            "type": "ordinal",
+            "format": "%b"
+          }
+        }
+      },
+      {
+        "transform": [
+          { "calculate": "datum.total_bookings * 1", "as": "bookings" },
+          {
+            "window": [{ "op": "rank", "as": "ranking" }],
+            "groupby": ["year"],
+            "sort": [{ "field": "bookings", "order": "descending" }]
+          },
+          { "filter": "datum.ranking == 1" }
+        ],
+        "mark": {
+          "type": "rect",
+          "fill": null,
+          "stroke": "#992e79",
+          "strokeWidth": 2
+        },
+        "encoding": {
+          "x": { "field": "date", "timeUnit": "utcweek", "type": "ordinal" },
+          "y": { "field": "date", "timeUnit": "utcday", "type": "ordinal" }
+        }
+      }
+    ]
   },
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
+    "view": { "stroke": null },
     "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
+      "fontSize": 12,
+      "fontWeight": 600,
+      "color": "#992e79",
+      "anchor": "start",
+      "lineHeight": 14,
+      "offset": 10
     },
     "axis": {
       "labelColor": "#5b6660",
@@ -56,11 +150,8 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "header": { "labelColor": "#1f2a24", "labelFontWeight": 600 },
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }

@@ -190,6 +190,12 @@ h1 {
     margin: 6px 0 0 0;
 }
 
+/* Captions under the wide two-thirds charts (C9, C11) are kept as narrow as the captions
+   in the one-third columns (343px) */
+.pure-u-2-3 .caption {
+    max-width: 343px;
+}
+
 /* Menus that Vega-Lite adds under a chart for a param with "bind" (C5's measure menu).
    Blue = something you can choose, as in "How to read this page". */
 .vega-bind {
