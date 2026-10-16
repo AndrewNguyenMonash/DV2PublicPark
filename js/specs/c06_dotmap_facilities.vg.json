@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C6 Every mapped park facility. Idiom: dot map, as small multiples (one panel per council). One symbol = one facility, using the same symbols as the page key. Each panel has its own Equal Earth projection centred on that council, so each has its own scale (see the bar under each map). The Show menu filters every panel to one facility type. Fountains are drawn first because they are the most common, so the rarer symbols sit on top.",
+  "description": "C6 Every mapped park facility. Idiom: dot map, as small multiples (one panel per council). One symbol = one facility, using the same symbols as the page key. Each panel has its own equal-area conic projection, with its standard parallels on the council's northern and southern edges so shapes are true, and its own scale (see the bar under each map). The Show menu filters every panel to one facility type. Fountains are drawn first because they are the most common, so the rarer symbols sit on top.",
   "params": [
     {
       "name": "show",
@@ -64,8 +64,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-153.074, 27.341, 0]
+            "type": "conicEqualArea",
+            "parallels": [-27.02, -27.66],
+            "rotate": [-153.074, 0, 0]
           },
           "layer": [
             {
@@ -192,8 +193,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-151.204, 33.889, 0]
+            "type": "conicEqualArea",
+            "parallels": [-33.85, -33.92],
+            "rotate": [-151.204, 0, 0]
           },
           "layer": [
             {
@@ -260,8 +262,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-144.944, 37.813, 0]
+            "type": "conicEqualArea",
+            "parallels": [-37.78, -37.85],
+            "rotate": [-144.944, 0, 0]
           },
           "layer": [
             {
@@ -328,8 +331,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-115.849, 31.966, 0]
+            "type": "conicEqualArea",
+            "parallels": [-31.94, -31.99],
+            "rotate": [-115.849, 0, 0]
           },
           "layer": [
             {
@@ -395,7 +399,11 @@
           "title": "Adelaide",
           "width": 100,
           "height": 100,
-          "projection": { "type": "equalEarth", "rotate": [-138.6, 34.92, 0] },
+          "projection": {
+            "type": "conicEqualArea",
+            "parallels": [-34.9, -34.94],
+            "rotate": [-138.6, 0, 0]
+          },
           "layer": [
             {
               "data": {
@@ -461,8 +469,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-147.279, 42.894, 0]
+            "type": "conicEqualArea",
+            "parallels": [-42.84, -42.94],
+            "rotate": [-147.279, 0, 0]
           },
           "layer": [
             {
@@ -529,8 +538,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-149.081, 35.522, 0]
+            "type": "conicEqualArea",
+            "parallels": [-35.12, -35.92],
+            "rotate": [-149.081, 0, 0]
           },
           "layer": [
             {
@@ -597,8 +607,9 @@
           "width": 100,
           "height": 100,
           "projection": {
-            "type": "equalEarth",
-            "rotate": [-130.877, 12.399, 0]
+            "type": "conicEqualArea",
+            "parallels": [-12.33, -12.47],
+            "rotate": [-130.877, 0, 0]
           },
           "layer": [
             {

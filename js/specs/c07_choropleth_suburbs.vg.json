@@ -1,52 +1,146 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "C7 Share of each suburb that is council park. Idiom: choropleth map (classed, sequential greens). Join on sal_code_2021 with data/derived/bne_suburb_park_share.csv.",
+  "description": "C7 Share of each suburb that is council park. Idiom: choropleth map (classed, sequential greens). Each of Brisbane's 190 suburbs (ABS Suburbs and Localities 2021) is coloured by council park land as a share of its area. Each colour class is double the one before. Parks are counted in the suburb of their address. Equal-area conic projection with its standard parallels on Brisbane's northern and southern edges, so suburb sizes and shapes are true.",
   "width": "container",
-  "height": 300,
-  "data": {
-    "url": "data/derived/bne_suburbs.topojson",
-    "format": {
-      "type": "topojson",
-      "feature": "suburbs"
-    }
+  "height": 285,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-27.28, -27.66],
+    "rotate": [-152.941, 0, 0]
   },
-  "transform": [
+  "layer": [
     {
-      "aggregate": [
+      "data": {
+        "url": "data/derived/bne_suburbs.topojson",
+        "format": { "type": "topojson", "feature": "suburbs" }
+      },
+      "transform": [
         {
-          "op": "count",
-          "as": "rows"
+          "lookup": "properties.sal_code_2021",
+          "from": {
+            "data": { "url": "data/derived/bne_suburb_park_share.csv" },
+            "key": "sal_code_2021",
+            "fields": [
+              "pct_council_park",
+              "council_park_ha",
+              "suburb_area_ha",
+              "n_parks"
+            ]
+          }
+        },
+        {
+          "calculate": "split(datum.properties.suburb, ' (')[0]",
+          "as": "suburb_name"
+        },
+        {
+          "calculate": "datum.council_park_ha * 1 > datum.suburb_area_ha * 1 ? '100% (its parks reach into nearby suburbs)' : datum.pct_council_park + '%'",
+          "as": "share_label"
         }
-      ]
+      ],
+      "mark": { "type": "geoshape", "stroke": "#fbfaf5", "strokeWidth": 0.5 },
+      "encoding": {
+        "color": {
+          "field": "pct_council_park",
+          "type": "quantitative",
+          "title": "Council park, % of suburb",
+          "scale": {
+            "type": "threshold",
+            "domain": [5, 10, 20, 40],
+            "range": ["#d9f0a3", "#addd8e", "#78c679", "#31a354", "#006837"]
+          },
+          "legend": {
+            "orient": "none",
+            "legendX": 0,
+            "legendY": 298,
+            "direction": "horizontal",
+            "gradientLength": 200
+          }
+        },
+        "tooltip": [
+          { "field": "suburb_name", "type": "nominal", "title": "Suburb" },
+          {
+            "field": "share_label",
+            "type": "nominal",
+            "title": "Council park"
+          },
+          {
+            "field": "council_park_ha",
+            "type": "quantitative",
+            "title": "Council park (ha)",
+            "format": ",.1f"
+          },
+          {
+            "field": "suburb_area_ha",
+            "type": "quantitative",
+            "title": "Suburb area (ha)",
+            "format": ",.0f"
+          },
+          {
+            "field": "n_parks",
+            "type": "quantitative",
+            "title": "Council parks"
+          }
+        ]
+      }
     },
     {
-      "calculate": "'C07 placeholder: ' + datum.rows + ' rows loaded'",
-      "as": "label"
+      "data": {
+        "values": [
+          {
+            "lon": 152.69,
+            "lat": -27.283,
+            "note": "Palest: the far west is forest, but;state-run, not council park"
+          }
+        ]
+      },
+      "transform": [{ "calculate": "split(datum.note, ';')", "as": "lines" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "lines" }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 152.918,
+            "lat": -27.47,
+            "note": "Mt Coot-tha: 99.8%;council bushland"
+          }
+        ]
+      },
+      "transform": [{ "calculate": "split(datum.note, ';')", "as": "lines" }],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "lineHeight": 14,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#992e79"
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "lines" }
+      }
     }
   ],
-  "mark": {
-    "type": "text",
-    "fontSize": 14,
-    "fontStyle": "italic",
-    "color": "#992e79"
-  },
-  "encoding": {
-    "text": {
-      "field": "label",
-      "type": "nominal"
-    }
-  },
   "config": {
     "background": "#fbfaf5",
     "font": "'Source Sans 3', sans-serif",
-    "view": {
-      "stroke": null
-    },
-    "title": {
-      "fontSize": 15,
-      "color": "#1f2a24",
-      "anchor": "start"
-    },
+    "view": { "stroke": null },
+    "title": { "fontSize": 15, "color": "#1f2a24", "anchor": "start" },
     "axis": {
       "labelColor": "#5b6660",
       "labelFontSize": 12,
@@ -60,11 +154,7 @@
       "titleColor": "#1f2a24",
       "titleFontSize": 12
     },
-    "mark": {
-      "color": "#006837"
-    },
-    "text": {
-      "color": "#1f2a24"
-    }
+    "mark": { "color": "#006837" },
+    "text": { "color": "#1f2a24" }
   }
 }

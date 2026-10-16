@@ -321,17 +321,27 @@ print("  wrote australia_states.topojson")
 # ---------------------------------------------------------------- 4. Brisbane suburbs (choropleth)
 print("4. Brisbane suburbs")
 bne_geom = shape(by_name["Brisbane"]["geometry"])
+bne_land = bne_geom.buffer(0)   # the same outline made valid, so suburbs can be cut along it
 sal = json.load(open(RAW + "abs_sal2021_brisbane_area.geojson"))
 sub_parks = {r["suburb"].upper(): r for r in read_csv(RAW + "bne_suburb_parks.csv")}
 rows, feats = [], []
 for f in sal["features"]:
     g = shape(f["geometry"]).buffer(0)
-    if not bne_geom.contains(g.representative_point()):
+    # Keep a suburb if at least 10% of its land is in Brisbane (slivers along the boundary are dropped).
+    # Four localities are split by the council boundary (Chuwar, Lake Manchester, England Creek, Banks Creek):
+    # they are cut at the boundary and their area is measured again, so their park share is a share of the
+    # Brisbane part only. Every other suburb is at least 95% inside and keeps its ABS outline and area.
+    inside = g.intersection(bne_land)
+    share_inside = albers_ha(inside) / albers_ha(g)
+    if share_inside < 0.10:
         continue
     nm = f["properties"]["sal_name_2021"]
     key = nm.split(" (")[0].upper()          # 'Ascot (Brisbane - Qld)' -> 'ASCOT'
     sp = sub_parks.get(key)
     area_ha = f["properties"]["area_albers_sqkm"] * 100
+    if share_inside < 0.95:
+        g = inside
+        area_ha = albers_ha(g)
     park_ha = float(sp["park_ha"]) if sp else 0.0
     row = dict(sal_code_2021=f["properties"]["sal_code_2021"], suburb=nm, suburb_area_ha=round(area_ha, 1),
                n_parks=int(sp["n_parks"]) if sp else 0, council_park_ha=round(park_ha, 1),

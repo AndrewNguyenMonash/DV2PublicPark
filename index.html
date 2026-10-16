@@ -104,7 +104,7 @@
                 <div class="description">
                     <p>
                         Most Australians who exercise do at least some of it in <span class="park-text">public spaces</span> such as parks & far fewer use a gym or exercise at home.
-                        Why people move changes with age: teenagers aged 15–17 are far more likely to be active for fun or to be with friends.
+                        Why people move changes with age: teenagers aged 15-17 are far more likely to be active for fun or to be with friends.
                         Adults aged 65 and over put their health and <span class="park-text">being outdoors</span> first.
                         Across all ages, more than a third of active people exercise for their mental health, and over two in five for social reasons.
                         A place to move is also a place to feel better and meet people.
@@ -184,7 +184,7 @@
                         Circle area shows how much park land each council looks after & colour shows the share of the council's own area that is park.
                         These are councils, not whole cities: the City of Sydney covers only the inner city, and in Canberra the ACT Government does the council's job.
                         Darwin publishes no park outlines. Park data years differ by council (2014 to 2026). Hover over a circle for details. Albers equal-area projection.
-                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024–25</a>.
+                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024-25</a>.
                     </p>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                         Each column is one council: its width is the number of residents and its height is the park land per resident, so its area is the council's total park land.
                         Park per resident = park land in square metres ÷ residents (ABS estimate for 30 June 2025). Canberra's column covers the whole ACT, which has no local councils.
                         Darwin is not shown because it publishes no park outlines. Hover over a column for details.
-                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024–25</a>.
+                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024-25</a>.
                     </p>
                 </div>
             </div>
@@ -226,7 +226,7 @@
                         Raw counts mostly reflect council size (Brisbane has 3,313 of the 5,866 on the maps), so the heatmap divides each count by residents, or by parks with the <span class="interact-text">Measure</span> menu.
                         Per resident, the small inner-city councils of Adelaide and Perth lead for BBQs and fountains.
                         A grey n/p cell means a council publishes no data for that facility (Brisbane's playgrounds, Sydney's BBQs and four councils' dog areas), which is not the same as having none.
-                        Data years run from 2013–16 in Adelaide to 2026; hover over a cell to see each one.
+                        Data years run from 2013-16 in Adelaide to 2026; hover over a cell to see each one.
                     </p>
                     <div class="key-finding">
                         <h4>Key finding</h4>
@@ -243,7 +243,7 @@
                         Each cell is how many of a facility a council has per 10,000 residents (ABS, 30 June 2025) or per 100 of its parks; choose the measure in the menu above.
                         Each colour class is double the one before. Only facilities in council parks are counted, except in Canberra and Darwin, where all published ones are.
                         n/p: the council publishes no data, which is not the same as having none. n/a: Darwin has no park outlines to count. Hover over a cell for the count and data year.
-                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024–25</a>.
+                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024-25</a>.
                     </p>
                 </div>
             </div>
@@ -255,7 +255,7 @@
                     <p class="caption">
                         Each symbol is one facility, using the symbols in the key at the top of the page. For example, in Hobart (playgrounds, BBQs, dog areas) and Perth (playgrounds), a symbol marks a park that has one.
                         Each map has its own scale, shown by the bar under it, so compare patterns, not sizes. Choose a facility in the menu below.
-                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024–25</a> (council boundaries).
+                        Sources: council open data (listed below) and <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS Regional Population 2024-25</a> (council boundaries).
                     </p>
                 </div>
             </div>
@@ -279,19 +279,23 @@
             <div class="pure-u-1-3">
                 <!-- Narration -->
                 <div class="description">
-                    <p class="todo">[Lead, 5–6 sentences: why Brisbane (largest council, richest open data) · how much of each suburb is park · bushland in the west vs dense inner suburbs]</p>
+                    <p class="todo">[Lead, 5-6 sentences: why Brisbane (largest council, richest open data) · how much of each suburb is park · bushland in the west vs dense inner suburbs]</p>
                     <div class="key-finding">
                         <h4>Key finding</h4>
                         <p class="todo">[One sentence: suburbs with the most and least park]</p>
                     </div>
                 </div>
             </div>
-            <!-- Chloropleth Map of Brisbane's Suburbs -->
+            <!-- Choropleth Map of Brisbane's Suburbs -->
             <div class="pure-u-1-3">
                 <div class="chart">
                     <h3 class="chart-title">Share of each suburb that is council park</h3>
                     <div id="vis7" class="vis-container"></div>
-                    <p class="caption">[Caption: ~190 suburbs (ABS 2021) · parks assigned by address · source]</p>
+                    <p class="caption">
+                        Each suburb's colour is the share of its land that is council park & each colour class is double the one before. The pale line through the city is the Brisbane River.
+                        Parks count in the suburb of their address, so a big park that crosses suburb lines counts in one suburb (Karawatha and Nudgee Beach are capped at 100%). Moreton Island is not shown. Hover over a suburb for its numbers. Equal-area projection.
+                        Sources: <a href="https://data.brisbane.qld.gov.au/explore/dataset/park-locations/information/" target="_blank">Brisbane City Council, Park - Locations (Sep 2026)</a> and <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026" target="_blank">ABS Suburbs and Localities 2021</a>.
+                    </p>
                 </div>
             </div>
             <!-- Bin Map (Hexagons) of Brisbane -->
@@ -299,7 +303,7 @@
                 <div class="chart">
                     <h3 class="chart-title">Park facilities within reach</h3>
                     <div id="vis8" class="vis-container"></div>
-                    <p class="caption">[Caption: one hexagon ≈ 1 km across · BBQs, fountains, dog areas, toilets]</p>
+                    <p class="caption">[Caption: one hexagon ~ 1 km across · BBQs, fountains, dog areas, toilets]</p>
                 </div>
             </div>
         </div>
@@ -313,7 +317,7 @@
                 <div class="description">
                     <!-- Contents subsection links to corresponding section heading -->
                     <h2 class="section-title" id="bookings"><span class="section-no">5</span>When Brisbane books its parks</h2>
-                    <p class="section-subtitle">Two years of permits for fitness classes, parties and events, 2024–2025</p>
+                    <p class="section-subtitle">Two years of permits for fitness classes, parties and events, 2024-2025</p>
                 </div>
             </div>
         </div>
@@ -324,7 +328,7 @@
             <div class="pure-u-1-3">
                 <!-- Narration -->
                 <div class="description">
-                    <p class="todo">[Lead, 5–6 sentences: what a park booking is (commercial fitness permits + private bookings) · weekly rhythm · seasons · the busiest parks]</p>
+                    <p class="todo">[Lead, 5-6 sentences: what a park booking is (commercial fitness permits + private bookings) · weekly rhythm · seasons · the busiest parks]</p>
                     <div class="key-finding">
                         <h4>Key finding</h4>
                         <p class="todo">[One sentence: the busiest day of the week]</p>
@@ -409,7 +413,7 @@
                     <h4 class="label">Data sources</h4>
                     <!-- target="_blank" opens link in new tab/window-->
                     <ul>
-                        <li><a href="https://data.brisbane.qld.gov.au/" target="_blank">Brisbane City Council open data</a>: parks, BBQs, drinking fountains, dog off-leash areas, public toilets, park bookings (2023–2025)</li>
+                        <li><a href="https://data.brisbane.qld.gov.au/" target="_blank">Brisbane City Council open data</a>: parks, BBQs, drinking fountains, dog off-leash areas, public toilets, park bookings (2023-2025)</li>
                         <li><a href="https://data.cityofsydney.nsw.gov.au/" target="_blank">City of Sydney Data Hub</a>: parks, playgrounds, drinking fountains, dog off-leash parks</li>
                         <li><a href="https://data.melbourne.vic.gov.au/" target="_blank">City of Melbourne open data</a>: BBQs, drinking fountains, public toilets, playgrounds</li>
                         <li><a href="https://discover.data.vic.gov.au/dataset/open-space" target="_blank">Victorian Planning Authority, Open Space</a> (City of Melbourne park outlines)</li>
@@ -418,8 +422,8 @@
                         <li><a href="https://data-1-hobartcc.opendata.arcgis.com/" target="_blank">City of Hobart open data</a>: parks, playgrounds, drinking fountains, toilets</li>
                         <li><a href="https://www.data.act.gov.au/" target="_blank">ACT Government open data</a>: urban open space and park assets</li>
                         <li><a href="https://services6.arcgis.com/tVfesLETUHNU9Vna/arcgis/rest/services" target="_blank">City of Darwin map layers</a>: parks, playgrounds, park assets, toilets</li>
-                        <li><a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS, Regional Population 2024–25</a> and <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-4-july-2026-june-2031" target="_blank">ASGS boundaries</a></li>
-                        <li><a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/results/data-tables" target="_blank">AusPlay National Data Tables, Jan–Dec 2025</a> (Australian Sports Commission)</li>
+                        <li><a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" target="_blank">ABS, Regional Population 2024-25</a> and <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-4-july-2026-june-2031" target="_blank">ASGS boundaries</a></li>
+                        <li><a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/results/data-tables" target="_blank">AusPlay National Data Tables, Jan-Dec 2025</a> (Australian Sports Commission)</li>
                     </ul>
                 </div>
             </div>

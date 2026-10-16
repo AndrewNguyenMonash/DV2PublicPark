@@ -12,6 +12,7 @@ sal_code_2021,suburb,suburb_area_ha,n_parks,council_park_ha,pct_council_park
 30101,Auchenflower,139.0,6,5.0,3.6
 30123,Bald Hills (Qld),1283.6,14,456.1,35.5
 30132,Balmoral (Qld),127.2,6,5.2,4.1
+30144,Banks Creek,1214.4,0,0.0,0.0
 30148,Banyo,474.5,10,16.1,3.4
 30154,Bardon,498.9,22,129.7,26.0
 30215,Bellbowrie,577.7,15,34.2,5.9
@@ -38,7 +39,7 @@ sal_code_2021,suburb,suburb_area_ha,n_parks,council_park_ha,pct_council_park
 30588,Chelmer,143.8,5,14.6,10.2
 30593,Chermside,398.4,5,88.3,22.2
 30594,Chermside West,352.4,10,86.7,24.6
-30608,Chuwar,1793.8,1,13.7,0.8
+30608,Chuwar,902.7,1,13.7,1.5
 30617,Clayfield,279.7,2,1.6,0.6
 30698,Coopers Plains,422.1,8,23.2,5.5
 30707,Coorparoo,532.7,34,45.9,8.6
@@ -53,6 +54,7 @@ sal_code_2021,suburb,suburb_area_ha,n_parks,council_park_ha,pct_council_park
 30919,East Brisbane,185.8,11,26.4,14.2
 30950,Eight Mile Plains,761.3,35,87.6,11.5
 30963,Ellen Grove,339.6,11,30.1,8.9
+30977,England Creek,2671.7,0,0.0,0.0
 30978,Enoggera,860.2,7,25.5,3.0
 30979,Enoggera Reservoir,3769.4,0,0.0,0.0
 31012,Everton Park,429.7,12,34.9,8.1
@@ -93,7 +95,7 @@ sal_code_2021,suburb,suburb_area_ha,n_parks,council_park_ha,pct_council_park
 31512,Keperra,510.8,18,194.1,38.0
 31519,Kholo,3940.2,4,1304.2,33.1
 31588,Kuraby,468.7,14,169.2,36.1
-31616,Lake Manchester,9404.5,0,0.0,0.0
+31616,Lake Manchester,7385.4,0,0.0,0.0
 31639,Larapinta (Qld),593.0,2,198.5,33.5
 31686,Lota,198.7,13,44.5,22.4
 31706,Lutwyche,88.4,9,10.8,12.3
